@@ -56,7 +56,7 @@
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
-    /* Title bar at very top (kept) */
+    /* Title bar at very top */
     .top-title-bar{
       position:fixed;
       top:0;
@@ -88,42 +88,7 @@
       color:var(--muted);
     }
 
-    /* Hero */
-    .welcome-hero{
-      min-height:60vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      text-align:center;
-      padding:40px 18px 24px;
-      background: linear-gradient(180deg, rgba(6,6,6,0.96), rgba(6,6,6,0.90));
-      position:relative;
-      color:var(--text);
-    }
-    .welcome-hero h2{
-      margin:0;
-      font-family: "Bebas Neue", sans-serif;
-      font-size:64px;
-      line-height:1;
-      letter-spacing:1px;
-      font-weight:700;
-      color:var(--accent);
-      text-transform:uppercase;
-      opacity:0;
-      transform: translateY(16px);
-      animation: fadeInUp 700ms var(--ease) 120ms forwards;
-    }
-    .welcome-hero p{
-      margin:12px 0 0 0;
-      color:var(--muted);
-      font-size:16px;
-      opacity:0;
-      transform: translateY(16px);
-      animation: fadeInUp 700ms var(--ease) 260ms forwards;
-    }
-
-    /* Header under hero */
+    /* Header under video */
     header.topbar{
       display:flex;
       align-items:center;
@@ -133,12 +98,9 @@
       border-radius:10px;
       border:1px solid rgba(255,255,255,0.03);
       box-shadow:0 12px 40px rgba(0,0,0,0.6);
-      margin-top:-40px;
+      margin-top:22px;
       position:relative;
       z-index:20;
-      opacity:0;
-      transform: translateY(8px);
-      animation: fadeInUp 700ms var(--ease) 700ms forwards;
     }
     .brand{display:flex;align-items:center;gap:14px}
     .logo{
@@ -194,9 +156,7 @@
       flex-shrink:0;
       overflow:hidden;
       transform-style: preserve-3d;
-      transition: transform 300ms var(--ease), box-shadow 300ms var(--ease), opacity 600ms var(--ease);
-      will-change: transform;
-      opacity:1; /* no JS entrance, visible by default */
+      transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
     }
     .poster img{
       width:100%;height:100%;object-fit:cover;display:block; transform: translateZ(20px);
@@ -205,20 +165,20 @@
     .poster:hover{ box-shadow: 0 30px 60px rgba(0,0,0,0.7); transform: translateY(-6px) scale(1.02); }
 
     .hero-copy{flex:1;min-width:230px}
-    .hero-copy h2{margin:0;font-size:26px;line-height:1.1;}
-    .hero-copy p{margin:10px 0 0 0;color:var(--muted);max-width:700px;}
+    .hero-copy h2{margin:0;font-size:20px;line-height:1.3;}
+    .hero-copy p{margin:6px 0 0 0;color:var(--muted);max-width:700px;font-size:13px;}
 
-    .cta-row{margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
-    .cta-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;color:var(--text);border-radius:8px;text-decoration:none;font-weight:700}
-    .pill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:700;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
+    .cta-row{margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+    .cta-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;color:var(--text);border-radius:8px;text-decoration:none;font-weight:700;font-size:13px}
+    .pill{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:700;font-size:11px;border:1px solid rgba(255,255,255,0.03)}
 
     /* Shared card */
     section.card{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
     section.card h3{margin:0 0 12px 0;color:var(--accent);font-size:16px;font-weight:800}
 
-    /* Responsive video section */
+    /* Responsive video section – FIRST visible content after title bar */
     .hero-video-wrapper{
-      margin-top:24px;
+      margin-top:16px;
       border-radius:10px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.08);
@@ -264,19 +224,28 @@
       border:0;
     }
 
-    /* Right column contact */
+    /* Contact centered section */
+    .contact-section{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+    }
+    .contact-inner{
+      max-width:520px;
+      width:100%;
+    }
+
     aside.panel{
       position:relative;
       background:linear-gradient(180deg,#111,#0d0d0d);
       border-radius:12px;
       padding:16px;
       border:1px solid rgba(255,255,255,0.03);
-      margin-top:18px;
     }
     .contact-card h3{margin:0;color:var(--accent);font-weight:800}
     .contact-card p{margin:8px 0 0 0;color:var(--muted);font-size:13px}
     .contact-card a{color:var(--accent);text-decoration:none;font-weight:700}
-    .socials{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .socials{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;justify-content:flex-start}
     .social{
       width:44px;height:44px;border-radius:8px;background:#141414;border:1px solid rgba(255,255,255,0.03);
       display:inline-flex;align-items:center;justify-content:center;color:var(--accent);text-decoration:none;font-weight:800;
@@ -286,16 +255,10 @@
 
     footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
 
-    @keyframes fadeInUp {
-      from { opacity:0; transform: translateY(12px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-
     @media (max-width:980px){
       .poster{width:140px;height:190px}
       .logo{width:56px;height:56px}
       .brand h3{font-size:16px}
-      .welcome-hero h2{font-size:44px}
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px}
       nav.hud{justify-content:flex-start}
     }
@@ -311,14 +274,32 @@
   </div>
 
   <div class="site">
-    <!-- Hero (no auto-scroll) -->
-    <header id="hero" class="welcome-hero" role="banner" aria-label="Hero - Shuvam Khanal">
-      <h2 id="hero-title">Shuvam Khanal</h2>
-      <p>AI Researcher • Product-minded • Systems</p>
-    </header>
+    <!-- FIRST THING: video hero -->
+    <section class="hero-video-wrapper" aria-label="Intro video">
+      <div class="hero-video-inner">
+        <iframe
+          src="https://www.youtube.com/embed/IILSKEJOTiA?autoplay=1&loop=1&playlist=IILSKEJOTiA&mute=1&controls=0&modestbranding=1&rel=0"
+          title="Intro video"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- COMPACT NAME + TAGLINE directly under video -->
+    <section style="margin-top:10px;text-align:center;">
+      <h2 style="margin:0;font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--accent);text-transform:uppercase;">
+        Shuvam Khanal
+      </h2>
+      <p style="margin:4px 0 0 0;font-size:13px;color:var(--muted);">
+        AI Researcher • Product-minded • Systems
+      </p>
+    </section>
 
     <!-- Main content -->
-    <div id="main-content" style="padding-top:24px;">
+    <div id="main-content" style="padding-top:8px;">
 
       <!-- Header card / navigation -->
       <header class="topbar" role="banner" aria-label="Header">
@@ -331,26 +312,16 @@
         </div>
 
         <nav class="hud" role="navigation" aria-label="Primary navigation">
-          <a class="nav-link" href="#projects">Projects</a>
-          <a class="nav-link" href="#skills">Skills</a>
+          <!-- Projects button goes to projects.html -->
+          <a class="nav-link" href="projects.html">Projects</a>
+          <!-- Skills button goes to separate skills page -->
+          <a class="nav-link" href="skills.html">Skills</a>
+          <!-- Contact scrolls to center contact section -->
           <a class="nav-link" href="#contact">Contact</a>
-          <a class="btn-play" href="#projects" aria-label="View Projects">► WATCH</a>
+          <!-- Watch button goes to projects page as well -->
+          <a class="btn-play" href="projects.html" aria-label="View Projects">► WATCH</a>
         </nav>
       </header>
-
-      <!-- Looping YouTube video -->
-      <section class="hero-video-wrapper" aria-label="Intro video">
-        <div class="hero-video-inner">
-          <iframe
-            src="https://www.youtube.com/embed/IILSKEJOTiA?autoplay=1&loop=1&playlist=IILSKEJOTiA&mute=1&controls=0&modestbranding=1&rel=0"
-            title="Intro video"
-            frameborder="0"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
-          </iframe>
-        </div>
-      </section>
 
       <main>
         <div class="banner" aria-labelledby="intro-title">
@@ -433,62 +404,62 @@
             </div>
           </section>
 
-          <!-- Skills -->
+          <!-- Simple skills preview (main skills page is skills.html) -->
           <section id="skills" class="card" aria-labelledby="skills-heading">
             <h3 id="skills-heading">Core Skills</h3>
             <div style="display:flex;gap:8px;flex-wrap:wrap">
               <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">Deep Learning</div>
               <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">NLP &amp; Transformers</div>
-              <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">DevOps</div>
+              <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">DevOps &amp; Cloud</div>
               <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">Python • JS</div>
             </div>
+            <p style="margin:10px 0 0 0;font-size:12px;color:var(--muted);">
+              See full stack, tools, and experience details on the <a href="skills.html" style="color:var(--accent);font-weight:600;">Skills page</a>.
+            </p>
           </section>
 
         </div>
 
-        <!-- Contact / sidebar -->
-        <div class="container-fluid" style="padding:0;margin-top:18px;">
-          <div class="row">
-            <div class="col-lg-4 col-md-5 order-2 order-md-1">
-              <!-- Extra content placeholder -->
-            </div>
-            <div class="col-lg-8 col-md-7 order-1 order-md-2">
-              <aside class="panel" role="complementary" aria-labelledby="contact-heading">
-                <div class="contact-card" id="contact">
-                  <h3 id="contact-heading">Contact</h3>
-                  <p style="color:var(--muted);margin-top:8px">Open to collaborations, consulting, and product roles that bridge research and real-world impact.</p>
+        <!-- CONTACT SECTION CENTERED -->
+        <section class="contact-section">
+          <div class="contact-inner">
+            <aside class="panel" role="complementary" aria-labelledby="contact-heading">
+              <div class="contact-card" id="contact">
+                <h3 id="contact-heading">Contact</h3>
+                <p style="color:var(--muted);margin-top:8px">
+                  Open to collaborations, consulting, and product roles that bridge research and real-world impact.
+                </p>
 
-                  <p style="margin-top:12px"><strong>Email</strong><br>
-                    <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a></p>
+                <p style="margin-top:12px"><strong>Email</strong><br>
+                  <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a></p>
 
-                  <p style="margin-top:10px"><strong>LinkedIn</strong><br>
-                    <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">www.linkedin.com/in/shuvam-khanal</a></p>
+                <p style="margin-top:10px"><strong>LinkedIn</strong><br>
+                  <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">www.linkedin.com/in/shuvam-khanal</a></p>
 
-                  <p style="margin-top:10px"><strong>Instagram</strong><br>
-                    <a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></p>
+                <p style="margin-top:10px"><strong>Instagram</strong><br>
+                  <a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></p>
 
-                  <p style="margin-top:10px"><strong>GitHub</strong><br>
-                    <a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></p>
+                <p style="margin-top:10px"><strong>GitHub</strong><br>
+                  <a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></p>
 
-                  <div class="socials" aria-hidden="true">
-                    <a class="social" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
-                    <a class="social" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
-                    <a class="social" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
-                  </div>
+                <div class="socials" aria-hidden="true">
+                  <a class="social" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
+                  <a class="social" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
+                  <a class="social" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
                 </div>
+              </div>
 
-                <div style="margin-top:14px;padding:12px;border-radius:8px;background:linear-gradient(180deg,#101010,#0c0c0c);border:1px solid rgba(255,255,255,0.02)">
-                  <h3 style="margin:0;color:var(--accent);font-weight:800">Highlights</h3>
-                  <ul style="color:var(--muted);margin:10px 0 0 18px;padding:0">
-                    <li>Published applied ML &amp; NLP research</li>
-                    <li>Built production-grade ML pipelines with observability</li>
-                    <li>Led cross-functional teams to launch AI products</li>
-                  </ul>
-                </div>
-              </aside>
-            </div>
+              <div style="margin-top:14px;padding:12px;border-radius:8px;background:linear-gradient(180deg,#101010,#0c0c0c);border:1px solid rgba(255,255,255,0.02)">
+                <h3 style="margin:0;color:var(--accent);font-weight:800">Highlights</h3>
+                <ul style="color:var(--muted);margin:10px 0 0 18px;padding:0">
+                  <li>Published applied ML &amp; NLP research</li>
+                  <li>Built production-grade ML pipelines with observability</li>
+                  <li>Led cross-functional teams to launch AI products</li>
+                </ul>
+              </div>
+            </aside>
           </div>
-        </div>
+        </section>
       </main>
 
       <footer class="site-footer" role="contentinfo">
@@ -498,7 +469,7 @@
   </div>
 
   <script>
-    // Poster tilt only (no auto-scrolling)
+    // Poster tilt only
     (function(){
       const poster = document.getElementById('poster');
       if(!poster) return;
@@ -525,15 +496,17 @@
 
     // Pulse play button
     (function(){
-      const play = document.querySelector('.btn-play');
-      if(!play) return;
+      const playButtons = document.querySelectorAll('.btn-play');
+      if(!playButtons.length) return;
       setInterval(function(){
-        play.style.transform = 'scale(1.02)';
-        play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.22)';
-        setTimeout(function(){
-          play.style.transform = '';
-          play.style.boxShadow = '0 8px 28px rgba(229,9,20,0.18)';
-        }, 450);
+        playButtons.forEach(play => {
+          play.style.transform = 'scale(1.02)';
+          play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.22)';
+          setTimeout(function(){
+            play.style.transform = '';
+            play.style.boxShadow = '0 8px 28px rgba(229,9,20,0.18)';
+          }, 450);
+        });
       }, 3000);
     })();
   </script>
