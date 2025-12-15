@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Skills — Shuvam Khanal</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Skills and experience of Shuvam Khanal — AI researcher and product-minded engineer." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap (for responsive grid) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#121212;
+      --muted:#b3b3b3;
+      --text:#f3f3f3;
+      --accent:#e50914;
+      --card:#181818;
+      --radius:12px;
+      --container:1100px;
+      --ease:cubic-bezier(.2,.9,.3,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg) 0%,#070707 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      overflow-x:hidden;
+      padding-top:44px; /* space for title bar */
+    }
+
+    .site{max-width:var(--container);margin:0 auto;padding:24px 18px 48px}
+
+    /* Title bar */
+    .top-title-bar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:9999;
+      background:#000;
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    .top-title-inner{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:8px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .top-title-inner h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      font-family:"Bebas Neue",sans-serif;
+      color:var(--accent);
+    }
+    .top-title-inner span{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* Header card */
+    header.topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      margin-bottom:18px;
+      background:linear-gradient(90deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35));
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:52px;height:52px;border-radius:8px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
+      border:2px solid rgba(255,255,255,0.04);
+      color:var(--accent);font-weight:800;font-size:18px;letter-spacing:1px;
+      font-family:"Bebas Neue",sans-serif;
+    }
+    .brand h2{margin:0;font-size:18px;letter-spacing:0.6px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    nav.hud{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav-link{
+      color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;font-size:13px;
+      position:relative;
+      transition:color 240ms var(--ease),transform 240ms var(--ease);
+    }
+    .nav-link::after{
+      content:"";position:absolute;left:12px;right:12px;bottom:-6px;height:2px;background:var(--accent);
+      transform:scaleX(0);transform-origin:left center;transition:transform 300ms var(--ease);
+      border-radius:2px;opacity:0.96;
+    }
+    .nav-link:hover{color:var(--text);transform:translateY(-2px);}
+    .nav-link:hover::after{transform:scaleX(1);}
+
+    main{margin-top:10px;}
+
+    section.card{
+      padding:18px;
+      border-radius:10px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+      border:1px solid rgba(255,255,255,0.02);
+      margin-bottom:20px;
+    }
+    section.card h3{
+      margin:0 0 10px 0;
+      color:var(--accent);
+      font-size:18px;
+      font-weight:800;
+    }
+    section.card p{
+      margin:0 0 8px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Skill pills / tags */
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:8px;
+    }
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:#111;
+      font-size:12px;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    /* Two-column responsive grid for sections */
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+    @media(max-width:768px){
+      .grid-2{grid-template-columns:1fr;}
+      header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
+      nav.hud{justify-content:flex-start;}
+    }
+
+    footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
+  </style>
+</head>
+<body>
+  <!-- Title bar -->
+  <div class="top-title-bar">
+    <div class="top-title-inner">
+      <h1>Shuvam Skills</h1>
+      <span>AI · ML · DevOps · Systems</span>
+    </div>
+  </div>
+
+  <div class="site">
+    <!-- Header -->
+    <header class="topbar" aria-label="Header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">SK</div>
+        <div>
+          <h2>Skills &amp; Experience</h2>
+          <p>Based on résumé — AI research, ML systems, &amp; DevOps</p>
+        </div>
+      </div>
+
+      <nav class="hud" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link" href="index.html#contact">Contact</a>
+        <a class="nav-link" href="resume.pdf" target="_blank" rel="noopener">Résumé PDF</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- AI / ML Core -->
+      <section class="card" aria-labelledby="ml-heading">
+        <h3 id="ml-heading">AI / Machine Learning</h3>
+        <p>Applying research and production ML techniques across NLP, deep learning, and recommendation-style systems.</p>
+        <div class="grid-2">
+          <div>
+            <p><strong>Core Competencies</strong></p>
+            <div class="pill-row">
+              <span class="pill">Deep Learning</span>
+              <span class="pill">NLP &amp; Transformers</span>
+              <span class="pill">Representation Learning</span>
+              <span class="pill">Sequence Models</span>
+              <span class="pill">Recommendation-style Systems</span>
+              <span class="pill">Computer Vision (basics)</span>
+            </div>
+          </div>
+          <div>
+            <p><strong>Modeling &amp; Optimization</strong></p>
+            <div class="pill-row">
+              <span class="pill">PyTorch</span>
+              <span class="pill">TensorFlow / Keras</span>
+              <span class="pill">Hugging Face Transformers</span>
+              <span class="pill">Experiment Design</span>
+              <span class="pill">Hyperparameter Tuning</span>
+              <span class="pill">Evaluation &amp; Metrics</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NLP-focused skills -->
+      <section class="card" aria-labelledby="nlp-heading">
+        <h3 id="nlp-heading">NLP &amp; Language Systems</h3>
+        <p>Designing and deploying language models and text pipelines with a focus on reliability and human-centered behavior.</p>
+        <div class="grid-2">
+          <div>
+            <p><strong>Techniques</strong></p>
+            <div class="pill-row">
+              <span class="pill">Transformers</span>
+              <span class="pill">Text Classification</span>
+              <span class="pill">Information Extraction</span>
+              <span class="pill">Summarization</span>
+              <span class="pill">Retrieval-Augmented Generation</span>
+            </div>
+          </div>
+          <div>
+            <p><strong>Tooling</strong></p>
+            <div class="pill-row">
+              <span class="pill">Hugging Face Hub</span>
+              <span class="pill">spaCy / NLTK</span>
+              <span class="pill">Vector Databases (concepts)</span>
+              <span class="pill">Prompt Engineering</span>
+              <span class="pill">Evaluation with Human Feedback</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DevOps / MLOps -->
+      <section class="card" aria-labelledby="devops-heading">
+        <h3 id="devops-heading">DevOps &amp; MLOps</h3>
+        <p>Bringing software engineering discipline to ML workflows — from prototyping to continuous delivery of models and services.</p>
+        <div class="grid-2">
+          <div>
+            <p><strong>DevOps</strong></p>
+            <div class="pill-row">
+              <span class="pill">Linux</span>
+              <span class="pill">Docker</span>
+              <span class="pill">GitHub Actions</span>
+              <span class="pill">CI / CD Pipelines</span>
+              <span class="pill">Monitoring &amp; Logging</span>
+            </div>
+          </div>
+          <div>
+            <p><strong>MLOps &amp; Data</strong></p>
+            <div class="pill-row">
+              <span class="pill">Model Serving (concepts)</span>
+              <span class="pill">Batch &amp; Online Inference</span>
+              <span class="pill">Data Versioning</span>
+              <span class="pill">Experiment Tracking</span>
+              <span class="pill">Observability for ML Pipelines</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Programming / Tools -->
+      <section class="card" aria-labelledby="prog-heading">
+        <h3 id="prog-heading">Programming &amp; Tools</h3>
+        <p>Comfortable working across the stack, with a focus on Python for ML and JavaScript/TypeScript for product surfaces.</p>
+        <div class="grid-2">
+          <div>
+            <p><strong>Languages</strong></p>
+            <div class="pill-row">
+              <span class="pill">Python</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">Bash</span>
+              <span class="pill">SQL</span>
+            </div>
+          </div>
+          <div>
+            <p><strong>Frameworks &amp; Libraries</strong></p>
+            <div class="pill-row">
+              <span class="pill">PyTorch</span>
+              <span class="pill">TensorFlow</span>
+              <span class="pill">FastAPI / Flask</span>
+              <span class="pill">React (basics)</span>
+              <span class="pill">Pandas / NumPy</span>
+              <span class="pill">scikit-learn</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Systems / Infrastructure -->
+      <section class="card" aria-labelledby="systems-heading">
+        <h3 id="systems-heading">Systems &amp; Infrastructure</h3>
+        <p>Understanding how ML components fit into larger systems: APIs, services, and data flows.</p>
+        <div class="grid-2">
+          <div>
+            <p><strong>Systems Skills</strong></p>
+            <div class="pill-row">
+              <span class="pill">RESTful APIs</span>
+              <span class="pill">Microservice-oriented Design</span>
+              <span class="pill">Caching Strategies</span>
+              <span class="pill">Async Workloads (queues, workers)</span>
+            </div>
+          </div>
+          <div>
+            <p><strong>Cloud &amp; Infra (exposure)</strong></p>
+            <div class="pill-row">
+              <span class="pill">AWS (EC2, S3 basics)</span>
+              <span class="pill">Container-based Deployments</span>
+              <span class="pill">Networking Fundamentals</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Soft Skills / Product -->
+      <section class="card" aria-labelledby="soft-heading">
+        <h3 id="soft-heading">Product &amp; Collaboration</h3>
+        <p>Skills that connect technical work to real users and teams.</p>
+        <div class="pill-row">
+          <span class="pill">Product-minded Problem Solving</span>
+          <span class="pill">Cross-functional Collaboration</span>
+          <span class="pill">Technical Writing</span>
+          <span class="pill">Mentoring &amp; Pairing</span>
+          <span class="pill">Stakeholder Communication</span>
+          <span class="pill">Experimentation Culture</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div style="margin-top:18px;color:var(--muted)">&copy; 2025 Shuvam Khanal.</div>
+    </footer>
+  </div>
+</body>
+</html>
