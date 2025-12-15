@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap (for responsive grid similar to sample.html) -->
+  <!-- Bootstrap (for responsive grid) -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <style>
@@ -244,7 +244,7 @@
     section.card{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
     section.card h3{margin:0 0 12px 0;color:var(--accent);font-size:16px;font-weight:800}
 
-    /* Responsive video section directly below title bar (inside main) */
+    /* Responsive video section */
     .hero-video-wrapper{
       margin-top:24px;
       border-radius:10px;
@@ -257,7 +257,7 @@
       padding-top:56.25%; /* 16:9 */
     }
 
-    /* LinkedIn-style posts grid (3 per row on desktop, 2 on tablet, 1 on mobile) */
+    /* LinkedIn posts grid */
     .linkedin-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -280,7 +280,7 @@
     }
     .linkedin-embed{
       position:relative;
-      padding-top:130%; /* tall ratio for LinkedIn iframes */
+      padding-top:130%;
       width:100%;
       overflow:hidden;
       border-radius:8px;
@@ -292,7 +292,7 @@
       border:0;
     }
 
-    /* Right column contact panel using bootstrap row/col for responsiveness */
+    /* Right column contact */
     aside.panel{
       position:relative;
       background:linear-gradient(180deg,#111,#0d0d0d);
@@ -371,7 +371,7 @@
         </nav>
       </header>
 
-      <!-- Looping YouTube video directly below hero/title area -->
+      <!-- Looping YouTube video -->
       <section class="hero-video-wrapper" aria-label="Intro video">
         <div class="hero-video-inner">
           <iframe
@@ -416,11 +416,11 @@
             </div>
           </div>
 
-          <!-- RESPONSIVE LINKEDIN POSTS SECTION (6 posts, 3 per row on large screens) -->
+          <!-- LINKEDIN GRID (only on home page) -->
           <section id="projects" class="card" aria-labelledby="projects-heading">
             <h3 id="projects-heading">LinkedIn Highlights</h3>
             <div class="linkedin-grid">
-              <!-- Replace the src URLs below with your real LinkedIn embed URLs -->
+              <!-- Replace POST_ID_* with real LinkedIn URNs -->
               <div class="linkedin-card">
                 <div class="linkedin-embed">
                   <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_1"
@@ -466,7 +466,7 @@
             </div>
           </section>
 
-          <!-- Skills card -->
+          <!-- Skills -->
           <section id="skills" class="card" aria-labelledby="skills-heading">
             <h3 id="skills-heading">Core Skills</h3>
             <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -479,11 +479,11 @@
 
         </div>
 
-        <!-- Right column contact using Bootstrap grid for responsiveness -->
+        <!-- Contact / sidebar -->
         <div class="container-fluid" style="padding:0;margin-top:18px;">
           <div class="row">
             <div class="col-lg-4 col-md-5 order-2 order-md-1">
-              <!-- Placeholder for extra sections, or leave empty -->
+              <!-- Extra content placeholder -->
             </div>
             <div class="col-lg-8 col-md-7 order-1 order-md-2">
               <aside class="panel" role="complementary" aria-labelledby="contact-heading">
@@ -531,7 +531,7 @@
   </div>
 
   <script>
-    // AUTO-SCROLL + ENTRANCE
+    // Simple entrance animation only (NO auto-scroll)
     (function(){
       const poster = document.getElementById('poster');
       const heroCopy = document.getElementById('hero-copy');
@@ -545,43 +545,7 @@
         if (ctaRow) ctaRow.classList.add('pulse-in');
       }
 
-      function scrollToPosterSmooth() {
-        if (!poster) return;
-        if (prefersReduced) return;
-        try {
-          const rect = poster.getBoundingClientRect();
-          const docTop = window.pageYOffset || document.documentElement.scrollTop;
-          const targetY = Math.max(0, Math.round(docTop + rect.top + rect.height/2 - (window.innerHeight * 0.42)));
-          window.scrollTo({ top: targetY, behavior: 'smooth' });
-        } catch (e) {
-          poster.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }
-
-      const fallbackTimeout = 1800;
-      let scrolled = false;
-
-      function tryAutoScrollOnce() {
-        if (scrolled) return;
-        scrolled = true;
-        entrance();
-        setTimeout(scrollToPosterSmooth, 420);
-      }
-
-      const img = document.getElementById('profile-photo');
-      if (img) {
-        if (img.complete && img.naturalWidth && img.naturalHeight) {
-          window.addEventListener('load', tryAutoScrollOnce);
-        } else {
-          img.addEventListener('load', tryAutoScrollOnce, { once: true });
-          img.addEventListener('error', tryAutoScrollOnce, { once: true });
-          window.addEventListener('load', tryAutoScrollOnce);
-        }
-      } else {
-        window.addEventListener('load', tryAutoScrollOnce);
-      }
-
-      setTimeout(() => { tryAutoScrollOnce(); }, fallbackTimeout);
+      window.addEventListener('load', entrance);
 
       if (scrollIndicator) {
         scrollIndicator.addEventListener('click', function(e){
