@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Projects — Shuvam Khanal</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Projects by Shuvam Khanal" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap (for responsive grid) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#121212;
+      --muted:#b3b3b3;
+      --text:#f3f3f3;
+      --accent:#e50914;
+      --card:#181818;
+      --radius:12px;
+      --container:1100px;
+      --ease:cubic-bezier(.2,.9,.3,1);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg) 0%,#070707 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+    .site{max-width:var(--container);margin:0 auto;padding:24px 18px 48px}
+
+    /* Title bar */
+    .top-title-bar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:9999;
+      background:#000;
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    .top-title-inner{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:8px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .top-title-inner h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      font-family:"Bebas Neue",sans-serif;
+      color:var(--accent);
+    }
+    .top-title-inner span{
+      font-size:12px;
+      color:var(--muted);
+    }
+    body{padding-top:44px;}
+
+    header.topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      margin-bottom:18px;
+      background:linear-gradient(90deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35));
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:52px;height:52px;border-radius:8px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
+      border:2px solid rgba(255,255,255,0.04);
+      color:var(--accent);font-weight:800;font-size:18px;letter-spacing:1px;
+      font-family:"Bebas Neue",sans-serif;
+    }
+    .brand h2{margin:0;font-size:18px;letter-spacing:0.6px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    nav.hud{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav-link{
+      color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;font-size:13px;
+      position:relative;
+      transition:color 240ms var(--ease),transform 240ms var(--ease);
+    }
+    .nav-link::after{
+      content:"";position:absolute;left:12px;right:12px;bottom:-6px;height:2px;background:var(--accent);
+      transform:scaleX(0);transform-origin:left center;transition:transform 300ms var(--ease);
+      border-radius:2px;opacity:0.96;
+    }
+    .nav-link:hover{color:var(--text);transform:translateY(-2px);}
+    .nav-link:hover::after{transform:scaleX(1);}
+
+    main{margin-top:10px;}
+
+    section.card{
+      padding:16px;
+      border-radius:10px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+      border:1px solid rgba(255,255,255,0.02);
+      margin-bottom:20px;
+    }
+    section.card h3{
+      margin:0 0 12px 0;
+      color:var(--accent);
+      font-size:18px;
+      font-weight:800;
+    }
+
+    /* Projects grid (you can still fetch GitHub repos here if you want) */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      grid-gap:14px;
+    }
+    .project{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:12px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#151515,#121212);
+      border:1px solid rgba(255,255,255,0.02);
+      transition:transform 360ms var(--ease),box-shadow 360ms var(--ease),opacity 480ms var(--ease);
+      opacity:0;
+      transform:translateY(12px);
+    }
+    .project.visible{opacity:1;transform:translateY(0);}
+    .project:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 22px 48px rgba(0,0,0,0.6);}
+    .project h4{margin:0 0 6px 0;font-size:15px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+    .project a{color:var(--accent);font-weight:700;text-decoration:none;word-break:break-word;}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
+
+    /* Another LinkedIn section (optional, reusing 3x2 responsive grid) */
+    .linkedin-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-gap:16px;
+    }
+    @media(max-width:991.98px){
+      .linkedin-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:575.98px){
+      .linkedin-grid{grid-template-columns:1fr;}
+    }
+    .linkedin-card{
+      background:linear-gradient(180deg,#151515,#121212);
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:8px;
+      overflow:hidden;
+      box-shadow:0 16px 36px rgba(0,0,0,0.5);
+    }
+    .linkedin-embed{
+      position:relative;
+      padding-top:130%;
+      width:100%;
+      overflow:hidden;
+      border-radius:8px;
+      background:#000;
+    }
+    .linkedin-embed iframe{
+      position:absolute;
+      top:0;left:0;width:100%;height:100%;
+      border:0;
+    }
+
+    footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
+
+    @media(max-width:980px){
+      header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
+      nav.hud{justify-content:flex-start;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Title bar -->
+  <div class="top-title-bar">
+    <div class="top-title-inner">
+      <h1>Shuvam Projects</h1>
+      <span>Selected work &amp; GitHub repos</span>
+    </div>
+  </div>
+
+  <div class="site">
+    <header class="topbar" aria-label="Header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">SK</div>
+        <div>
+          <h2>Projects</h2>
+          <p>AI Research • Systems • DevOps</p>
+        </div>
+      </div>
+
+      <nav class="hud" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="index.html#skills">Skills</a>
+        <a class="nav-link" href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Example GitHub projects section (optional) -->
+      <section id="projects" class="card" aria-labelledby="projects-heading">
+        <h3 id="projects-heading">GitHub Projects</h3>
+        <p style="color:var(--muted);margin:0 0 8px 0;font-size:13px">
+          Latest public repositories from <strong>github.com/Suuwam</strong>.
+        </p>
+        <div id="projects-container" class="projects-grid" aria-live="polite">
+          <div style="color:var(--muted)">Loading projects from GitHub for user <strong>Suuwam</strong>…</div>
+        </div>
+      </section>
+
+      <!-- Another LinkedIn grid if you want to reuse it on the projects page -->
+      <section class="card" aria-labelledby="linkedin-projects-heading">
+        <h3 id="linkedin-projects-heading">LinkedIn Project Posts</h3>
+        <div class="linkedin-grid">
+          <!-- Replace POST_ID_* with real LinkedIn posts -->
+          <div class="linkedin-card">
+            <div class="linkedin-embed">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A1"
+                      allowfullscreen=""
+                      title="Project LinkedIn post A1"></iframe>
+            </div>
+          </div>
+          <div class="linkedin-card">
+            <div class="linkedin-embed">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A2"
+                      allowfullscreen=""
+                      title="Project LinkedIn post A2"></iframe>
+            </div>
+          </div>
+          <div class="linkedin-card">
+            <div class="linkedin-embed">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A3"
+                      allowfullscreen=""
+                      title="Project LinkedIn post A3"></iframe>
+            </div>
+          </div>
+          <div class="linkedin-card">
+            <div class="linkedin-embed">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A4"
+                      allowfullscreen=""
+                      title="Project LinkedIn post A4"></iframe>
+            </div>
+          </div>
+          <div class="linkedin-card">
+            <div class="linkedin-embed">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A5"
+                      allowfullscreen=""
+                      title="Project LinkedIn post A5"></iframe>
+            </div>
+          </div>
+          <div class="linkedin-card">
+            <div class="linkedin-embed">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A6"
+                      allowfullscreen=""
+                      title="Project LinkedIn post A6"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div style="margin-top:18px;color:var(--muted)">&copy; 2025 Shuvam Khanal.</div>
+    </footer>
+  </div>
+
+  <script>
+    function escapeHtml(s){
+      if(!s) return '';
+      return s.replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; });
+    }
+
+    (function(){
+      const username = 'Suuwam';
+      const container = document.getElementById('projects-container');
+      const cacheKey = 'gh_repos_' + username;
+      const cacheTtlMs = 60 * 60 * 1000;
+
+      function repoCard(repo) {
+        const div = document.createElement('div');
+        div.className = 'project';
+        div.innerHTML = `
+          <div>
+            <h4><a href="${repo.html_url}" target="_blank" rel="noopener">${escapeHtml(repo.name)}</a></h4>
+            <p>${repo.description ? escapeHtml(repo.description) : '<span style="color:var(--muted)">No description</span>'}</p>
+            <div class="meta">
+              <span>★ ${repo.stargazers_count}</span>
+              <span>Forks: ${repo.forks_count}</span>
+              ${repo.language ? `<span>${escapeHtml(repo.language)}</span>` : ''}
+              <span>Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
+            </div>
+          </div>
+        `;
+        return div;
+      }
+
+      function showMessage(message) {
+        container.innerHTML = '<div style="color:var(--muted)">' + message + '</div>';
+      }
+
+      function renderRepos(repos){
+        if(!Array.isArray(repos) || repos.length === 0){
+          showMessage('No public repositories found for ' + username + '.');
+          return;
+        }
+        repos.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at));
+        const top = repos.slice(0, 12);
+        container.innerHTML = '';
+        top.forEach((r, idx) => {
+          const el = repoCard(r);
+          container.appendChild(el);
+          setTimeout(() => el.classList.add('visible'), 120 + idx * 80);
+        });
+      }
+
+      try {
+        const cached = localStorage.getItem(cacheKey);
+        if(cached){
+          const parsed = JSON.parse(cached);
+          if(parsed.ts && (Date.now() - parsed.ts) < cacheTtlMs && parsed.repos){
+            renderRepos(parsed.repos);
+          }
+        }
+      } catch(e){}
+
+      fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
+        .then(resp => {
+          if (!resp.ok) throw new Error('GitHub API returned ' + resp.status);
+          return resp.json();
+        })
+        .then(repos => {
+          try { localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), repos })); } catch(e){}
+          renderRepos(repos);
+        })
+        .catch(err => {
+          console.error(err);
+          if(!container.querySelector('.project')) {
+            showMessage('Unable to load projects from GitHub. Consider build-time fetching or a serverless proxy.');
+          }
+        });
+    })();
+  </script>
+</body>
+</html>
