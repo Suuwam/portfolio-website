@@ -186,6 +186,7 @@
       transform:translateY(0);
       transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
       white-space:nowrap;
+      cursor:pointer;
     }
     .btn-play:hover{
       transform:translateY(-2px) scale(1.02);
@@ -309,7 +310,7 @@
       font-weight:800;
     }
 
-    /* LinkedIn posts grid (actual embeds) */
+    /* LinkedIn posts grid with hover animation */
     .linkedin-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -327,7 +328,14 @@
       border:1px solid rgba(255,255,255,0.06);
       padding:8px;
       overflow:hidden;
-      box-shadow:0 16px 36px rgba(0,0,0,0.5);
+      box-shadow:0 12px 28px rgba(0,0,0,0.55);
+      transform:translateY(0) scale(1);
+      transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .linkedin-card:hover{
+      transform:translateY(-6px) scale(1.02);
+      box-shadow:0 22px 48px rgba(0,0,0,0.85);
+      border-color:rgba(229,9,20,0.6);
     }
     .linkedin-embed{
       position:relative;
@@ -343,14 +351,12 @@
       border:0;
     }
 
-    /* Centered contact */
+    /* Contact full-width like others */
     .contact-section{
       margin-top:24px;
-      display:flex;
-      justify-content:center;
     }
     .contact-inner{
-      max-width:520px;
+      max-width:100%;
       width:100%;
     }
     aside.panel{
@@ -402,10 +408,11 @@
       </div>
 
       <nav class="hud" aria-label="Primary navigation">
-        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <a class="btn-play" href="projects.html" aria-label="View Projects">► WATCH</a>
+        <!-- WATCH goes to LinkedIn section -->
+        <a class="btn-play" href="#projects" aria-label="View LinkedIn Highlights">► WATCH</a>
       </nav>
     </header>
 
@@ -453,14 +460,15 @@
             <p>I'm Shuvam Khanal — I apply machine learning research to product-focused systems. I design model pipelines and human-centered AI features with privacy and reliability in mind.</p>
 
             <div class="cta-row" id="cta-row">
-              <a class="btn-play" href="mailto:shuvamkhanal1000@gmail.com" aria-label="Contact">CONTACT</a>
+              <!-- BIG red contact now scrolls to contact section -->
+              <a class="btn-play" href="#contact" aria-label="Go to contact section">CONTACT</a>
               <a class="cta-ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
               <div class="pill">Streaming: Research • DevOps • Product</div>
             </div>
           </div>
         </div>
 
-        <!-- LINKEDIN HIGHLIGHTS WITH YOUR REAL EMBEDS -->
+        <!-- LINKEDIN HIGHLIGHTS -->
         <section id="projects" class="card" aria-labelledby="projects-heading">
           <h3 id="projects-heading">LinkedIn Highlights</h3>
           <div class="linkedin-grid">
@@ -530,7 +538,7 @@
         </section>
       </div>
 
-      <!-- Centered contact -->
+      <!-- Contact full-width like others -->
       <section class="contact-section">
         <div class="contact-inner">
           <aside class="panel" role="complementary" aria-labelledby="contact-heading">
