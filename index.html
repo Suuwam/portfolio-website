@@ -193,7 +193,7 @@
       box-shadow:0 18px 44px rgba(229,9,20,0.55);
     }
 
-    /* BIG NAME + TAGLINE (NOW BELOW VIDEO) */
+    /* BIG NAME + TAGLINE (below video) */
     .hero-name-block{
       text-align:center;
       margin-top:18px;
@@ -310,7 +310,7 @@
       font-weight:800;
     }
 
-    /* LinkedIn posts grid with hover animation */
+    /* LinkedIn posts: image + transparent overlay on hover */
     .linkedin-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -322,33 +322,70 @@
     @media(max-width:575.98px){
       .linkedin-grid{grid-template-columns:1fr;}
     }
+
     .linkedin-card{
-      background:linear-gradient(180deg,#151515,#121212);
+      position:relative;
       border-radius:10px;
-      border:1px solid rgba(255,255,255,0.06);
-      padding:8px;
       overflow:hidden;
+      background:#000;
       box-shadow:0 12px 28px rgba(0,0,0,0.55);
       transform:translateY(0) scale(1);
       transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+      border:1px solid rgba(255,255,255,0.06);
     }
+
+    .linkedin-photo{
+      width:100%;
+      padding-top:130%;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .linkedin-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:14px;
+      background:linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity 220ms var(--ease), transform 220ms var(--ease);
+    }
+    .linkedin-overlay h4{
+      margin:0 0 4px 0;
+      font-size:14px;
+      color:var(--text);
+    }
+    .linkedin-overlay p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .linkedin-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:6px;
+      font-size:11px;
+      color:var(--muted);
+    }
+    .linkedin-meta a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
     .linkedin-card:hover{
       transform:translateY(-6px) scale(1.02);
       box-shadow:0 22px 48px rgba(0,0,0,0.85);
       border-color:rgba(229,9,20,0.6);
     }
-    .linkedin-embed{
-      position:relative;
-      padding-top:130%;
-      width:100%;
-      overflow:hidden;
-      border-radius:8px;
-      background:#000;
-    }
-    .linkedin-embed iframe{
-      position:absolute;
-      top:0;left:0;width:100%;height:100%;
-      border:0;
+    .linkedin-card:hover .linkedin-overlay{
+      opacity:1;
+      transform:translateY(0);
     }
 
     /* Contact full-width like others */
@@ -408,10 +445,11 @@
       </div>
 
       <nav class="hud" aria-label="Primary navigation">
-        <a class="nav-link" href="#projects">Projects</a>
+        <!-- Projects button now goes to projects.html -->
+        <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <!-- WATCH goes to LinkedIn section -->
+        <!-- Watch button scrolls to LinkedIn highlights -->
         <a class="btn-play" href="#projects" aria-label="View LinkedIn Highlights">► WATCH</a>
       </nav>
     </header>
@@ -430,7 +468,7 @@
       </div>
     </section>
 
-    <!-- BIG NAME + TAGLINE (moved here, under video) -->
+    <!-- BIG NAME + TAGLINE (below video) -->
     <section class="hero-name-block">
       <h2>SHUVAM KHANAL</h2>
       <p>AI Researcher • Product-minded • Systems</p>
@@ -460,7 +498,7 @@
             <p>I'm Shuvam Khanal — I apply machine learning research to product-focused systems. I design model pipelines and human-centered AI features with privacy and reliability in mind.</p>
 
             <div class="cta-row" id="cta-row">
-              <!-- BIG red contact now scrolls to contact section -->
+              <!-- Big red CONTACT goes to contact section -->
               <a class="btn-play" href="#contact" aria-label="Go to contact section">CONTACT</a>
               <a class="cta-ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
               <div class="pill">Streaming: Research • DevOps • Product</div>
@@ -468,58 +506,89 @@
           </div>
         </div>
 
-        <!-- LINKEDIN HIGHLIGHTS -->
+        <!-- LINKEDIN HIGHLIGHTS using li1–li6 images -->
         <section id="projects" class="card" aria-labelledby="projects-heading">
           <h3 id="projects-heading">LinkedIn Highlights</h3>
           <div class="linkedin-grid">
-            <div class="linkedin-card">
-              <div class="linkedin-embed">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7398715870392238080?collapsed=1"
-                        title="LinkedIn post 1"
-                        allowfullscreen=""
-                        frameborder="0"></iframe>
+
+            <article class="linkedin-card">
+              <div class="linkedin-photo" style="background-image:url('img/li1.jpg');"></div>
+              <div class="linkedin-overlay">
+                <h4>Fine‑tuning small LLMs for real‑world tasks</h4>
+                <p>Short summary about what the post is about. Keep it to 1–2 lines.</p>
+                <div class="linkedin-meta">
+                  <span>LinkedIn • Post</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7398715870392238080"
+                     target="_blank" rel="noopener">Open</a>
+                </div>
               </div>
-            </div>
-            <div class="linkedin-card">
-              <div class="linkedin-embed">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7270331405979570176?collapsed=1"
-                        title="LinkedIn post 2"
-                        allowfullscreen=""
-                        frameborder="0"></iframe>
+            </article>
+
+            <article class="linkedin-card">
+              <div class="linkedin-photo" style="background-image:url('img/li2.jpg');"></div>
+              <div class="linkedin-overlay">
+                <h4>Shipping an ML feature end‑to‑end</h4>
+                <p>How I took an idea from notebook to production system.</p>
+                <div class="linkedin-meta">
+                  <span>LinkedIn • Post</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7270331405979570176"
+                     target="_blank" rel="noopener">Open</a>
+                </div>
               </div>
-            </div>
-            <div class="linkedin-card">
-              <div class="linkedin-embed">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7216418033148321792?collapsed=1"
-                        title="LinkedIn post 3"
-                        allowfullscreen=""
-                        frameborder="0"></iframe>
+            </article>
+
+            <article class="linkedin-card">
+              <div class="linkedin-photo" style="background-image:url('img/li3.jpg');"></div>
+              <div class="linkedin-overlay">
+                <h4>Research notes on NLP evaluation</h4>
+                <p>Thoughts on metrics, human evaluation, and failure modes.</p>
+                <div class="linkedin-meta">
+                  <span>LinkedIn • Post</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7216418033148321792"
+                     target="_blank" rel="noopener">Open</a>
+                </div>
               </div>
-            </div>
-            <div class="linkedin-card">
-              <div class="linkedin-embed">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364337102513205249?collapsed=1"
-                        title="LinkedIn post 4"
-                        allowfullscreen=""
-                        frameborder="0"></iframe>
+            </article>
+
+            <article class="linkedin-card">
+              <div class="linkedin-photo" style="background-image:url('img/li4.jpg');"></div>
+              <div class="linkedin-overlay">
+                <h4>DevOps for ML workflows</h4>
+                <p>Setting up CI/CD, monitoring, and observability for models.</p>
+                <div class="linkedin-meta">
+                  <span>LinkedIn • Post</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:share:7364337102513205249"
+                     target="_blank" rel="noopener">Open</a>
+                </div>
               </div>
-            </div>
-            <div class="linkedin-card">
-              <div class="linkedin-embed">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7169346904646959104?collapsed=1"
-                        title="LinkedIn post 5"
-                        allowfullscreen=""
-                        frameborder="0"></iframe>
+            </article>
+
+            <article class="linkedin-card">
+              <div class="linkedin-photo" style="background-image:url('img/li5.jpg');"></div>
+              <div class="linkedin-overlay">
+                <h4>Projects recap</h4>
+                <p>A quick overview of recent work and learnings.</p>
+                <div class="linkedin-meta">
+                  <span>LinkedIn • Post</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:share:7169346904646959104"
+                     target="_blank" rel="noopener">Open</a>
+                </div>
               </div>
-            </div>
-            <div class="linkedin-card">
-              <div class="linkedin-embed">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7351660548331065345?collapsed=1"
-                        title="LinkedIn post 6"
-                        allowfullscreen=""
-                        frameborder="0"></iframe>
+            </article>
+
+            <article class="linkedin-card">
+              <div class="linkedin-photo" style="background-image:url('img/li6.jpg');"></div>
+              <div class="linkedin-overlay">
+                <h4>Building human‑centered AI features</h4>
+                <p>Designing interfaces that keep users in control.</p>
+                <div class="linkedin-meta">
+                  <span>LinkedIn • Post</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:share:7351660548331065345"
+                     target="_blank" rel="noopener">Open</a>
+                </div>
               </div>
-            </div>
+            </article>
+
           </div>
         </section>
 
