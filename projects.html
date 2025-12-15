@@ -122,7 +122,7 @@
       font-weight:800;
     }
 
-    /* Projects grid (you can still fetch GitHub repos here if you want) */
+    /* Projects grid (GitHub repos) */
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -146,40 +146,6 @@
     .project p{margin:0;color:var(--muted);font-size:13px}
     .project a{color:var(--accent);font-weight:700;text-decoration:none;word-break:break-word;}
     .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
-
-    /* Another LinkedIn section (optional, reusing 3x2 responsive grid) */
-    .linkedin-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      grid-gap:16px;
-    }
-    @media(max-width:991.98px){
-      .linkedin-grid{grid-template-columns:repeat(2,1fr);}
-    }
-    @media(max-width:575.98px){
-      .linkedin-grid{grid-template-columns:1fr;}
-    }
-    .linkedin-card{
-      background:linear-gradient(180deg,#151515,#121212);
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.06);
-      padding:8px;
-      overflow:hidden;
-      box-shadow:0 16px 36px rgba(0,0,0,0.5);
-    }
-    .linkedin-embed{
-      position:relative;
-      padding-top:130%;
-      width:100%;
-      overflow:hidden;
-      border-radius:8px;
-      background:#000;
-    }
-    .linkedin-embed iframe{
-      position:absolute;
-      top:0;left:0;width:100%;height:100%;
-      border:0;
-    }
 
     footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
 
@@ -217,7 +183,7 @@
     </header>
 
     <main>
-      <!-- Example GitHub projects section (optional) -->
+      <!-- GitHub projects only (no LinkedIn here) -->
       <section id="projects" class="card" aria-labelledby="projects-heading">
         <h3 id="projects-heading">GitHub Projects</h3>
         <p style="color:var(--muted);margin:0 0 8px 0;font-size:13px">
@@ -225,56 +191,6 @@
         </p>
         <div id="projects-container" class="projects-grid" aria-live="polite">
           <div style="color:var(--muted)">Loading projects from GitHub for user <strong>Suuwam</strong>…</div>
-        </div>
-      </section>
-
-      <!-- Another LinkedIn grid if you want to reuse it on the projects page -->
-      <section class="card" aria-labelledby="linkedin-projects-heading">
-        <h3 id="linkedin-projects-heading">LinkedIn Project Posts</h3>
-        <div class="linkedin-grid">
-          <!-- Replace POST_ID_* with real LinkedIn posts -->
-          <div class="linkedin-card">
-            <div class="linkedin-embed">
-              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A1"
-                      allowfullscreen=""
-                      title="Project LinkedIn post A1"></iframe>
-            </div>
-          </div>
-          <div class="linkedin-card">
-            <div class="linkedin-embed">
-              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A2"
-                      allowfullscreen=""
-                      title="Project LinkedIn post A2"></iframe>
-            </div>
-          </div>
-          <div class="linkedin-card">
-            <div class="linkedin-embed">
-              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A3"
-                      allowfullscreen=""
-                      title="Project LinkedIn post A3"></iframe>
-            </div>
-          </div>
-          <div class="linkedin-card">
-            <div class="linkedin-embed">
-              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A4"
-                      allowfullscreen=""
-                      title="Project LinkedIn post A4"></iframe>
-            </div>
-          </div>
-          <div class="linkedin-card">
-            <div class="linkedin-embed">
-              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A5"
-                      allowfullscreen=""
-                      title="Project LinkedIn post A5"></iframe>
-            </div>
-          </div>
-          <div class="linkedin-card">
-            <div class="linkedin-embed">
-              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:POST_ID_A6"
-                      allowfullscreen=""
-                      title="Project LinkedIn post A6"></iframe>
-            </div>
-          </div>
         </div>
       </section>
     </main>
