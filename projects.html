@@ -44,6 +44,7 @@
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
+    /* Fixed title bar (same as index) */
     .top-title-bar{
       position:fixed;
       top:0;
@@ -75,6 +76,7 @@
       color:var(--muted);
     }
 
+    /* Topbar copied from index (brand + nav) */
     header.topbar{
       display:flex;
       align-items:center;
@@ -92,8 +94,8 @@
       gap:14px;
     }
     .logo{
-      width:48px;
-      height:48px;
+      width:56px;
+      height:56px;
       border-radius:12px;
       display:flex;
       align-items:center;
@@ -102,7 +104,7 @@
       border:2px solid rgba(255,255,255,0.08);
       color:var(--accent);
       font-weight:800;
-      font-size:18px;
+      font-size:20px;
       letter-spacing:1px;
       font-family:"Bebas Neue",sans-serif;
     }
@@ -134,9 +136,49 @@
       position:relative;
       transition: color 200ms var(--ease), transform 200ms var(--ease);
     }
+    .nav-link::after{
+      content:"";
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:-6px;
+      height:2px;
+      background:var(--accent);
+      transform:scaleX(0);
+      transform-origin:left center;
+      transition:transform 240ms var(--ease);
+      border-radius:2px;
+      opacity:0.95;
+    }
     .nav-link:hover{
       color:var(--text);
       transform:translateY(-1px);
+    }
+    .nav-link:hover::after{
+      transform:scaleX(1);
+    }
+
+    .btn-play{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--accent);
+      color:#081014;
+      padding:10px 18px;
+      border-radius:999px;
+      border:none;
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
+      box-shadow:0 12px 32px rgba(229,9,20,0.35);
+      transform:translateY(0);
+      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
+      white-space:nowrap;
+      cursor:pointer;
+    }
+    .btn-play:hover{
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 18px 44px rgba(229,9,20,0.55);
     }
 
     main{margin-top:22px;padding-bottom:40px}
@@ -259,7 +301,7 @@
   </style>
 </head>
 <body>
-  <!-- Fixed title bar -->
+  <!-- Fixed title bar (same as index) -->
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
@@ -268,8 +310,8 @@
   </div>
 
   <div class="site">
-    <!-- Top navigation -->
-    <header class="topbar" role="banner">
+    <!-- Top navigation bar (same structure as index) -->
+    <header class="topbar" role="banner" aria-label="Main navigation">
       <div class="brand">
         <div class="logo" aria-hidden="true">SK</div>
         <div class="brand-text">
@@ -277,10 +319,13 @@
           <p>AI Researcher • Product-minded • Systems</p>
         </div>
       </div>
+
       <nav class="hud" aria-label="Primary navigation">
-        <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link" href="index.html#contact">Contact</a>
+        <!-- WATCH can go back to your LinkedIn highlights on home page -->
+        <a class="btn-play" href="index.html#projects" aria-label="View LinkedIn Highlights">► WATCH</a>
       </nav>
     </header>
 
@@ -309,14 +354,10 @@
 
       if (!grid) return;
 
-      // Generic fallback image (for repos without matching image file)
       const fallbackImage = 'img/proj-default.png'; // optional; create this file if you want a fallback
 
-      // Helper to build image path from repo name:
-      // repo "portfolio-website" -> "img/proj-portfolio-website.png"
       function imageForRepoName(name) {
-        // IMPORTANT: this assumes you saved files as proj-<exact-repo-name>.png
-        // e.g. proj-portfolio-website.png, proj-Machine-Learning-....png, etc.
+        // Assumes you have files like: img/proj-<exact-repo-name>.png
         return `img/proj-${name}.png`;
       }
 
@@ -330,7 +371,6 @@
             return;
           }
 
-          // Only repositories that have a non-empty description
           const withDescription = repos.filter(r => r.description && r.description.trim().length > 0);
 
           if (!withDescription.length) {
@@ -348,11 +388,7 @@
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
 
-            // Build expected image path from repo name
             const builtPath = imageForRepoName(repo.name);
-            // We can't easily check existence without extra calls, so:
-            // - If you've created proj-<reponame>.png, it will load.
-            // - If not, you can manually set a fallback image here:
             const imgUrl = builtPath || fallbackImage || '';
 
             if (imgUrl) {
