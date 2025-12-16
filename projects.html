@@ -76,7 +76,7 @@
       color:var(--muted);
     }
 
-    /* Topbar copied from index (brand + nav) */
+    /* Topbar (brand + nav, same style as index) */
     header.topbar{
       display:flex;
       align-items:center;
@@ -301,7 +301,7 @@
   </style>
 </head>
 <body>
-  <!-- Fixed title bar (same as index) -->
+  <!-- Fixed title bar -->
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
@@ -310,7 +310,7 @@
   </div>
 
   <div class="site">
-    <!-- Top navigation bar (same structure as index) -->
+    <!-- Top navigation bar (now includes Home) -->
     <header class="topbar" role="banner" aria-label="Main navigation">
       <div class="brand">
         <div class="logo" aria-hidden="true">SK</div>
@@ -321,10 +321,10 @@
       </div>
 
       <nav class="hud" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="index.html#contact">Contact</a>
-        <!-- WATCH can go back to your LinkedIn highlights on home page -->
         <a class="btn-play" href="index.html#projects" aria-label="View LinkedIn Highlights">► WATCH</a>
       </nav>
     </header>
