@@ -44,7 +44,7 @@
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
-    /* Fixed title bar (same as index) */
+    /* Fixed title bar */
     .top-title-bar{
       position:fixed;
       top:0;
@@ -76,7 +76,7 @@
       color:var(--muted);
     }
 
-    /* Topbar (brand + nav, same style as index) */
+    /* Topbar */
     header.topbar{
       display:flex;
       align-items:center;
@@ -237,7 +237,7 @@
       z-index:5;
     }
 
-    /* Mobile-only scroll animation for project cards */
+    /* Mobile-only scroll animation for project cards AND disable hover */
     @media (max-width: 575.98px) {
       .github-project-card{
         transition:
@@ -251,6 +251,13 @@
         box-shadow:0 20px 44px rgba(0,0,0,0.95);
         border-color:rgba(229,9,20,0.7);
         background-color:#101010;
+      }
+
+      /* DISABLE hover on mobile */
+      .github-project-card:hover{
+        transform:none;
+        box-shadow:0 12px 28px rgba(0,0,0,0.55);
+        border-color:rgba(255,255,255,0.06);
       }
     }
 
@@ -350,7 +357,7 @@
       <section id="github-projects" class="card" aria-labelledby="github-projects-heading">
         <h2 id="github-projects-heading">GitHub Projects</h2>
         <p class="lead">
-          Pulled from my public GitHub repositories.
+          Pulled from my public GitHub repositories. Only projects with a written description are shown.
         </p>
         <div id="github-projects-grid" class="github-projects-grid">
           <p id="github-projects-loading" style="color:var(--muted);">Loading projects…</p>
@@ -371,10 +378,9 @@
 
       if (!grid) return;
 
-      const fallbackImage = 'img/proj-default.png'; // optional; create this file if you want a fallback
+      const fallbackImage = 'img/proj-default.png'; // optional
 
       function imageForRepoName(name) {
-        // Assumes you have files like: img/proj-<exact-repo-name>.png
         return `img/proj-${name}.png`;
       }
 
