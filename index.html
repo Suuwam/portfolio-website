@@ -324,7 +324,7 @@
       font-weight:800;
     }
 
-    /* LinkedIn posts: image + transparent overlay on hover */
+    /* LinkedIn posts */
     .linkedin-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -402,7 +402,7 @@
       transform:translateY(0);
     }
 
-    /* Mobile-only scroll animation for LinkedIn cards */
+    /* Mobile-only scroll animation + show overlay when active */
     @media (max-width: 575.98px) {
       .linkedin-card{
         transition:
@@ -417,6 +417,22 @@
         box-shadow:0 20px 44px rgba(0,0,0,0.95);
         border-color:rgba(229,9,20,0.7);
         background-color:#101010;
+      }
+
+      .linkedin-card.active .linkedin-overlay{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+      /* DISABLE hover effect on mobile */
+      .linkedin-card:hover{
+        transform:none;
+        box-shadow:0 12px 28px rgba(0,0,0,0.55);
+        border-color:rgba(255,255,255,0.06);
+      }
+      .linkedin-card:hover .linkedin-overlay{
+        opacity:0;
+        transform:translateY(10px);
       }
     }
 
@@ -497,7 +513,7 @@
       </div>
     </section>
 
-    <!-- BIG NAME + TAGLINE (below video) -->
+    <!-- BIG NAME + TAGLINE -->
     <section class="hero-name-block">
       <h2>SHUVAM KHANAL</h2>
       <p>AI Researcher • Product-minded • Systems</p>
@@ -539,7 +555,6 @@
           <h3 id="projects-heading">LinkedIn Highlights</h3>
           <div class="linkedin-grid">
 
-            <!-- 1: CodeFest -->
             <article class="linkedin-card">
               <div class="linkedin-photo" style="background-image:url('img/li1.jpg');"></div>
               <div class="linkedin-overlay">
@@ -553,7 +568,6 @@
               </div>
             </article>
 
-            <!-- 2: TEDxIIMS -->
             <article class="linkedin-card">
               <div class="linkedin-photo" style="background-image:url('img/li2.jpg');"></div>
               <div class="linkedin-overlay">
@@ -567,7 +581,6 @@
               </div>
             </article>
 
-            <!-- 3: Energy Management panel -->
             <article class="linkedin-card">
               <div class="linkedin-photo" style="background-image:url('img/li3.jpg');"></div>
               <div class="linkedin-overlay">
@@ -581,7 +594,6 @@
               </div>
             </article>
 
-            <!-- 4: Software project workshop -->
             <article class="linkedin-card">
               <div class="linkedin-photo" style="background-image:url('img/li4.jpg');"></div>
               <div class="linkedin-overlay">
@@ -595,7 +607,6 @@
               </div>
             </article>
 
-            <!-- 5: Merit scholarship -->
             <article class="linkedin-card">
               <div class="linkedin-photo" style="background-image:url('img/li5.jpg');"></div>
               <div class="linkedin-overlay">
@@ -609,7 +620,6 @@
               </div>
             </article>
 
-            <!-- 6: Design Thinking workshop -->
             <article class="linkedin-card">
               <div class="linkedin-photo" style="background-image:url('img/li6.jpg');"></div>
               <div class="linkedin-overlay">
@@ -641,7 +651,7 @@
         </section>
       </div>
 
-      <!-- Contact full-width -->
+      <!-- Contact -->
       <section class="contact-section">
         <div class="contact-inner">
           <aside class="panel" role="complementary" aria-labelledby="contact-heading">
@@ -730,7 +740,7 @@
       }, 3000);
     })();
 
-    // Mobile scroll animation for LinkedIn cards (pop 1.1x when near center)
+    // Mobile scroll animation for LinkedIn cards
     (function(){
       const cards = Array.from(document.querySelectorAll('.linkedin-card'));
       if (!cards.length) return;
@@ -743,7 +753,6 @@
 
       function onScroll() {
         if (!isMobile()) {
-          // Remove active state on larger screens
           cards.forEach(c => c.classList.remove('active'));
           return;
         }
@@ -766,7 +775,6 @@
               }
             });
 
-            // Set active on the closest card only
             cards.forEach(card => {
               if (card === closestCard) {
                 card.classList.add('active');
