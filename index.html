@@ -402,6 +402,24 @@
       transform:translateY(0);
     }
 
+    /* Mobile-only scroll animation for LinkedIn cards */
+    @media (max-width: 575.98px) {
+      .linkedin-card{
+        transition:
+          transform 200ms var(--ease),
+          box-shadow 200ms var(--ease),
+          border-color 200ms var(--ease),
+          background-color 200ms var(--ease);
+      }
+
+      .linkedin-card.active{
+        transform:translateY(-4px) scale(1.1);
+        box-shadow:0 20px 44px rgba(0,0,0,0.95);
+        border-color:rgba(229,9,20,0.7);
+        background-color:#101010;
+      }
+    }
+
     /* Contact full-width like others */
     .contact-section{
       margin-top:24px;
@@ -516,7 +534,7 @@
           </div>
         </div>
 
-        <!-- LINKEDIN HIGHLIGHTS using li1–li6 images with updated text -->
+        <!-- LINKEDIN HIGHLIGHTS -->
         <section id="projects" class="card" aria-labelledby="projects-heading">
           <h3 id="projects-heading">LinkedIn Highlights</h3>
           <div class="linkedin-grid">
@@ -623,7 +641,7 @@
         </section>
       </div>
 
-      <!-- Contact full-width like others -->
+      <!-- Contact full-width -->
       <section class="contact-section">
         <div class="contact-inner">
           <aside class="panel" role="complementary" aria-labelledby="contact-heading">
@@ -710,6 +728,65 @@
           }, 450);
         });
       }, 3000);
+    })();
+
+    // Mobile scroll animation for LinkedIn cards (pop 1.1x when near center)
+    (function(){
+      const cards = Array.from(document.querySelectorAll('.linkedin-card'));
+      if (!cards.length) return;
+
+      function isMobile() {
+        return window.innerWidth <= 575.98;
+      }
+
+      let ticking = false;
+
+      function onScroll() {
+        if (!isMobile()) {
+          // Remove active state on larger screens
+          cards.forEach(c => c.classList.remove('active'));
+          return;
+        }
+
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const viewportCenter = window.innerHeight / 2;
+
+            let closestCard = null;
+            let closestDistance = Infinity;
+
+            cards.forEach(card => {
+              const rect = card.getBoundingClientRect();
+              const cardCenter = rect.top + rect.height / 2;
+              const distance = Math.abs(cardCenter - viewportCenter);
+
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCard = card;
+              }
+            });
+
+            // Set active on the closest card only
+            cards.forEach(card => {
+              if (card === closestCard) {
+                card.classList.add('active');
+              } else {
+                card.classList.remove('active');
+              }
+            });
+
+            ticking = false;
+          });
+
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      window.addEventListener('load', () => {
+        setTimeout(onScroll, 100);
+      });
     })();
   </script>
 </body>
