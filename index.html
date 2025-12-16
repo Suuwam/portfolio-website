@@ -51,12 +51,17 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      * {
+        transition-duration: 0.001ms !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
-    /* Title bar */
+    /* Fixed title bar */
     .top-title-bar{
       position:fixed;
       top:0;
@@ -224,10 +229,19 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.08);
       background:#000;
+      position:relative;
     }
     .hero-video-inner{
       position:relative;
       padding-top:56.25%; /* 16:9 */
+      z-index:1;
+    }
+    .hero-video-inner iframe{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      border:0;
+      pointer-events:none; /* feels like background */
     }
 
     main{margin-top:22px;padding-bottom:40px}
@@ -336,7 +350,7 @@
 
     .linkedin-photo{
       width:100%;
-      padding-top:100%;
+      padding-top:100%; /* 1:1 square */
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -445,27 +459,25 @@
       </div>
 
       <nav class="hud" aria-label="Primary navigation">
-        <!-- Projects button points to separate projects page -->
+        <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <!-- Watch button scrolls to LinkedIn highlights -->
         <a class="btn-play" href="#projects" aria-label="View LinkedIn Highlights">► WATCH</a>
       </nav>
     </header>
 
     <!-- Video hero -->
     <section class="hero-video-wrapper" aria-label="Intro video">
-  <div class="hero-video-inner">
-    <iframe
-      src="https://www.youtube.com/embed/IILSKEJOTiA?autoplay=1&mute=1&loop=1&playlist=IILSKEJOTiA&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&iv_load_policy=3&playsinline=1&disablekb=1"
-      title="Intro video"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;">
-    </iframe>
-  </div>
-</section>
+      <div class="hero-video-inner">
+        <iframe
+          src="https://www.youtube.com/embed/IILSKEJOTiA?autoplay=1&mute=1&loop=1&playlist=IILSKEJOTiA&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&iv_load_policy=3&playsinline=1&disablekb=1"
+          title="Intro video"
+          frameborder="0"
+          allow="autoplay; encrypted-media">
+        </iframe>
+      </div>
+    </section>
 
     <!-- BIG NAME + TAGLINE (below video) -->
     <section class="hero-name-block">
@@ -497,7 +509,6 @@
             <p>I'm Shuvam Khanal — I apply machine learning research to product-focused systems. I design model pipelines and human-centered AI features with privacy and reliability in mind.</p>
 
             <div class="cta-row" id="cta-row">
-              <!-- Big red CONTACT goes to contact section -->
               <a class="btn-play" href="#contact" aria-label="Go to contact section">CONTACT</a>
               <a class="cta-ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
               <div class="pill">Streaming: Research • DevOps • Product</div>
