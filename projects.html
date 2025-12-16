@@ -189,8 +189,8 @@
       transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
     }
     .github-project-card:hover{
-      transform:translateY(-8px) scale(1.5);
-      box-shadow:0 26px 60px rgba(0,0,0,0.95);
+      transform:translateY(-6px) scale(1.1);
+      box-shadow:0 22px 48px rgba(0,0,0,0.9);
       border-color:rgba(229,9,20,0.7);
       z-index:5;
     }
@@ -309,14 +309,16 @@
 
       if (!grid) return;
 
-      // Map repo name -> image URL (edit this to match your repos & images)
-      const imageMap = {
-        // example:
-        // 'portfolio-website': 'img/proj-portfolio.png',
-        // 'another-repo': 'img/proj-another.png'
-      };
+      // Generic fallback image (for repos without matching image file)
+      const fallbackImage = 'img/proj-default.png'; // optional; create this file if you want a fallback
 
-      const fallbackImage = 'img/proj-default.png'; // optional fallback; create if you want
+      // Helper to build image path from repo name:
+      // repo "portfolio-website" -> "img/proj-portfolio-website.png"
+      function imageForRepoName(name) {
+        // IMPORTANT: this assumes you saved files as proj-<exact-repo-name>.png
+        // e.g. proj-portfolio-website.png, proj-Machine-Learning-....png, etc.
+        return `img/proj-${name}.png`;
+      }
 
       fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
         .then(res => res.json())
@@ -336,8 +338,7 @@
             return;
           }
 
-          // If you want to limit the number, use slice()
-          const toShow = withDescription; // or withDescription.slice(0, 12);
+          const toShow = withDescription;
 
           grid.innerHTML = '';
           toShow.forEach(repo => {
@@ -347,8 +348,13 @@
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
 
-            // pick image: specific mapping or fallback
-            const imgUrl = imageMap[repo.name] || fallbackImage || '';
+            // Build expected image path from repo name
+            const builtPath = imageForRepoName(repo.name);
+            // We can't easily check existence without extra calls, so:
+            // - If you've created proj-<reponame>.png, it will load.
+            // - If not, you can manually set a fallback image here:
+            const imgUrl = builtPath || fallbackImage || '';
+
             if (imgUrl) {
               imgDiv.style.backgroundImage = `url('${imgUrl}')`;
             } else {
