@@ -237,6 +237,23 @@
       z-index:5;
     }
 
+    /* Mobile-only scroll animation for project cards */
+    @media (max-width: 575.98px) {
+      .github-project-card{
+        transition:
+          transform 200ms var(--ease),
+          box-shadow 200ms var(--ease),
+          border-color 200ms var(--ease),
+          background-color 200ms var(--ease);
+      }
+      .github-project-card.active{
+        transform:translateY(-4px) scale(1.1);
+        box-shadow:0 20px 44px rgba(0,0,0,0.95);
+        border-color:rgba(229,9,20,0.7);
+        background-color:#101010;
+      }
+    }
+
     .github-project-image{
       width:100%;
       padding-top:56.25%; /* 16:9 */
@@ -310,7 +327,7 @@
   </div>
 
   <div class="site">
-    <!-- Top navigation bar (now includes Home) -->
+    <!-- Top navigation bar -->
     <header class="topbar" role="banner" aria-label="Main navigation">
       <div class="brand">
         <div class="logo" aria-hidden="true">SK</div>
@@ -333,7 +350,7 @@
       <section id="github-projects" class="card" aria-labelledby="github-projects-heading">
         <h2 id="github-projects-heading">GitHub Projects</h2>
         <p class="lead">
-          Pulled from my public GitHub repositories.
+          Pulled from my public GitHub repositories. Only projects with a written description are shown.
         </p>
         <div id="github-projects-grid" class="github-projects-grid">
           <p id="github-projects-loading" style="color:var(--muted);">Loading projects…</p>
@@ -437,12 +454,69 @@
 
             grid.appendChild(card);
           });
+
+          // After cards are created, attach mobile scroll animation
+          setupMobileScrollAnimation();
         })
         .catch(err => {
           console.error('GitHub API error', err);
           if (loading) loading.remove();
           grid.innerHTML = '<p style="color:var(--muted);">Failed to load projects.</p>';
         });
+
+      function setupMobileScrollAnimation() {
+        const cards = Array.from(document.querySelectorAll('.github-project-card'));
+        if (!cards.length) return;
+
+        function isMobile() {
+          return window.innerWidth <= 575.98;
+        }
+
+        let ticking = false;
+
+        function onScroll() {
+          if (!isMobile()) {
+            cards.forEach(c => c.classList.remove('active'));
+            return;
+          }
+
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const viewportCenter = window.innerHeight / 2;
+              let closestCard = null;
+              let closestDistance = Infinity;
+
+              cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardCenter = rect.top + rect.height / 2;
+                const distance = Math.abs(cardCenter - viewportCenter);
+                if (distance < closestDistance) {
+                  closestDistance = distance;
+                  closestCard = card;
+                }
+              });
+
+              cards.forEach(card => {
+                if (card === closestCard) {
+                  card.classList.add('active');
+                } else {
+                  card.classList.remove('active');
+                }
+              });
+
+              ticking = false;
+            });
+
+            ticking = true;
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        window.addEventListener('load', () => {
+          setTimeout(onScroll, 100);
+        });
+      }
     })();
   </script>
 </body>
