@@ -44,7 +44,7 @@
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
-    /* Fixed title bar (same as index) */
+    /* Fixed title bar */
     .top-title-bar{
       position:fixed;
       top:0;
@@ -76,7 +76,7 @@
       color:var(--muted);
     }
 
-    /* Topbar (brand + nav, same style as index/projects) */
+    /* Topbar (brand + nav) */
     header.topbar{
       display:flex;
       align-items:center;
@@ -277,7 +277,7 @@
   </div>
 
   <div class="site">
-    <!-- Top navigation bar -->
+    <!-- Top navigation bar (with Home) -->
     <header class="topbar" role="banner" aria-label="Main navigation">
       <div class="brand">
         <div class="logo" aria-hidden="true">SK</div>
@@ -288,6 +288,7 @@
       </div>
 
       <nav class="hud" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="index.html#contact">Contact</a>
@@ -296,7 +297,6 @@
     </header>
 
     <main>
-      <!-- Skills content (keep or edit as you like) -->
       <section class="card" aria-labelledby="skills-heading">
         <h2 id="skills-heading">Skills</h2>
         <p class="lead">
@@ -305,7 +305,7 @@
 
         <div class="skills-grid">
           <article class="skill-card">
-            <h3>Machine Learning & AI</h3>
+            <h3>Machine Learning &amp; AI</h3>
             <p>Designing and training models for NLP, classification, and forecasting, with an eye on reliability and explainability.</p>
             <div class="skill-tags">
               <span class="skill-tag">Python</span>
@@ -326,7 +326,7 @@
           </article>
 
           <article class="skill-card">
-            <h3>DevOps & Cloud</h3>
+            <h3>DevOps &amp; Cloud</h3>
             <p>Automating builds, tests, and deployments; monitoring systems so that ML features stay healthy in production.</p>
             <div class="skill-tags">
               <span class="skill-tag">Docker</span>
@@ -336,7 +336,7 @@
           </article>
 
           <article class="skill-card">
-            <h3>Backend & APIs</h3>
+            <h3>Backend &amp; APIs</h3>
             <p>Designing clean APIs that connect models to real users and applications.</p>
             <div class="skill-tags">
               <span class="skill-tag">FastAPI</span>
@@ -346,7 +346,7 @@
           </article>
 
           <article class="skill-card">
-            <h3>Frontend & UX</h3>
+            <h3>Frontend &amp; UX</h3>
             <p>Building simple, clear interfaces and dashboards so people can actually use and trust the models.</p>
             <div class="skill-tags">
               <span class="skill-tag">HTML/CSS</span>
@@ -356,7 +356,7 @@
           </article>
 
           <article class="skill-card">
-            <h3>Collaboration & Leadership</h3>
+            <h3>Collaboration &amp; Leadership</h3>
             <p>Running events, workshops, and projects that bring engineers, designers, and stakeholders together.</p>
             <div class="skill-tags">
               <span class="skill-tag">Workshops</span>
@@ -374,7 +374,7 @@
   </div>
 
   <script>
-    // Optional: reuse the same small WATCH button pulse animation from index
+    // Optional: pulse WATCH button, like on index
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(!playButtons.length) return;
