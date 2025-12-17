@@ -194,7 +194,6 @@
       font-size:13px;
     }
 
-    /* Video grid similar to LinkedIn grid */
     .video-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -218,10 +217,16 @@
       border:1px solid rgba(255,255,255,0.06);
     }
 
+    .video-card a{
+      display:block;
+      color:inherit;
+      text-decoration:none;
+    }
+
     .video-thumb{
       position:relative;
       width:100%;
-      padding-top:56.25%; /* 16:9 */
+      padding-top:56.25%;
       overflow:hidden;
       background:#000;
     }
@@ -260,36 +265,30 @@
       box-shadow:0 10px 26px rgba(0,0,0,0.8);
     }
 
-    .video-overlay{
-      position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:14px;
-      background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15));
+    .video-info{
+      padding:10px 12px 12px 12px;
+      background:linear-gradient(180deg,#151515,#101010);
     }
-    .video-overlay h4{
+    .video-title{
       margin:0 0 4px 0;
       font-size:14px;
+      font-weight:700;
       color:var(--text);
     }
-    .video-overlay p{
-      margin:0;
+    .video-desc{
+      margin:0 0 6px 0;
       font-size:12px;
       color:var(--muted);
     }
-    .video-meta{
+    .video-meta-row{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      margin-top:6px;
       font-size:11px;
       color:var(--muted);
     }
-    .video-meta a{
+    .video-meta-row span.right{
       color:var(--accent);
-      text-decoration:none;
       font-weight:600;
     }
 
@@ -311,7 +310,6 @@
       box-shadow:0 14px 40px rgba(229,9,20,0.55);
     }
 
-    /* On mobile, tone down the hover transforms */
     @media(max-width:575.98px){
       .video-card:hover{
         transform:none;
@@ -371,15 +369,13 @@
       <section class="card" aria-labelledby="youtube-heading">
         <h2 id="youtube-heading">YouTube Highlights</h2>
         <p class="lead">
-          A curated set of YouTube videos from my channels — talks, workshops, and experiments. Hover (desktop)
-          for a subtle thumbnail play, click any card to watch on YouTube.
+          A curated set of YouTube videos from my channel — informative video, talks, workshops, and experiments.
         </p>
 
         <div class="video-grid">
-          <!-- VIDEO 1: ue_Yj6ww-hs -->
+          <!-- VIDEO 1 -->
           <article class="video-card">
-            <a href="https://www.youtube.com/watch?v=ue_Yj6ww-hs" target="_blank" rel="noopener"
-               style="text-decoration:none;color:inherit;display:block;">
+            <a href="https://www.youtube.com/watch?v=ue_Yj6ww-hs" target="_blank" rel="noopener">
               <div class="video-thumb">
                 <div class="video-thumb-inner"
                      style="background-image:url('https://img.youtube.com/vi/ue_Yj6ww-hs/hqdefault.jpg');"></div>
@@ -387,21 +383,22 @@
                   <div class="video-play-circle">▶</div>
                 </div>
               </div>
-              <div class="video-overlay">
-                <h4>Appointment Booking Demo</h4>
-                <p>Walkthrough of the appointment and booking experience, showing how I organize requests.</p>
-                <div class="video-meta">
+              <div class="video-info">
+                <h3 class="video-title">Anicorruption in workplace:Unveiling the Entangled Web of Nepotism: The silent struggles</h3>
+                <p class="video-desc">
+                  Anicorruption in workplace:Unveiling the Entangled Web of Nepotism: The silent struggles
+                </p>
+                <div class="video-meta-row">
                   <span>My Channel • 2025</span>
-                  <a href="https://www.youtube.com/watch?v=ue_Yj6ww-hs" target="_blank" rel="noopener">Watch</a>
+                  <span class="right">Watch on YouTube</span>
                 </div>
               </div>
             </a>
           </article>
 
-          <!-- VIDEO 2: 6e7AY6zpC0o&t... (base ID 6e7AY6zpC0o) -->
+          <!-- VIDEO 2 -->
           <article class="video-card">
-            <a href="https://www.youtube.com/watch?v=6e7AY6zpC0o&t=0s" target="_blank" rel="noopener"
-               style="text-decoration:none;color:inherit;display:block;">
+            <a href="https://www.youtube.com/watch?v=6e7AY6zpC0o&t=0s" target="_blank" rel="noopener">
               <div class="video-thumb">
                 <div class="video-thumb-inner"
                      style="background-image:url('https://img.youtube.com/vi/6e7AY6zpC0o/hqdefault.jpg');"></div>
@@ -409,21 +406,22 @@
                   <div class="video-play-circle">▶</div>
                 </div>
               </div>
-              <div class="video-overlay">
-                <h4>ML / DevOps Session</h4>
-                <p>A practical session combining ML ideas with deployment and DevOps workflows.</p>
-                <div class="video-meta">
+              <div class="video-info">
+                <h3 class="video-title">Professionalism at work place: workplace harsssment</h3>
+                <p class="video-desc">
+                  Professionalism at work place: workplace harsssment
+                </p>
+                <div class="video-meta-row">
                   <span>My Channel • 2025</span>
-                  <a href="https://www.youtube.com/watch?v=6e7AY6zpC0o&t=0s" target="_blank" rel="noopener">Watch</a>
+                  <span class="right">Watch on YouTube</span>
                 </div>
               </div>
             </a>
           </article>
 
-          <!-- VIDEO 3: X5qTLn9Wylw&t... (base ID X5qTLn9Wylw) -->
+          <!-- VIDEO 3 -->
           <article class="video-card">
-            <a href="https://www.youtube.com/watch?v=X5qTLn9Wylw&t=0s" target="_blank" rel="noopener"
-               style="text-decoration:none;color:inherit;display:block;">
+            <a href="https://www.youtube.com/watch?v=X5qTLn9Wylw&t=0s" target="_blank" rel="noopener">
               <div class="video-thumb">
                 <div class="video-thumb-inner"
                      style="background-image:url('https://img.youtube.com/vi/X5qTLn9Wylw/hqdefault.jpg');"></div>
@@ -431,12 +429,14 @@
                   <div class="video-play-circle">▶</div>
                 </div>
               </div>
-              <div class="video-overlay">
-                <h4>Workshop / Talk Highlight</h4>
-                <p>Highlight from a workshop or talk focusing on practical AI, systems, and product thinking.</p>
-                <div class="video-meta">
+              <div class="video-info">
+                <h3 class="video-title">Event management: Bloopers and Highlights: "END OF SEMESTER TRIBUTE | IIMS COLLEGE"</h3>
+                <p class="video-desc">
+                  Event management: Bloopers and Highlights: "END OF SEMESTER TRIBUTE | IIMS COLLEGE"
+                </p>
+                <div class="video-meta-row">
                   <span>My Channel • 2025</span>
-                  <a href="https://www.youtube.com/watch?v=X5qTLn9Wylw&t=0s" target="_blank" rel="noopener">Watch</a>
+                  <span class="right">Watch on YouTube</span>
                 </div>
               </div>
             </a>
@@ -451,7 +451,6 @@
   </div>
 
   <script>
-    // Gentle pulse animation for WATCH button
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(!playButtons.length) return;
