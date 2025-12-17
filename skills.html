@@ -224,6 +224,12 @@
       box-shadow:0 18px 40px rgba(0,0,0,0.9);
       border-color:rgba(229,9,20,0.7);
     }
+    .skill-card.active{
+      transform:translateY(-4px) scale(1.05);
+      box-shadow:0 20px 44px rgba(0,0,0,0.95);
+      border-color:rgba(229,9,20,0.7);
+      background-color:#101010;
+    }
     .skill-card h3{
       margin:0 0 6px 0;
       font-size:15px;
@@ -482,6 +488,58 @@
 
       window.addEventListener('resize', () => {
         if (!isMobile()) closeModal();
+      });
+    })();
+
+    // Scroll-based pop for skills on mobile
+    (function(){
+      const cards = Array.from(document.querySelectorAll('.skill-card'));
+      if (!cards.length) return;
+
+      function isMobile() {
+        return window.innerWidth <= 575.98;
+      }
+
+      let ticking = false;
+
+      function onScroll() {
+        if (!isMobile()) {
+          cards.forEach(c => c.classList.remove('active'));
+          return;
+        }
+
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const viewportCenter = window.innerHeight / 2;
+            let closestCard = null;
+            let closestDistance = Infinity;
+
+            cards.forEach(card => {
+              const rect = card.getBoundingClientRect();
+              const cardCenter = rect.top + rect.height / 2;
+              const distance = Math.abs(cardCenter - viewportCenter);
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCard = card;
+              }
+            });
+
+            cards.forEach(card => {
+              if (card === closestCard) card.classList.add('active');
+              else card.classList.remove('active');
+            });
+
+            ticking = false;
+          });
+
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      window.addEventListener('load', () => {
+        setTimeout(onScroll, 100);
       });
     })();
   </script>
