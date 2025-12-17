@@ -39,12 +39,11 @@
       line-height:1.5;
       overflow-x:hidden;
       scroll-behavior:smooth;
-      padding-top:44px; /* space for title bar */
+      padding-top:44px;
     }
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
-    /* Fixed title bar */
     .top-title-bar{
       position:fixed;
       top:0;
@@ -76,7 +75,6 @@
       color:var(--muted);
     }
 
-    /* Topbar (brand + nav) */
     header.topbar{
       display:flex;
       align-items:center;
@@ -268,7 +266,6 @@
   </style>
 </head>
 <body>
-  <!-- Fixed title bar -->
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
@@ -277,7 +274,6 @@
   </div>
 
   <div class="site">
-    <!-- Top navigation bar (with Home) -->
     <header class="topbar" role="banner" aria-label="Main navigation">
       <div class="brand">
         <div class="logo" aria-hidden="true">SK</div>
@@ -291,8 +287,9 @@
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
-        <a class="nav-link" href="index.html#contact">Contact</a>
-        <a class="btn-play" href="index.html#projects" aria-label="View LinkedIn Highlights">► WATCH</a>
+        <a class="nav-link" href="blog.html">Blog</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="btn-play" href="Youtube.html" aria-label="Go to YouTube page">► WATCH</a>
       </nav>
     </header>
 
@@ -374,7 +371,6 @@
   </div>
 
   <script>
-    // Optional: pulse WATCH button, like on index
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(!playButtons.length) return;
