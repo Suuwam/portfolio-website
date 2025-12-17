@@ -427,7 +427,7 @@
       transform:translateY(0);
     }
 
-    /* CONTACT CARD (like contact page) */
+    /* CONTACT CARD */
     .contact-card{
       margin-top:18px;
       padding:16px 16px 14px 16px;
@@ -462,10 +462,10 @@
       font-size:13px;
     }
     .contact-card p strong{
-      color:var(--accent);
+      color:var(--text); /* labels white */
     }
     .contact-card a{
-      color:var(--accent);
+      color:var(--accent);  /* credentials red */
       font-weight:600;
       text-decoration:none;
     }
@@ -500,6 +500,32 @@
       border-color:rgba(255,255,255,0.9);
       box-shadow:0 10px 24px rgba(229,9,20,0.65);
       transform:translateY(-1px);
+    }
+
+    /* HIGHLIGHTS SECTION */
+    .highlights-card{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .highlights-card h3{
+      margin:0 0 8px 0;
+      font-size:16px;
+      font-weight:800;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+    .highlights-card ul{
+      margin:6px 0 0 0;
+      padding-left:20px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .highlights-card li{
+      margin:4px 0;
     }
 
     footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
@@ -727,6 +753,16 @@
             <a class="social" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
             <a class="social" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
           </div>
+        </div>
+
+        <!-- EXTRA HIGHLIGHTS / SUMMARY -->
+        <div class="highlights-card" aria-labelledby="summary-heading">
+          <h3 id="summary-heading">Highlights</h3>
+          <ul>
+            <li>Undergrad CS student focused on AI/ML projects that connect research ideas to real users.</li>
+            <li>Experience hosting events, workshops, and panels around technology, design, and innovation.</li>
+            <li>Comfortable across the stack — from model training to APIs, DevOps, and simple UX for demos.</li>
+          </ul>
         </div>
       </div>
     </main>
