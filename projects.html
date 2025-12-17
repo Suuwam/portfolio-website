@@ -6,11 +6,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="GitHub projects by Shuvam Khanal (Suuwam), showing only repositories with descriptions." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap (optional) -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <style>
@@ -343,6 +341,7 @@
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="blog.html">Blog</a>
         <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="appointment.html">Appointment</a>
         <a class="btn-play" href="Youtube.html" aria-label="Go to YouTube page">► WATCH</a>
       </nav>
     </header>
@@ -396,18 +395,16 @@
           }
 
           const toShow = withDescription;
-
           grid.innerHTML = '';
+
           toShow.forEach(repo => {
             const card = document.createElement('article');
             card.className = 'github-project-card';
 
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
-
             const builtPath = imageForRepoName(repo.name);
             const imgUrl = builtPath || fallbackImage || '';
-
             if (imgUrl) {
               imgDiv.style.backgroundImage = `url('${imgUrl}')`;
             } else {
