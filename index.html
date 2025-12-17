@@ -435,7 +435,7 @@
       padding:16px 16px 14px 16px;
       border-radius:12px;
       background:linear-gradient(135deg, rgba(229,9,20,0.18), rgba(0,0,0,0.9));
-      border:1px solid rgba(255,255,255,0.06); /* default same as other cards */
+      border:1px solid rgba(255,255,255,0.06);
       box-shadow:0 18px 40px rgba(0,0,0,0.9);
       position:relative;
       overflow:hidden;
@@ -465,10 +465,10 @@
       font-size:13px;
     }
     .contact-card p strong{
-      color:var(--text); /* labels white */
+      color:var(--text);
     }
     .contact-card a{
-      color:var(--accent);  /* credentials red */
+      color:var(--accent);
       font-weight:600;
       text-decoration:none;
     }
@@ -539,7 +539,6 @@
       nav.hud{justify-content:flex-start}
     }
 
-    /* MOBILE scroll pop for sections (core skills, contact, highlights) */
     @media (max-width:575.98px){
       #skills,
       .contact-card,
@@ -831,7 +830,7 @@
       }, 3000);
     })();
 
-    // Scroll-based pop for LinkedIn on mobile (only while in LinkedIn area)
+    // Scroll-based pop for LinkedIn on mobile (only inside LinkedIn section)
     (function(){
       const cards = Array.from(document.querySelectorAll('.linkedin-card'));
       const projectsSection = document.getElementById('projects');
@@ -852,11 +851,8 @@
         const projRect = projectsSection.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
 
-        // If the whole LinkedIn section is above the top or far below, clear active state
-        const completelyAbove = projRect.bottom < 0;
-        const completelyBelow = projRect.top > viewportHeight;
-
-        if (completelyAbove || completelyBelow) {
+        // If LinkedIn section is out of view, clear all active states
+        if (projRect.bottom < 0 || projRect.top > viewportHeight) {
           cards.forEach(c => c.classList.remove('active'));
           return;
         }
@@ -903,9 +899,9 @@
 
     // Scroll-based pop for Core Skills, Contact, Highlights on mobile
     (function(){
-      const skillsSection    = document.getElementById('skills');
-      const contactSection   = document.getElementById('contact');
-      const highlightsSection= document.querySelector('.highlights-card');
+      const skillsSection     = document.getElementById('skills');
+      const contactSection    = document.getElementById('contact');
+      const highlightsSection = document.querySelector('.highlights-card');
 
       const sections = [skillsSection, contactSection, highlightsSection].filter(Boolean);
       if (!sections.length) return;
