@@ -404,104 +404,6 @@
       }
     }
 
-    .github-projects-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      grid-gap:20px;
-      align-items:start;
-    }
-    @media(max-width:991.98px){
-      .github-projects-grid{grid-template-columns:repeat(2,1fr);}
-    }
-    @media(max-width:575.98px){
-      .github-projects-grid{grid-template-columns:1fr;}
-    }
-
-    .github-project-card{
-      background:linear-gradient(180deg,#151515,#101010);
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 12px 28px rgba(0,0,0,0.55);
-      display:flex;
-      flex-direction:column;
-      overflow:hidden;
-      transform:translateY(0) scale(1);
-      transform-origin:center center;
-      transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
-    }
-    .github-project-card:hover{
-      transform:translateY(-6px) scale(1.1);
-      box-shadow:0 22px 48px rgba(0,0,0,0.9);
-      border-color:rgba(229,9,20,0.7);
-      z-index:5;
-    }
-
-    @media (max-width: 575.98px) {
-      .github-project-card{
-        transition:
-          transform 200ms var(--ease),
-          box-shadow 200ms var(--ease),
-          border-color 200ms var(--ease),
-          background-color 200ms var(--ease);
-      }
-      .github-project-card.active{
-        transform:translateY(-4px) scale(1.1);
-        box-shadow:0 20px 44px rgba(0,0,0,0.95);
-        border-color:rgba(229,9,20,0.7);
-        background-color:#101010;
-      }
-
-      .github-project-card:hover{
-        transform:none;
-        box-shadow:0 12px 28px rgba(0,0,0,0.55);
-        border-color:rgba(255,255,255,0.06);
-      }
-    }
-
-    .github-project-image{
-      width:100%;
-      padding-top:56.25%;
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      background-color:#000;
-    }
-
-    .github-project-body{
-      padding:12px 14px 14px 14px;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-
-    .github-project-name{
-      font-weight:700;
-      font-size:14px;
-      color:var(--text);
-      margin:0;
-      word-break:break-word;
-    }
-
-    .github-project-desc{
-      font-size:13px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .github-project-meta{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:11px;
-      color:var(--muted);
-      margin-top:8px;
-    }
-    .github-project-meta span{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-    }
-
     footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
 
     @media (max-width:980px){
@@ -587,7 +489,7 @@
           </div>
         </div>
 
-        <!-- LinkedIn Highlights (entire card clickable) -->
+        <!-- LINKEDIN HIGHLIGHTS (full-card clickable) -->
         <section id="projects" class="card" aria-labelledby="projects-heading">
           <h3 id="projects-heading">LinkedIn Highlights</h3>
           <div class="linkedin-grid">
@@ -691,7 +593,6 @@
           </div>
         </section>
 
-        <!-- GitHub Projects preview (same style as projects.html, cards clickable there) -->
         <section id="skills" class="card" aria-labelledby="skills-heading">
           <h3 id="skills-heading">Core Skills</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
