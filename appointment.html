@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Appointment — Shuvam Khanal</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Book an appointment with Shuvam Khanal for AI, projects, or collaboration discussions." />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#121212;
+      --muted:#b3b3b3;
+      --text:#f3f3f3;
+      --accent:#e50914;
+      --card:#181818;
+      --container:1100px;
+      --ease: cubic-bezier(.2,.9,.3,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background:linear-gradient(180deg,var(--bg) 0%,#070707 100%);
+      color:var(--text);
+      padding-top:44px;
+      overflow-x:hidden;
+    }
+
+    .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
+
+    .top-title-bar{
+      position:fixed;top:0;left:0;right:0;
+      background:#000;color:#fff;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      z-index:10000;
+    }
+    .top-title-inner{
+      max-width:var(--container);margin:0 auto;
+      padding:8px 18px;display:flex;
+      align-items:center;justify-content:space-between;
+    }
+    .top-title-inner h1{
+      margin:0;font-size:18px;
+      letter-spacing:0.08em;text-transform:uppercase;
+      font-family:"Bebas Neue",sans-serif;color:var(--accent);
+    }
+    .top-title-inner span{
+      font-size:12px;color:var(--muted);
+    }
+
+    header.topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;margin-top:16px;
+      background:#050505;border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 12px 40px rgba(0,0,0,0.8);
+    }
+    .brand{display:flex;align-items:center;gap:14px;}
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
+      border:2px solid rgba(255,255,255,0.08);
+      color:var(--accent);font-weight:800;font-size:20px;
+      font-family:"Bebas Neue",sans-serif;
+    }
+    .brand-text h3{margin:0;font-size:18px;color:var(--text);}
+    .brand-text p{margin:2px 0 0 0;font-size:13px;color:var(--muted);}
+
+    nav.hud{
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      color:var(--muted);text-decoration:none;
+      padding:8px 12px;border-radius:8px;
+      font-weight:600;font-size:13px;
+      position:relative;
+      transition: color 200ms var(--ease), transform 200ms var(--ease);
+    }
+    .nav-link::after{
+      content:"";position:absolute;left:12px;right:12px;bottom:-6px;
+      height:2px;background:var(--accent);
+      transform:scaleX(0);transform-origin:left center;
+      transition:transform 240ms var(--ease);
+      border-radius:2px;opacity:0.95;
+    }
+    .nav-link:hover{
+      color:var(--text);transform:translateY(-1px);
+    }
+    .nav-link:hover::after{transform:scaleX(1);}
+
+    .btn-play{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--accent);color:#081014;
+      padding:10px 18px;border-radius:999px;border:none;
+      font-weight:800;font-size:13px;text-decoration:none;
+      box-shadow:0 12px 32px rgba(229,9,20,0.35);
+      transform:translateY(0);
+      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
+      white-space:nowrap;cursor:pointer;
+    }
+    .btn-play:hover{
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 18px 44px rgba(229,9,20,0.55);
+    }
+
+    main{margin-top:22px;}
+
+    .appointment-layout{
+      display:grid;
+      grid-template-columns:2fr 1.2fr;
+      grid-gap:18px;
+      margin-top:18px;
+    }
+    @media(max-width:991.98px){
+      .appointment-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .card{
+      position:relative;
+      border-radius:12px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+      border:1px solid rgba(255,255,255,0.04);
+      padding:18px;
+      box-shadow:0 12px 32px rgba(0,0,0,0.65);
+    }
+
+    .card h2{
+      margin:0 0 8px 0;
+      font-family:"Bebas Neue",sans-serif;
+      font-size:28px;letter-spacing:1px;
+      color:var(--accent);text-transform:uppercase;
+    }
+    .card p.lead{
+      margin:0 0 12px 0;color:var(--muted);font-size:13px;
+    }
+
+    .floating-orb{
+      position:absolute;
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 20%,rgba(229,9,20,0.6),transparent);
+      opacity:0.2;
+      filter:blur(2px);
+      pointer-events:none;
+      z-index:-1;
+      animation: floatOrb 16s infinite alternate ease-in-out;
+    }
+    .floating-orb.orb-2{
+      width:100px;height:100px;
+      top:auto;bottom:-40px;right:-40px;
+      animation-duration:20s;
+    }
+    .floating-orb.orb-1{
+      top:-60px;left:-60px;
+    }
+    @keyframes floatOrb{
+      0%{transform:translate(0,0);}
+      50%{transform:translate(10px,20px);}
+      100%{transform:translate(-10px,10px);}
+    }
+
+    .helper-text{
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    .side-card-title{
+      font-family:"Bebas Neue",sans-serif;
+      font-size:22px;
+      letter-spacing:1px;
+      color:var(--accent);
+      text-transform:uppercase;
+      margin:0 0 6px 0;
+    }
+    .side-card-text{
+      font-size:13px;
+      color:var(--muted);
+      margin:0 0 10px 0;
+    }
+
+    footer.site-footer{
+      text-align:center;color:var(--muted);
+      margin-top:24px;font-size:12px;
+    }
+
+    @media (max-width:980px){
+      header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
+      nav.hud{justify-content:flex-start;}
+    }
+  </style>
+</head>
+<body>
+  <div class="top-title-bar">
+    <div class="top-title-inner">
+      <h1>Shuvam Portfolio</h1>
+      <span>Book an Appointment</span>
+    </div>
+  </div>
+
+  <div class="site">
+    <header class="topbar" role="banner" aria-label="Main navigation">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">SK</div>
+        <div class="brand-text">
+          <h3>Shuvam Khanal</h3>
+          <p>AI Researcher • Product-minded • Systems</p>
+        </div>
+      </div>
+      <nav class="hud" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link" href="blog.html">Blog</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="appointment.html">Appointment</a>
+        <a class="btn-play" href="Youtube.html">► WATCH</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="appointment-layout">
+        <!-- Main card with embedded Google Form -->
+        <section class="card" aria-labelledby="appointment-heading">
+          <div class="floating-orb orb-1"></div>
+          <div class="floating-orb orb-2"></div>
+
+          <h2 id="appointment-heading">Book an Appointment</h2>
+          <p class="lead">
+            Fill out this short Google Form to request a call. Your responses go directly into my Google Sheet
+            so I can keep track of all appointments.
+          </p>
+
+          <div style="margin-top:12px; border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); background:#000;">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform?embedded=true"
+              width="100%"
+              height="820"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              style="border:0; display:block;"
+            >
+              Loading…
+            </iframe>
+          </div>
+
+          <p class="helper-text" style="margin-top:10px;">
+            If the form doesn’t load, you can open it
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform"
+               target="_blank" rel="noopener"
+               style="color:var(--accent);font-weight:600;">
+              in a new tab
+            </a>.
+          </p>
+        </section>
+
+        <!-- Side info card -->
+        <aside class="card" aria-label="Appointment info">
+          <h3 class="side-card-title">What to expect</h3>
+          <p class="side-card-text">
+            Once you submit the form, your request is stored in my Google Sheet. I’ll review it and reply with
+            available time slots, usually within 24–48 hours.
+          </p>
+
+          <p class="side-card-text"><strong>Best topics for a call:</strong></p>
+          <ul class="side-card-text" style="padding-left:18px;margin-bottom:10px;">
+            <li>Reviewing your AI / ML project or research idea</li>
+            <li>Planning a learning roadmap in data, ML, or DevOps</li>
+            <li>Brainstorming a product or feature using AI</li>
+            <li>Event / workshop collaboration</li>
+          </ul>
+
+          <p class="side-card-text"><strong>Time zones:</strong><br/>
+            I’m based in Nepal Time (NPT, UTC+5:45). If you’re in a different region, mention your time zone
+            in the form so we can align easily.
+          </p>
+
+          <p class="side-card-text"><strong>Contact alternatives:</strong><br/>
+            If the form ever fails, feel free to email me directly at
+            <a href="mailto:shuvamkhanal1000@gmail.com" style="color:var(--accent);font-weight:600;">shuvamkhanal1000@gmail.com</a>.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      &copy; 2025 Shuvam Khanal.
+    </footer>
+  </div>
+
+  <script>
+    // Light animation for WATCH button
+    (function(){
+      const playButtons = document.querySelectorAll('.btn-play');
+      if(!playButtons.length) return;
+      setInterval(function(){
+        playButtons.forEach(play => {
+          play.style.transform = 'scale(1.02)';
+          play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.22)';
+          setTimeout(function(){
+            play.style.transform = '';
+            play.style.boxShadow = '0 12px 32px rgba(229,9,20,0.35)';
+          }, 450);
+        });
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>
