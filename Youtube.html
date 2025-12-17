@@ -32,6 +32,8 @@
       color:var(--text);
       padding-top:44px;
       overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
@@ -82,64 +84,98 @@
       gap:14px;
     }
     .logo{
-      width:56px;height:56px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
       border:2px solid rgba(255,255,255,0.08);
       color:var(--accent);
-      font-weight:800;font-size:20px;
+      font-weight:800;
+      font-size:20px;
+      letter-spacing:1px;
       font-family:"Bebas Neue",sans-serif;
     }
     .brand-text h3{
-      margin:0;font-size:18px;color:var(--text);
+      margin:0;
+      font-size:18px;
+      color:var(--text);
     }
     .brand-text p{
-      margin:2px 0 0 0;font-size:13px;color:var(--muted);
+      margin:2px 0 0 0;
+      font-size:13px;
+      color:var(--muted);
     }
 
     nav.hud{
-      display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
     .nav-link{
-      color:var(--muted);text-decoration:none;
-      padding:8px 12px;border-radius:8px;
-      font-weight:600;font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      font-size:13px;
       position:relative;
       transition: color 200ms var(--ease), transform 200ms var(--ease);
     }
     .nav-link::after{
-      content:"";position:absolute;left:12px;right:12px;bottom:-6px;
-      height:2px;background:var(--accent);
-      transform:scaleX(0);transform-origin:left center;
+      content:"";
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:-6px;
+      height:2px;
+      background:var(--accent);
+      transform:scaleX(0);
+      transform-origin:left center;
       transition:transform 240ms var(--ease);
-      border-radius:2px;opacity:0.95;
+      border-radius:2px;
+      opacity:0.95;
     }
     .nav-link:hover{
-      color:var(--text);transform:translateY(-1px);
+      color:var(--text);
+      transform:translateY(-1px);
     }
     .nav-link:hover::after{
       transform:scaleX(1);
     }
 
     .btn-play{
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--accent);color:#081014;
-      padding:10px 18px;border-radius:999px;border:none;
-      font-weight:800;font-size:13px;text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--accent);
+      color:#081014;
+      padding:10px 18px;
+      border-radius:999px;
+      border:none;
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
       box-shadow:0 12px 32px rgba(229,9,20,0.35);
       transform:translateY(0);
       transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
-      white-space:nowrap;cursor:pointer;
+      white-space:nowrap;
+      cursor:pointer;
     }
     .btn-play:hover{
       transform:translateY(-2px) scale(1.02);
       box-shadow:0 18px 44px rgba(229,9,20,0.55);
     }
 
-    main{margin-top:22px}
+    main{margin-top:22px;}
 
     section.card{
-      margin-top:18px;padding:18px;
+      margin-top:18px;
+      padding:18px;
       border-radius:10px;
       background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
       border:1px solid rgba(255,255,255,0.02);
@@ -147,17 +183,22 @@
     section.card h2{
       margin:0 0 10px 0;
       font-family:"Bebas Neue",sans-serif;
-      font-size:28px;letter-spacing:1px;
-      color:var(--accent);text-transform:uppercase;
+      font-size:28px;
+      letter-spacing:1px;
+      color:var(--accent);
+      text-transform:uppercase;
     }
     section.card p.lead{
-      margin:0 0 12px 0;color:var(--muted);font-size:13px;
+      margin:0 0 12px 0;
+      color:var(--muted);
+      font-size:13px;
     }
 
+    /* Video grid similar to LinkedIn grid */
     .video-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      grid-gap:18px;
+      grid-gap:16px;
     }
     @media(max-width:991.98px){
       .video-grid{grid-template-columns:repeat(2,1fr);}
@@ -167,65 +208,134 @@
     }
 
     .video-card{
-      background:linear-gradient(180deg,#151515,#101010);
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.06);
-      overflow:hidden;
-      box-shadow:0 10px 28px rgba(0,0,0,0.55);
-      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
-      cursor:pointer;
       position:relative;
-    }
-    .video-card:hover{
-      transform:translateY(-4px) scale(1.02);
-      box-shadow:0 18px 40px rgba(0,0,0,0.9);
-      border-color:rgba(229,9,20,0.7);
-    }
-    @media(max-width:575.98px){
-      .video-card:hover{
-        transform:none;
-        box-shadow:0 10px 28px rgba(0,0,0,0.55);
-        border-color:rgba(255,255,255,0.06);
-      }
+      border-radius:10px;
+      overflow:hidden;
+      background:#000;
+      box-shadow:0 12px 28px rgba(0,0,0,0.55);
+      transform:translateY(0) scale(1);
+      transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease), background-color 220ms var(--ease);
+      border:1px solid rgba(255,255,255,0.06);
     }
 
     .video-thumb{
       position:relative;
       width:100%;
       padding-top:56.25%; /* 16:9 */
+      overflow:hidden;
+      background:#000;
+    }
+    .video-thumb-inner{
+      position:absolute;
+      inset:0;
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
+      transform:scale(1);
+      transition:transform 220ms var(--ease), filter 220ms var(--ease);
     }
 
-    .video-iframe{
-      position:absolute;top:0;left:0;
-      width:100%;height:100%;
-      border:0;display:none;
+    .video-play-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .video-play-circle{
+      width:54px;
+      height:54px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.66);
+      border:2px solid rgba(255,255,255,0.65);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:20px;
+      transform:scale(0.9);
+      opacity:0.8;
+      transition:transform 220ms var(--ease), opacity 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease);
+      box-shadow:0 10px 26px rgba(0,0,0,0.8);
     }
 
-    .video-body{
-      padding:10px 12px 12px 12px;
+    .video-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:14px;
+      background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15));
     }
-    .video-title{
+    .video-overlay h4{
       margin:0 0 4px 0;
-      font-size:14px;font-weight:700;color:var(--text);
+      font-size:14px;
+      color:var(--text);
+    }
+    .video-overlay p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
     }
     .video-meta{
-      font-size:11px;color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:6px;
+      font-size:11px;
+      color:var(--muted);
     }
-    .video-desc{
-      margin-top:6px;font-size:12px;color:var(--muted);
+    .video-meta a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .video-card:hover{
+      transform:translateY(-6px) scale(1.02);
+      box-shadow:0 22px 48px rgba(0,0,0,0.9);
+      border-color:rgba(229,9,20,0.65);
+      background-color:#101010;
+    }
+    .video-card:hover .video-thumb-inner{
+      transform:scale(1.06);
+      filter:brightness(1.05);
+    }
+    .video-card:hover .video-play-circle{
+      transform:scale(1.05);
+      opacity:1;
+      background:rgba(229,9,20,0.9);
+      border-color:rgba(255,255,255,0.9);
+      box-shadow:0 14px 40px rgba(229,9,20,0.55);
+    }
+
+    /* On mobile, tone down the hover transforms */
+    @media(max-width:575.98px){
+      .video-card:hover{
+        transform:none;
+        box-shadow:0 12px 28px rgba(0,0,0,0.55);
+        border-color:rgba(255,255,255,0.06);
+      }
+      .video-card:hover .video-thumb-inner{
+        transform:scale(1.02);
+      }
+      .video-card:hover .video-play-circle{
+        transform:scale(1);
+      }
     }
 
     footer.site-footer{
-      text-align:center;color:var(--muted);
-      margin-top:24px;font-size:12px;
+      text-align:center;
+      color:var(--muted);
+      margin-top:24px;
+      font-size:12px;
     }
 
     @media (max-width:980px){
-      header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
-      nav.hud{justify-content:flex-start;}
+      header.topbar{flex-direction:column;align-items:flex-start;gap:10px}
+      nav.hud{justify-content:flex-start}
     }
   </style>
 </head>
@@ -252,18 +362,85 @@
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="blog.html">Blog</a>
         <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="appointment.html">Appointment</a>
         <a class="btn-play" href="Youtube.html">► WATCH</a>
       </nav>
     </header>
 
     <main>
       <section class="card" aria-labelledby="youtube-heading">
-        <h2 id="youtube-heading">YouTube</h2>
+        <h2 id="youtube-heading">YouTube Highlights</h2>
         <p class="lead">
-          Curated videos from my channels and collaborations. Hover on desktop to preview; tap to play.
+          A curated set of YouTube videos from my channels — talks, workshops, and experiments. Hover (desktop)
+          for a subtle thumbnail play, click any card to watch on YouTube.
         </p>
-        <div id="video-grid" class="video-grid">
-          <p style="color:var(--muted);" id="video-loading">Loading videos…</p>
+
+        <div class="video-grid">
+          <!-- VIDEO 1: ue_Yj6ww-hs -->
+          <article class="video-card">
+            <a href="https://www.youtube.com/watch?v=ue_Yj6ww-hs" target="_blank" rel="noopener"
+               style="text-decoration:none;color:inherit;display:block;">
+              <div class="video-thumb">
+                <div class="video-thumb-inner"
+                     style="background-image:url('https://img.youtube.com/vi/ue_Yj6ww-hs/hqdefault.jpg');"></div>
+                <div class="video-play-overlay">
+                  <div class="video-play-circle">▶</div>
+                </div>
+              </div>
+              <div class="video-overlay">
+                <h4>Appointment Booking Demo</h4>
+                <p>Walkthrough of the appointment and booking experience, showing how I organize requests.</p>
+                <div class="video-meta">
+                  <span>My Channel • 2025</span>
+                  <a href="https://www.youtube.com/watch?v=ue_Yj6ww-hs" target="_blank" rel="noopener">Watch</a>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- VIDEO 2: 6e7AY6zpC0o&t... (base ID 6e7AY6zpC0o) -->
+          <article class="video-card">
+            <a href="https://www.youtube.com/watch?v=6e7AY6zpC0o&t=0s" target="_blank" rel="noopener"
+               style="text-decoration:none;color:inherit;display:block;">
+              <div class="video-thumb">
+                <div class="video-thumb-inner"
+                     style="background-image:url('https://img.youtube.com/vi/6e7AY6zpC0o/hqdefault.jpg');"></div>
+                <div class="video-play-overlay">
+                  <div class="video-play-circle">▶</div>
+                </div>
+              </div>
+              <div class="video-overlay">
+                <h4>ML / DevOps Session</h4>
+                <p>A practical session combining ML ideas with deployment and DevOps workflows.</p>
+                <div class="video-meta">
+                  <span>My Channel • 2025</span>
+                  <a href="https://www.youtube.com/watch?v=6e7AY6zpC0o&t=0s" target="_blank" rel="noopener">Watch</a>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- VIDEO 3: X5qTLn9Wylw&t... (base ID X5qTLn9Wylw) -->
+          <article class="video-card">
+            <a href="https://www.youtube.com/watch?v=X5qTLn9Wylw&t=0s" target="_blank" rel="noopener"
+               style="text-decoration:none;color:inherit;display:block;">
+              <div class="video-thumb">
+                <div class="video-thumb-inner"
+                     style="background-image:url('https://img.youtube.com/vi/X5qTLn9Wylw/hqdefault.jpg');"></div>
+                <div class="video-play-overlay">
+                  <div class="video-play-circle">▶</div>
+                </div>
+              </div>
+              <div class="video-overlay">
+                <h4>Workshop / Talk Highlight</h4>
+                <p>Highlight from a workshop or talk focusing on practical AI, systems, and product thinking.</p>
+                <div class="video-meta">
+                  <span>My Channel • 2025</span>
+                  <a href="https://www.youtube.com/watch?v=X5qTLn9Wylw&t=0s" target="_blank" rel="noopener">Watch</a>
+                </div>
+              </div>
+            </a>
+          </article>
         </div>
       </section>
     </main>
@@ -274,136 +451,20 @@
   </div>
 
   <script>
-    // Backend proxy endpoint on Vercel
-    const BACKEND_URL = 'https://suuwam-youtube-api.vercel.app/api/youtube';
-
-    // Your YouTube channel IDs
-    const CHANNEL_IDS = [
-      'UCNXL1cBSD0Itvb9AxBLpsTA',
-      'UCmOgZZbsHxc9k1CDr-acEtA',
-      'UC04tKtBJ0LXagIGbdssh45g'
-    ];
-
-    const MAX_RESULTS = 12;
-
+    // Gentle pulse animation for WATCH button
     (function(){
-      const grid = document.getElementById('video-grid');
-      const loading = document.getElementById('video-loading');
-      if(!grid) return;
-
-      if(!BACKEND_URL) {
-        if(loading) loading.remove();
-        grid.innerHTML = '<p style="color:var(--muted);">Configure BACKEND_URL in Youtube.html to load videos.</p>';
-        return;
-      }
-
-      Promise.all(
-        CHANNEL_IDS.map(id =>
-          fetch(`${BACKEND_URL}?channelId=${encodeURIComponent(id)}&maxResults=${MAX_RESULTS}`)
-            .then(r => r.json())
-            .catch(() => null)
-        )
-      ).then(results => {
-        if(loading) loading.remove();
-
-        let videos = [];
-        results.forEach(res => {
-          if(res && Array.isArray(res.items)) {
-            videos = videos.concat(res.items);
-          }
+      const playButtons = document.querySelectorAll('.btn-play');
+      if(!playButtons.length) return;
+      setInterval(function(){
+        playButtons.forEach(play => {
+          play.style.transform = 'scale(1.02)';
+          play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.22)';
+          setTimeout(function(){
+            play.style.transform = '';
+            play.style.boxShadow = '0 12px 32px rgba(229,9,20,0.35)';
+          }, 450);
         });
-
-        if(!videos.length){
-          grid.innerHTML = '<p style="color:var(--muted);">No videos found yet.</p>';
-          return;
-        }
-
-        // Newest first across all channels
-        videos.sort((a,b)=>{
-          const da = a.publishedAt || '';
-          const db = b.publishedAt || '';
-          return (new Date(db)) - (new Date(da));
-        });
-
-        videos = videos.slice(0, MAX_RESULTS);
-
-        grid.innerHTML = '';
-        videos.forEach(item => {
-          const vid = item.videoId;
-          if(!vid) return;
-          const thumbObj = item.thumbnails || {};
-          const thumb = thumbObj.high?.url || thumbObj.medium?.url || thumbObj.default?.url || '';
-          const title = item.title || 'Untitled video';
-          const channelTitle = item.channelTitle || '';
-          const desc = item.description || '';
-
-          const card = document.createElement('article');
-          card.className = 'video-card';
-          card.setAttribute('data-video-id', vid);
-
-          const thumbDiv = document.createElement('div');
-          thumbDiv.className = 'video-thumb';
-          if(thumb){
-            thumbDiv.style.backgroundImage = `url('${thumb}')`;
-          }
-
-          const iframe = document.createElement('iframe');
-          iframe.className = 'video-iframe';
-          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-          iframe.allowFullscreen = true;
-
-          thumbDiv.appendChild(iframe);
-
-          const body = document.createElement('div');
-          body.className = 'video-body';
-
-          const h4 = document.createElement('h4');
-          h4.className = 'video-title';
-          h4.textContent = title;
-
-          const meta = document.createElement('div');
-          meta.className = 'video-meta';
-          meta.textContent = channelTitle;
-
-          const p = document.createElement('p');
-          p.className = 'video-desc';
-          p.textContent = desc.length > 120 ? desc.slice(0,117)+'…' : desc;
-
-          body.appendChild(h4);
-          body.appendChild(meta);
-          body.appendChild(p);
-
-          card.appendChild(thumbDiv);
-          card.appendChild(body);
-
-          grid.appendChild(card);
-
-          // Hover preview on desktop
-          if(window.matchMedia('(hover:hover)').matches){
-            let hoverTimer;
-            card.addEventListener('mouseenter', ()=>{
-              hoverTimer = setTimeout(()=>{
-                iframe.style.display = 'block';
-                iframe.src = `https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&controls=0&rel=0&playsinline=1`;
-              }, 300);
-            });
-            card.addEventListener('mouseleave', ()=>{
-              clearTimeout(hoverTimer);
-              iframe.src = '';
-              iframe.style.display = 'none';
-            });
-          }
-
-          // Click to open on YouTube
-          card.addEventListener('click', ()=>{
-            window.open(`https://www.youtube.com/watch?v=${vid}`,'_blank');
-          });
-        });
-      }).catch(err=>{
-        console.error(err);
-        if(loading) loading.remove();
-        grid.innerHTML = '<p style="color:var(--muted);">Failed to load videos.</p>';
-      });
+      }, 3000);
     })();
   </script>
 </body>
