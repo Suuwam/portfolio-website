@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <style>
-    :root{
+    : root{
       --bg:#0b0b0b;
       --panel:#111111;
       --muted:#b3b3b3;
@@ -21,8 +21,8 @@
       --accent-soft:#ff4b61;
       --card:#181818;
       --code-bg:#111827;
-      --container:1100px;
-      --ease: cubic-bezier(.2,.9,.3,1);
+      --container: 1100px;
+      --ease:  cubic-bezier(. 2,.9,.3,1);
     }
 
     *{box-sizing:border-box}
@@ -30,7 +30,7 @@
     body{
       margin:0;
       font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      background:linear-gradient(180deg,var(--bg) 0%,#070707 100%);
+      background: linear-gradient(180deg,var(--bg) 0%,#070707 100%);
       color:var(--text);
       padding-top:44px;
       overflow-x:hidden;
@@ -38,7 +38,7 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
+    . site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
     /* TITLE BAR (unchanged) */
     .top-title-bar{
@@ -61,7 +61,7 @@
       font-size:12px;color:var(--muted);
     }
 
-    header.topbar{
+    header. topbar{
       display:flex;align-items:center;justify-content:space-between;
       padding:14px 18px;margin-top:16px;
       background:#050505;
@@ -91,11 +91,11 @@
       padding:8px 12px;border-radius:8px;
       font-weight:600;font-size:13px;
       position:relative;
-      transition: color 200ms var(--ease), transform 200ms var(--ease), background 200ms var(--ease);
+      transition:  color 200ms var(--ease), transform 200ms var(--ease), background 200ms var(--ease);
     }
-    .nav-link::after{
+    .nav-link:: after{
       content:"";position:absolute;left:12px;right:12px;bottom:-6px;
-      height:2px;background:var(--accent);
+      height:2px;background: var(--accent);
       transform:scaleX(0);transform-origin:left center;
       transition:transform 240ms var(--ease);
       border-radius:2px;opacity:0.95;
@@ -148,7 +148,7 @@
       display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
       margin-bottom:10px;
     }
-    .hero-pill{
+    . hero-pill{
       display:inline-flex;align-items:center;gap:6px;
       padding:4px 9px;
       border-radius:999px;
@@ -156,7 +156,7 @@
       border:1px solid rgba(255,255,255,0.12);
       font-size:11px;color:var(--muted);
     }
-    .hero-pill span.dot{
+    .hero-pill span. dot{
       width:8px;height:8px;border-radius:999px;background:var(--accent-soft);
       box-shadow:0 0 8px rgba(229,9,20,0.8);
     }
@@ -168,7 +168,7 @@
       font-weight:650;
       letter-spacing:0.01em;
     }
-    .hero-title span.highlight{
+    .hero-title span. highlight{
       color:var(--accent-soft);
       font-weight:700;
     }
@@ -179,12 +179,12 @@
       max-width:720px;
     }
 
-    .hero-meta{
+    . hero-meta{
       display:flex;flex-wrap:wrap;gap:8px;
       font-size:11px;color:var(--muted);
       margin-bottom:10px;
     }
-    .hero-meta span{
+    . hero-meta span{
       padding:4px 8px;
       border-radius:999px;
       background:rgba(0,0,0,0.4);
@@ -194,9 +194,9 @@
     .hero-content{
       margin-top:6px;
       padding-top:12px;
-      border-top:1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255,255,255,0.08);
       display:grid;
-      grid-template-columns:2.2fr 1.2fr;
+      grid-template-columns:2. 2fr 1.2fr;
       grid-gap:16px;
     }
 
@@ -242,7 +242,7 @@
     section.card{
       margin-top:20px;
       padding:16px;
-      border-radius:12px;
+      border-radius: 12px;
       background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
       border:1px solid rgba(255,255,255,0.06);
     }
@@ -254,24 +254,24 @@
       color:var(--accent);
       text-transform:uppercase;
     }
-    section.card p.lead{
+    section.card p. lead{
       margin:0 0 10px 0;
       color:var(--muted);
       font-size:13px;
     }
 
-    .blog-grid{
+    . blog-grid{
       display:grid;
       grid-template-columns:2fr 1.2fr;
       grid-gap:18px;
     }
 
-    .post-list{
+    . post-list{
       display:flex;
       flex-direction:column;
       gap:14px;
     }
-    .post-card{
+    . post-card{
       border-radius:10px;
       background:linear-gradient(135deg,#121212 0,#090909 100%);
       border:1px solid rgba(255,255,255,0.06);
@@ -316,7 +316,7 @@
     }
     .post-tag{
       padding:3px 7px;
-      border-radius:999px;
+      border-radius: 999px;
       background:#101010;
       border:1px solid rgba(255,255,255,0.08);
       color:var(--muted);
@@ -336,7 +336,7 @@
       text-transform:uppercase;
       letter-spacing:0.08em;
     }
-    .sidebar p{
+    . sidebar p{
       margin:4px 0 10px 0;
       font-size:12px;
       color:var(--muted);
@@ -369,12 +369,12 @@
       border:1px solid rgba(148,163,184,0.35);
     }
     pre code{
-      background:transparent;
+      background: transparent;
       border:none;
       padding:0;
     }
 
-    footer.site-footer{
+    footer. site-footer{
       text-align:center;color:var(--muted);
       margin-top:24px;font-size:12px;
     }
@@ -394,17 +394,102 @@
         grid-template-columns:1fr;
         grid-gap:12px;
       }
+      
+      /* Fix text overflow on mobile */
+      .hero-text p, .hero-subtitle, .post-excerpt{
+        word-wrap:  break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+      
+      /* Make code blocks mobile-friendly */
+      pre{
+        font-size:10px;
+        padding:8px 10px;
+        margin:8px -4px 10px -4px;
+        max-width:calc(100vw - 60px);
+        overflow-x:auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      code{
+        font-size:10px;
+        word-break: break-all;
+      }
+      
+      pre code{
+        font-size:10px;
+        display:block;
+        white-space:pre;
+        overflow-x:auto;
+      }
+      
+      /* Ensure bullets don't overflow */
+      .hero-bullets{
+        padding-left:16px;
+        font-size:12px;
+        word-wrap: break-word;
+      }
+      
+      .hero-bullets li{
+        margin:4px 0;
+        word-wrap:break-word;
+        overflow-wrap:break-word;
+      }
+      
       section.card{padding:12px;}
       .blog-grid{
         grid-template-columns:1fr;
         grid-gap:14px;
       }
-      .post-excerpt{font-size:12px;}
+      . post-excerpt{
+        font-size:12px;
+        word-wrap:break-word;
+        overflow-wrap:break-word;
+      }
+      
+      /* Ensure post cards don't overflow */
+      .post-card{
+        padding:10px 11px;
+        overflow: hidden;
+      }
+      
+      .post-title{
+        font-size:14px;
+        word-wrap:break-word;
+      }
     }
     @media (max-width:480px){
       .top-title-inner{padding:6px 12px;}
       header.topbar{padding:10px 12px;margin-top:12px;}
       .logo{width:50px;height:50px;font-size:18px;}
+      
+      /* Extra small mobile fixes */
+      .hero-title{font-size:20px;}
+      .hero-subtitle{font-size:11px;}
+      
+      pre{
+        font-size:9px;
+        padding:6px 8px;
+        max-width:calc(100vw - 50px);
+      }
+      
+      code{
+        font-size:9px;
+      }
+      
+      pre code{
+        font-size: 9px;
+      }
+      
+      .hero-bullets{
+        font-size:11px;
+        padding-left:14px;
+      }
+      
+      .post-excerpt{
+        font-size:11px;
+      }
     }
   </style>
 </head>
@@ -445,47 +530,47 @@
             <span>LLM Systems — Field Notes</span>
           </div>
           <div style="font-size:11px;color:var(--muted);">
-            Approx. 8 min read • Written for engineers who actually ship models, not only benchmark them.
+            Approx. 8 min read • Written for engineers who actually ship models, not only benchmark them. 
           </div>
         </div>
 
         <h1 class="hero-title">
-          From <span class="highlight">Toy LLM Demo</span> to Production System:  
+          From <span class="highlight">Toy LLM Demo</span> to Production System:   
           What Actually Breaks in the Real World
         </h1>
 
         <p class="hero-subtitle">
-          Most LLM tutorials stop at “we called the API and got a cool answer.”  
-          In practice, production systems fail on boring things: context limits, latency budgets,
+          Most LLM tutorials stop at "we called the API and got a cool answer."  
+          In practice, production systems fail on boring things:  context limits, latency budgets,
           prompt drift, evaluation, and how humans actually use (and abuse) your feature.
         </p>
 
         <div class="hero-meta">
-          <span>Topics: LLMs, Evaluation, Prompting, Systems Design</span>
+          <span>Topics:  LLMs, Evaluation, Prompting, Systems Design</span>
         </div>
 
         <div class="hero-content">
           <div class="hero-text">
             <p>
-              When you move from a Jupyter notebook to a shipped feature, an LLM stops being a “smart autocomplete”
+              When you move from a Jupyter notebook to a shipped feature, an LLM stops being a "smart autocomplete"
               and becomes another <strong>unreliable distributed system</strong> in your stack.
             </p>
 
             <p>
               In my own projects and in mentoring student teams, failures almost never come from
-              “the model isn’t big enough.” Instead, they come from:
+              "the model isn't big enough." Instead, they come from: 
             </p>
 
             <ul class="hero-bullets">
-              <li><strong>Context misuse</strong> — stuffing the entire database into a single prompt.</li>
+              <li><strong>Context misuse</strong> — stuffing the entire database into a single prompt. </li>
               <li><strong>No evaluation loop</strong> — shipping prompts based only on vibes.</li>
-              <li><strong>Bad UX</strong> — users don’t know what the model can or cannot do.</li>
+              <li><strong>Bad UX</strong> — users don't know what the model can or cannot do.</li>
               <li><strong>Missing guardrails</strong> — the model hallucinates confident nonsense.</li>
             </ul>
 
             <p>
-              A useful way to think about LLMs is: they are <strong>probabilistic functions with contracts</strong>, not magic.
-              That means you define:
+              A useful way to think about LLMs is:  they are <strong>probabilistic functions with contracts</strong>, not magic.
+              That means you define: 
             </p>
 
             <ul class="hero-bullets">
@@ -495,10 +580,10 @@
             </ul>
 
             <p>
-              Here’s a small but real pattern I use: wrap every LLM call in a function that <strong>logs, validates and retries</strong>.
+              Here's a small but real pattern I use:  wrap every LLM call in a function that <strong>logs, validates and retries</strong>. 
             </p>
 
-            <pre><code>// Pseudo-code: robust LLM call wrapper
+            <pre><code>// Pseudo-code:  robust LLM call wrapper
 async function callLLM({ prompt, schema, maxRetries = 2 }) {
   const start = Date.now();
   let attempt = 0;
@@ -532,12 +617,12 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
             </p>
             <ul class="hero-bullets">
               <li>Enforces a specific <strong>model, temperature, and token budget</strong>.</li>
-              <li>Logs latency so you don’t guess later where your time went.</li>
-              <li>Validates output against a <strong>schema</strong> instead of hoping it’s well‑formed.</li>
+              <li>Logs latency so you don't guess later where your time went.</li>
+              <li>Validates output against a <strong>schema</strong> instead of hoping it's well‑formed.</li>
             </ul>
 
             <p>
-              The exact implementation doesn’t matter as much as the mindset:
+              The exact implementation doesn't matter as much as the mindset: 
               you treat the LLM as <em>one component</em> in a system you own, not as a black box you pray to.
             </p>
           </div>
@@ -546,12 +631,12 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
             <h4>In this series</h4>
             <ul>
               <li>Part 1 — LLMs as Systems, not Magic</li>
-              <li>Part 2 — Evaluation that isn’t just “vibes”</li>
+              <li>Part 2 — Evaluation that isn't just "vibes"</li>
               <li>Part 3 — Prompt design as API design</li>
-              <li>Part 4 — Glue: retrieval, tools, humans‑in‑the‑loop</li>
+              <li>Part 4 — Glue:  retrieval, tools, humans‑in‑the‑loop</li>
             </ul>
             <p style="margin-top:8px;">
-              I’m writing these notes to be <strong>implementation‑friendly</strong>: close to code and product,
+              I'm writing these notes to be <strong>implementation‑friendly</strong>:  close to code and product,
               and honest about where things break.
             </p>
           </aside>
@@ -571,15 +656,15 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
               <h3 class="post-title">From Student ML Project to a Real Portfolio Piece</h3>
               <div class="post-meta">Approx. 5 min read • Portfolio, Students, ML</div>
               <p class="post-excerpt">
-                Many student projects look impressive on paper, but fall apart when you ask:
-                “Can I run this? Can I trust it? Does anyone actually want this?”
+                Many student projects look impressive on paper, but fall apart when you ask: 
+                "Can I run this?  Can I trust it? Does anyone actually want this?"
                 In this post I outline a simple checklist I use with students to turn a lab assignment
-                into a <strong>portfolio story</strong>.
+                into a <strong>portfolio story</strong>. 
               </p>
               <p class="post-excerpt">
                 The key shifts are:
                 scope down the problem, make the demo reproducible, and add just enough UX
-                so a non‑ML person understands what the model does — and what it doesn’t.
+                so a non‑ML person understands what the model does — and what it doesn't.
               </p>
               <div class="post-tags">
                 <span class="post-tag">Students</span>
@@ -592,13 +677,13 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
               <h3 class="post-title">Prompt Engineering is Just API Design With Worse Tooling</h3>
               <div class="post-meta">Approx. 4 min read • Prompting, Product</div>
               <p class="post-excerpt">
-                Good prompts are less like poetry and more like <strong>API contracts</strong>.
+                Good prompts are less like poetry and more like <strong>API contracts</strong>. 
                 You define what goes in, what must come out, and how future engineers can change it
                 without breaking everything.
               </p>
               <p class="post-excerpt">
                 Instead of stuffing style and instructions into one mega‑prompt,
-                I prefer to separate:
+                I prefer to separate: 
               </p>
               <ul class="hero-bullets" style="margin-top:4px;">
                 <li>A stable <strong>system prompt</strong> that defines behavior and constraints.</li>
@@ -612,21 +697,21 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
             </article>
 
             <article class="post-card">
-              <h3 class="post-title">RAG for Humans: Designing Retrieval That Feels Intuitive</h3>
+              <h3 class="post-title">RAG for Humans:  Designing Retrieval That Feels Intuitive</h3>
               <div class="post-meta">Approx. 6 min read • RAG, UX, Search</div>
               <p class="post-excerpt">
                 Retrieval‑augmented generation (RAG) diagrams are easy; building one that
-                users actually trust is harder.
+                users actually trust is harder. 
               </p>
               <p class="post-excerpt">
-                Most RAG failures I see are UX issues:
-                users don’t know what documents are indexed, what “knowledge” the system has,
+                Most RAG failures I see are UX issues: 
+                users don't know what documents are indexed, what "knowledge" the system has,
                 or why it answered with something obviously incomplete.
               </p>
               <p class="post-excerpt">
-                In this note I talk about:
-                showing <strong>source snippets</strong>, exposing <strong>filters</strong> (“search in: docs / FAQ / emails”),
-                and giving users a simple way to say “this answer is wrong” that feeds back into evaluation.
+                In this note I talk about: 
+                showing <strong>source snippets</strong>, exposing <strong>filters</strong> ("search in:  docs / FAQ / emails"),
+                and giving users a simple way to say "this answer is wrong" that feeds back into evaluation.
               </p>
               <div class="post-tags">
                 <span class="post-tag">RAG</span>
@@ -639,22 +724,22 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
           <aside class="sidebar" aria-label="Reading guide">
             <h3>How to Use This Blog</h3>
             <p>
-              These posts are meant to be reference material you can come back to:
-              not news, but <strong>mental models</strong> and checklists.
+              These posts are meant to be reference material you can come back to: 
+              not news, but <strong>mental models</strong> and checklists. 
             </p>
             <ul>
-              <li><strong>New to AI?</strong>  
+              <li><strong>New to AI? </strong>  
                 Focus on the intuition sections and diagrams; ignore implementation details at first.</li>
               <li><strong>Student or early‑career?</strong>  
                 Look for parts where I talk about <em>portfolios</em>, <em>team projects</em>,
                 and <em>communicating your work</em>.</li>
               <li><strong>Already shipping products?</strong>  
-                Skim for patterns you can steal: evaluation loops, prompt structures, UX ideas.</li>
+                Skim for patterns you can steal:  evaluation loops, prompt structures, UX ideas.</li>
             </ul>
             <p style="margin-top:10px;">
-              If there’s a topic you want me to write about — for example,
-              <strong>“How to explain LLMs to non‑technical stakeholders”</strong> or
-              <strong>“Setting up a tiny but real MLOps pipeline as a student”</strong> —  
+              If there's a topic you want me to write about — for example,
+              <strong>"How to explain LLMs to non‑technical stakeholders"</strong> or
+              <strong>"Setting up a tiny but real MLOps pipeline as a student"</strong> —  
               mention it in the <a href="appointment.html" style="color:var(--accent-soft);font-weight:600;">appointment form</a>.
             </p>
           </aside>
@@ -663,18 +748,18 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
     </main>
 
     <footer class="site-footer">
-      &copy; 2025 Shuvam Khanal.
+      &copy; 2025 Shuvam Khanal. 
     </footer>
   </div>
 
   <script>
     (function(){
-      const playButtons = document.querySelectorAll('.btn-play');
-      if(!playButtons.length) return;
+      const playButtons = document.querySelectorAll('. btn-play');
+      if(! playButtons.length) return;
       setInterval(function(){
         playButtons.forEach(play => {
           play.style.transform = 'scale(1.02)';
-          play.style.boxShadow = '0 18px 52px rgba(229,9,20,0.65)';
+          play.style. boxShadow = '0 18px 52px rgba(229,9,20,0.65)';
           setTimeout(function(){
             play.style.transform = '';
             play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.55)';
