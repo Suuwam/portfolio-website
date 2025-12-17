@@ -122,7 +122,6 @@
 
     main{margin-top:22px;}
 
-    /* Hero article card */
     .hero-article{
       margin-top:18px;
       border-radius:14px;
@@ -240,7 +239,6 @@
     }
     .hero-side li{margin:2px 0;}
 
-    /* Section heading */
     section.card{
       margin-top:20px;
       padding:16px 16px 18px 16px;
@@ -262,7 +260,6 @@
       font-size:13px;
     }
 
-    /* Article list */
     .blog-grid{
       display:grid;
       grid-template-columns:2fr 1.2fr;
@@ -355,7 +352,6 @@
     }
     .sidebar li{margin:3px 0;}
 
-    /* Code block styling */
     pre{
       margin:8px 0 10px 0;
       padding:10px 12px;
@@ -396,7 +392,7 @@
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
-      <span>AI, LLMs &amp; Systems — Notes &amp; Deep Dives</span>
+      <span>Blog &amp; Writing</span>
     </div>
   </div>
 
@@ -421,7 +417,6 @@
     </header>
 
     <main>
-      <!-- HERO ARTICLE: Deep, expert-style post -->
       <article class="hero-article">
         <div class="hero-pill-row">
           <div class="hero-pill">
@@ -539,7 +534,6 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
         </div>
       </article>
 
-      <!-- OTHER POSTS + SIDEBAR -->
       <section class="card" aria-labelledby="blog-heading">
         <h2 id="blog-heading">More Notes &amp; Articles</h2>
         <p class="lead">
@@ -596,24 +590,9 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
           </div>
 
           <aside class="sidebar" aria-label="Reading guide">
-            <h3>How to Read This</h3>
+            <h3>About This</h3>
             <p>
-              I try to write the way I wish someone had explained things to me:
-              no hype, no unnecessary math, but also not hand‑wavy.  
-            </p>
-            <ul>
-              <li><strong>Student / early engineer?</strong>  
-                Focus on the mental models and diagrams. You can ignore infra details at first.</li>
-              <li><strong>Already shipping products?</strong>  
-                Skim for pitfalls, checklists, and small patterns you can steal.</li>
-              <li><strong>New to AI?</strong>  
-                Use this as a guided tour. When you see something unfamiliar (e.g. “RAG”),
-                look for the intuition before the acronyms.</li>
-            </ul>
-            <p style="margin-top:10px;">
-              If you’d like me to write about a specific topic — e.g. how to structure a
-              <strong>student ML portfolio</strong> or how to <strong>explain LLMs to non‑technical stakeholders</strong> —
-              mention it in the <a href="appointment.html" style="color:var(--accent-soft);font-weight:600;">appointment form</a>.
+              This is just a sample blog Refrence. Real blogs are yet to come!!!!  
             </p>
           </aside>
         </div>
@@ -626,7 +605,6 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
   </div>
 
   <script>
-    // Gentle pulse for WATCH button
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(!playButtons.length) return;
