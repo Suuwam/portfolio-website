@@ -308,6 +308,7 @@
       font-weight:800;
     }
 
+    /* LinkedIn Highlights */
     .linkedin-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -327,9 +328,10 @@
       background:#000;
       box-shadow:0 12px 28px rgba(0,0,0,0.55);
       transform:translateY(0) scale(1);
-      transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+      transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease), background-color 220ms var(--ease);
       border:1px solid rgba(255,255,255,0.06);
     }
+
     .linkedin-photo{
       width:100%;
       padding-top:100%;
@@ -337,6 +339,7 @@
       background-position:center;
       background-repeat:no-repeat;
     }
+
     .linkedin-overlay{
       position:absolute;
       inset:0;
@@ -344,10 +347,15 @@
       flex-direction:column;
       justify-content:flex-end;
       padding:14px;
-      background:linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
-      opacity:0;
-      transform:translateY(10px);
-      transition:opacity 220ms var(--ease), transform 220ms var(--ease);
+      background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.35) 55%,
+        rgba(0,0,0,0.1) 100%
+      );
+      opacity:1;
+      transform:translateY(0);
+      transition:background 240ms var(--ease);
     }
     .linkedin-overlay h4{
       margin:0 0 4px 0;
@@ -368,17 +376,28 @@
       color:var(--muted);
     }
 
+    .linkedin-card.active{
+      transform:translateY(-4px) scale(1.1);
+      box-shadow:0 20px 44px rgba(0,0,0,0.95);
+      border-color:rgba(229,9,20,0.7);
+      background-color:#101010;
+    }
+
     .linkedin-card:hover{
       transform:translateY(-6px) scale(1.02);
       box-shadow:0 22px 48px rgba(0,0,0,0.85);
       border-color:rgba(229,9,20,0.6);
     }
     .linkedin-card:hover .linkedin-overlay{
-      opacity:1;
-      transform:translateY(0);
+      background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.92) 0%,
+        rgba(0,0,0,0.45) 55%,
+        rgba(0,0,0,0.18) 100%
+      );
     }
 
-    @media (max-width: 575.98px) {
+    @media (max-width:575.98px){
       .linkedin-card{
         transition:
           transform 200ms var(--ease),
@@ -386,21 +405,18 @@
           border-color 200ms var(--ease),
           background-color 200ms var(--ease);
       }
-      .linkedin-card.active{
-        transform:translateY(-4px) scale(1.1);
-        box-shadow:0 20px 44px rgba(0,0,0,0.95);
-        border-color:rgba(229,9,20,0.7);
-        background-color:#101010;
-      }
-
       .linkedin-card:hover{
         transform:none;
         box-shadow:0 12px 28px rgba(0,0,0,0.55);
         border-color:rgba(255,255,255,0.06);
       }
       .linkedin-card:hover .linkedin-overlay{
-        opacity:0;
-        transform:translateY(10px);
+        background:linear-gradient(
+          to top,
+          rgba(0,0,0,0.85) 0%,
+          rgba(0,0,0,0.35) 55%,
+          rgba(0,0,0,0.1) 100%
+        );
       }
     }
 
@@ -489,11 +505,10 @@
           </div>
         </div>
 
-        <!-- LINKEDIN HIGHLIGHTS (full-card clickable) -->
+        <!-- LINKEDIN HIGHLIGHTS -->
         <section id="projects" class="card" aria-labelledby="projects-heading">
           <h3 id="projects-heading">LinkedIn Highlights</h3>
           <div class="linkedin-grid">
-
             <article class="linkedin-card">
               <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7398715870392238080"
                  target="_blank" rel="noopener"
@@ -589,10 +604,10 @@
                 </div>
               </a>
             </article>
-
           </div>
         </section>
 
+        <!-- CORE SKILLS -->
         <section id="skills" class="card" aria-labelledby="skills-heading">
           <h3 id="skills-heading">Core Skills</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -604,6 +619,34 @@
           <p style="margin:10px 0 0 0;font-size:12px;color:var(--muted);">
             See the full stack and experience details on the <a href="skills.html" style="color:var(--accent);font-weight:600;">Skills page</a>.
           </p>
+        </section>
+
+        <!-- CONTACT SECTION BELOW CORE SKILLS -->
+        <section id="home-contact" class="card" aria-labelledby="home-contact-heading">
+          <h3 id="home-contact-heading">Contact</h3>
+          <p style="margin:0 0 8px 0;font-size:13px;color:var(--muted);">
+            Prefer a quick overview before going to the full contact page? Here are the main ways to reach me.
+          </p>
+          <p style="margin:4px 0;font-size:13px;">
+            <strong>Email</strong><br>
+            <a href="mailto:shuvamkhanal1000@gmail.com" style="color:var(--accent);font-weight:600;">shuvamkhanal1000@gmail.com</a>
+          </p>
+          <p style="margin:4px 0;font-size:13px;">
+            <strong>LinkedIn</strong><br>
+            <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">
+              www.linkedin.com/in/shuvam-khanal
+            </a>
+          </p>
+          <p style="margin:4px 0 10px 0;font-size:13px;">
+            <strong>GitHub</strong><br>
+            <a href="https://github.com/Suuwam" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">
+              github.com/Suuwam
+            </a>
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+            <a href="contact.html" class="cta-ghost" style="border-radius:999px;">Open full contact page</a>
+            <a href="appointment.html" class="btn-play" style="padding:8px 14px;">Book an appointment</a>
+          </div>
         </section>
       </div>
     </main>
@@ -653,6 +696,7 @@
       }, 3000);
     })();
 
+    // Scroll-based pop for LinkedIn on mobile
     (function(){
       const cards = Array.from(document.querySelectorAll('.linkedin-card'));
       if (!cards.length) return;
