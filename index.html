@@ -427,13 +427,13 @@
       transform:translateY(0);
     }
 
-    /* CONTACT CARD */
+    /* CONTACT CARD (like contact page) */
     .contact-card{
       margin-top:18px;
       padding:16px 16px 14px 16px;
       border-radius:12px;
-      background:linear-gradient(135deg, rgba(229,9,20,0.16), rgba(0,0,0,0.85));
-      border:1px solid rgba(229,9,20,0.5);
+      background:linear-gradient(135deg, rgba(229,9,20,0.18), rgba(0,0,0,0.9));
+      border:1px solid rgba(229,9,20,0.7);
       box-shadow:0 18px 40px rgba(0,0,0,0.9);
       position:relative;
       overflow:hidden;
@@ -450,16 +450,22 @@
       margin:0;
       font-size:16px;
       font-weight:800;
-      color:var(--accent-soft);
+      color:var(--accent);
       text-transform:uppercase;
       letter-spacing:0.08em;
+      position:relative;
+      z-index:1;
     }
     .contact-card p{
       position:relative;
       z-index:1;
+      font-size:13px;
+    }
+    .contact-card p strong{
+      color:var(--accent);
     }
     .contact-card a{
-      color:var(--accent-soft);
+      color:var(--accent);
       font-weight:600;
       text-decoration:none;
     }
@@ -519,7 +525,7 @@
         <div class="logo" aria-hidden="true">SK</div>
         <div class="brand-text">
           <h3>Shuvam Khanal</h3>
-          <p>AI Researcher • Product-minded • Systems</p>
+          <p>Undergrad CS Student • AI Researcher • Product-minded</p>
         </div>
       </div>
 
@@ -547,7 +553,7 @@
 
     <section class="hero-name-block">
       <h2>SHUVAM KHANAL</h2>
-      <p>AI Researcher • Product-minded • Systems</p>
+      <p>Undergrad Computer Science Student • AI Researcher • Product-minded</p>
     </section>
 
     <main>
@@ -570,8 +576,8 @@
           </div>
 
           <div class="hero-copy" id="hero-copy">
-            <h2 id="intro-title">A Computer Science student with hands-on experience in AI/ML.</h2>
-            <p>I'm Shuvam Khanal — I apply machine learning research to product-focused systems. I design model pipelines and human-centered AI features with privacy and reliability in mind.</p>
+            <h2 id="intro-title">Undergrad CS student with hands-on experience in AI/ML.</h2>
+            <p>I'm Shuvam Khanal — an undergraduate Computer Science student who applies machine learning research to product-focused systems. I design model pipelines and human-centered AI features with privacy and reliability in mind.</p>
 
             <div class="cta-row" id="cta-row">
               <a class="btn-play" href="contact.html" aria-label="Go to contact page">CONTACT</a>
@@ -697,11 +703,11 @@
           </p>
         </section>
 
-        <!-- NEW HIGHLIGHTED CONTACT CARD -->
+        <!-- CONTACT CARD -->
         <div class="contact-card" id="contact">
           <h3 id="contact-heading">Contact</h3>
           <p style="color:var(--muted);margin-top:8px">
-            Open to collaborations, consulting, and product roles that bridge research and real-world impact.
+            Undergrad CS student open to collaborations, internships, consulting, and product roles that bridge research and real-world impact.
           </p>
 
           <p style="margin-top:12px"><strong>Email</strong><br>
