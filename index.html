@@ -300,6 +300,7 @@
       border-radius:10px;
       background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
       border:1px solid rgba(255,255,255,0.02);
+      transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),border-color 200ms var(--ease);
     }
     section.card h3{
       margin:0 0 12px 0;
@@ -437,6 +438,7 @@
       box-shadow:0 18px 40px rgba(0,0,0,0.9);
       position:relative;
       overflow:hidden;
+      transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),border-color 200ms var(--ease);
     }
     .contact-card::before{
       content:'';
@@ -509,6 +511,7 @@
       border-radius:12px;
       background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
       border:1px solid rgba(255,255,255,0.06);
+      transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),border-color 200ms var(--ease);
     }
     .highlights-card h3{
       margin:0 0 8px 0;
@@ -534,6 +537,22 @@
       .logo{width:52px;height:52px}
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px}
       nav.hud{justify-content:flex-start}
+    }
+
+    /* MOBILE scroll pop for sections (core skills, contact, highlights) */
+    @media (max-width:575.98px){
+      #skills,
+      .contact-card,
+      .highlights-card{
+        will-change:transform, box-shadow, border-color;
+      }
+      #skills.section-active,
+      .contact-card.section-active,
+      .highlights-card.section-active{
+        transform:translateY(-4px) scale(1.03);
+        box-shadow:0 20px 44px rgba(0,0,0,0.95);
+        border-color:rgba(229,9,20,0.8);
+      }
     }
   </style>
 </head>
@@ -867,6 +886,64 @@
       window.addEventListener('load', () => {
         setTimeout(onScroll, 100);
       });
+    })();
+
+    // Scroll-based pop for Core Skills, Contact, Highlights on mobile
+    (function(){
+      const sections = [
+        document.getElementById('skills'),
+        document.getElementById('contact'),
+        document.querySelector('.highlights-card')
+      ].filter(Boolean);
+
+      if (!sections.length) return;
+
+      function isMobile() {
+        return window.innerWidth <= 575.98;
+      }
+
+      let ticking = false;
+
+      function onScroll() {
+        if (!isMobile()) {
+          sections.forEach(s => s.classList.remove('section-active'));
+          return;
+        }
+
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const viewportCenter = window.innerHeight * 0.65; // a bit lower than exact center
+            let closestEl = null;
+            let closestDistance = Infinity;
+
+            sections.forEach(el => {
+              const rect = el.getBoundingClientRect();
+              const center = rect.top + rect.height / 2;
+              const distance = Math.abs(center - viewportCenter);
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestEl = el;
+              }
+            });
+
+            sections.forEach(el => {
+              if (el === closestEl) {
+                el.classList.add('section-active');
+              } else {
+                el.classList.remove('section-active');
+              }
+            });
+
+            ticking = false;
+          });
+
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      window.addEventListener('load', () => setTimeout(onScroll, 100));
     })();
   </script>
 </body>
