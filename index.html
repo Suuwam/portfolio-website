@@ -352,7 +352,7 @@
         rgba(0,0,0,0.6) 0%,
         rgba(0,0,0,0.0) 60%
       );
-      opacity:0;                /* hidden until active on mobile */
+      opacity:0;
       transform:translateY(10px);
       transition:opacity 220ms var(--ease), transform 220ms var(--ease), background 240ms var(--ease);
     }
@@ -375,7 +375,6 @@
       color:var(--muted);
     }
 
-    /* POPPED STATE: show transparent text overlay */
     .linkedin-card.active{
       transform:translateY(-4px) scale(1.1);
       box-shadow:0 20px 44px rgba(0,0,0,0.95);
@@ -393,7 +392,6 @@
       );
     }
 
-    /* Desktop: always show overlay text, no scroll pop effect */
     @media (min-width:576px){
       .linkedin-overlay{
         opacity:1;
@@ -427,6 +425,75 @@
       );
       opacity:1;
       transform:translateY(0);
+    }
+
+    /* CONTACT CARD */
+    .contact-card{
+      margin-top:18px;
+      padding:16px 16px 14px 16px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(229,9,20,0.16), rgba(0,0,0,0.85));
+      border:1px solid rgba(229,9,20,0.5);
+      box-shadow:0 18px 40px rgba(0,0,0,0.9);
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-card::before{
+      content:'';
+      position:absolute;
+      inset:-60%;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,0.08),transparent 50%);
+      opacity:0.75;
+      pointer-events:none;
+    }
+    .contact-card h3{
+      margin:0;
+      font-size:16px;
+      font-weight:800;
+      color:var(--accent-soft);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+    .contact-card p{
+      position:relative;
+      z-index:1;
+    }
+    .contact-card a{
+      color:var(--accent-soft);
+      font-weight:600;
+      text-decoration:none;
+    }
+    .contact-card a:hover{
+      text-decoration:underline;
+    }
+    .socials{
+      position:relative;
+      z-index:1;
+      margin-top:10px;
+      display:flex;
+      gap:8px;
+    }
+    .social{
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.5);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+      font-weight:700;
+      text-transform:uppercase;
+      color:var(--text);
+      text-decoration:none;
+      background:rgba(0,0,0,0.4);
+      transition:background 200ms var(--ease), transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
+    }
+    .social:hover{
+      background:var(--accent);
+      border-color:rgba(255,255,255,0.9);
+      box-shadow:0 10px 24px rgba(229,9,20,0.65);
+      transform:translateY(-1px);
     }
 
     footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
@@ -630,33 +697,31 @@
           </p>
         </section>
 
-        <!-- CONTACT SECTION BELOW CORE SKILLS -->
-        <section id="home-contact" class="card" aria-labelledby="home-contact-heading">
-          <h3 id="home-contact-heading">Contact</h3>
-          <p style="margin:0 0 8px 0;font-size:13px;color:var(--muted);">
-            Prefer a quick overview before going to the full contact page? Here are the main ways to reach me.
+        <!-- NEW HIGHLIGHTED CONTACT CARD -->
+        <div class="contact-card" id="contact">
+          <h3 id="contact-heading">Contact</h3>
+          <p style="color:var(--muted);margin-top:8px">
+            Open to collaborations, consulting, and product roles that bridge research and real-world impact.
           </p>
-          <p style="margin:4px 0;font-size:13px;">
-            <strong>Email</strong><br>
-            <a href="mailto:shuvamkhanal1000@gmail.com" style="color:var(--accent);font-weight:600;">shuvamkhanal1000@gmail.com</a>
-          </p>
-          <p style="margin:4px 0;font-size:13px;">
-            <strong>LinkedIn</strong><br>
-            <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">
-              www.linkedin.com/in/shuvam-khanal
-            </a>
-          </p>
-          <p style="margin:4px 0 10px 0;font-size:13px;">
-            <strong>GitHub</strong><br>
-            <a href="https://github.com/Suuwam" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">
-              github.com/Suuwam
-            </a>
-          </p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
-            <a href="contact.html" class="cta-ghost" style="border-radius:999px;">Open full contact page</a>
-            <a href="appointment.html" class="btn-play" style="padding:8px 14px;">Book an appointment</a>
+
+          <p style="margin-top:12px"><strong>Email</strong><br>
+            <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a></p>
+
+          <p style="margin-top:10px"><strong>LinkedIn</strong><br>
+            <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">www.linkedin.com/in/shuvam-khanal</a></p>
+
+          <p style="margin-top:10px"><strong>Instagram</strong><br>
+            <a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></p>
+
+          <p style="margin-top:10px"><strong>GitHub</strong><br>
+            <a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></p>
+
+          <div class="socials" aria-hidden="true">
+            <a class="social" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
+            <a class="social" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
+            <a class="social" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
           </div>
-        </section>
+        </div>
       </div>
     </main>
 
@@ -705,7 +770,7 @@
       }, 3000);
     })();
 
-    // Scroll-based pop for LinkedIn on mobile, including last post
+    // Scroll-based pop for LinkedIn on mobile (including last post)
     (function(){
       const cards = Array.from(document.querySelectorAll('.linkedin-card'));
       if (!cards.length) return;
