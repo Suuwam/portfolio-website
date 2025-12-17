@@ -297,12 +297,6 @@
       align-items:center;
       gap:6px;
     }
-    .github-project-meta a{
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:600;
-      font-size:11px;
-    }
 
     footer.site-footer{
       text-align:center;
@@ -368,14 +362,10 @@
       const username = 'Suuwam';
       const grid = document.getElementById('github-projects-grid');
       const loading = document.getElementById('github-projects-loading');
-
       if (!grid) return;
 
       const fallbackImage = 'img/proj-default.png';
-
-      function imageForRepoName(name) {
-        return `img/proj-${name}.png`;
-      }
+      function imageForRepoName(name) { return `img/proj-${name}.png`; }
 
       fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
         .then(res => res.json())
@@ -388,7 +378,6 @@
           }
 
           const withDescription = repos.filter(r => r.description && r.description.trim().length > 0);
-
           if (!withDescription.length) {
             grid.innerHTML = '<p style="color:var(--muted);">No projects with descriptions found yet.</p>';
             return;
@@ -400,6 +389,14 @@
           toShow.forEach(repo => {
             const card = document.createElement('article');
             card.className = 'github-project-card';
+
+            const link = document.createElement('a');
+            link.href = repo.html_url;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.style.display = 'block';
+            link.style.textDecoration = 'none';
+            link.style.color = 'inherit';
 
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
@@ -433,22 +430,19 @@
             }
             leftMeta.innerHTML = pieces.join(' • ') || '<span>Public repo</span>';
 
-            const link = document.createElement('a');
-            link.href = repo.html_url;
-            link.target = '_blank';
-            link.rel = 'noopener';
-            link.textContent = 'View on GitHub';
+            const rightMeta = document.createElement('span');
+            rightMeta.textContent = 'View on GitHub';
 
             meta.appendChild(leftMeta);
-            meta.appendChild(link);
+            meta.appendChild(rightMeta);
 
             body.appendChild(name);
             body.appendChild(desc);
             body.appendChild(meta);
 
-            card.appendChild(imgDiv);
-            card.appendChild(body);
-
+            link.appendChild(imgDiv);
+            link.appendChild(body);
+            card.appendChild(link);
             grid.appendChild(card);
           });
 
@@ -469,7 +463,6 @@
         }
 
         let ticking = false;
-
         function onScroll() {
           if (!isMobile()) {
             cards.forEach(c => c.classList.remove('active'));
@@ -493,16 +486,12 @@
               });
 
               cards.forEach(card => {
-                if (card === closestCard) {
-                  card.classList.add('active');
-                } else {
-                  card.classList.remove('active');
-                }
+                if (card === closestCard) card.classList.add('active');
+                else card.classList.remove('active');
               });
 
               ticking = false;
             });
-
             ticking = true;
           }
         }
