@@ -40,7 +40,7 @@
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
-    /* TITLE BAR (same as other pages) */
+    /* TITLE BAR (unchanged) */
     .top-title-bar{
       position:fixed;top:0;left:0;right:0;
       background:#000;color:#fff;
@@ -75,7 +75,7 @@
       display:flex;align-items:center;justify-content:center;
       background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
       border:2px solid rgba(255,255,255,0.16);
-      color:var(--accent); /* red SK */
+      color:var(--accent); /* SK red */
       font-weight:800;font-size:20px;
       font-family:"Bebas Neue",sans-serif;letter-spacing:1px;
       box-shadow:0 10px 28px rgba(0,0,0,0.8);
@@ -387,11 +387,18 @@
     @media (max-width:720px){
       .site{padding:0 14px 32px;}
       .hero-article{padding:14px;}
+      .hero-pill-row{flex-direction:column;align-items:flex-start;}
       .hero-title{font-size:22px;}
       .hero-subtitle{font-size:12px;}
-      .hero-content{grid-template-columns:1fr;grid-gap:12px;}
+      .hero-content{
+        grid-template-columns:1fr;
+        grid-gap:12px;
+      }
       section.card{padding:12px;}
-      .blog-grid{grid-template-columns:1fr;grid-gap:14px;}
+      .blog-grid{
+        grid-template-columns:1fr;
+        grid-gap:14px;
+      }
       .post-excerpt{font-size:12px;}
     }
     @media (max-width:480px){
