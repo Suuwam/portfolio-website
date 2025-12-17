@@ -367,11 +367,6 @@
       font-size:11px;
       color:var(--muted);
     }
-    .linkedin-meta a{
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:600;
-    }
 
     .linkedin-card:hover{
       transform:translateY(-6px) scale(1.02);
@@ -407,6 +402,104 @@
         opacity:0;
         transform:translateY(10px);
       }
+    }
+
+    .github-projects-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-gap:20px;
+      align-items:start;
+    }
+    @media(max-width:991.98px){
+      .github-projects-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:575.98px){
+      .github-projects-grid{grid-template-columns:1fr;}
+    }
+
+    .github-project-card{
+      background:linear-gradient(180deg,#151515,#101010);
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 12px 28px rgba(0,0,0,0.55);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      transform:translateY(0) scale(1);
+      transform-origin:center center;
+      transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .github-project-card:hover{
+      transform:translateY(-6px) scale(1.1);
+      box-shadow:0 22px 48px rgba(0,0,0,0.9);
+      border-color:rgba(229,9,20,0.7);
+      z-index:5;
+    }
+
+    @media (max-width: 575.98px) {
+      .github-project-card{
+        transition:
+          transform 200ms var(--ease),
+          box-shadow 200ms var(--ease),
+          border-color 200ms var(--ease),
+          background-color 200ms var(--ease);
+      }
+      .github-project-card.active{
+        transform:translateY(-4px) scale(1.1);
+        box-shadow:0 20px 44px rgba(0,0,0,0.95);
+        border-color:rgba(229,9,20,0.7);
+        background-color:#101010;
+      }
+
+      .github-project-card:hover{
+        transform:none;
+        box-shadow:0 12px 28px rgba(0,0,0,0.55);
+        border-color:rgba(255,255,255,0.06);
+      }
+    }
+
+    .github-project-image{
+      width:100%;
+      padding-top:56.25%;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-color:#000;
+    }
+
+    .github-project-body{
+      padding:12px 14px 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .github-project-name{
+      font-weight:700;
+      font-size:14px;
+      color:var(--text);
+      margin:0;
+      word-break:break-word;
+    }
+
+    .github-project-desc{
+      font-size:13px;
+      color:var(--muted);
+      margin:0;
+    }
+
+    .github-project-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:11px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+    .github-project-meta span{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
     }
 
     footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
@@ -494,89 +587,111 @@
           </div>
         </div>
 
+        <!-- LinkedIn Highlights (entire card clickable) -->
         <section id="projects" class="card" aria-labelledby="projects-heading">
           <h3 id="projects-heading">LinkedIn Highlights</h3>
           <div class="linkedin-grid">
+
             <article class="linkedin-card">
-              <div class="linkedin-photo" style="background-image:url('img/li1.jpg');"></div>
-              <div class="linkedin-overlay">
-                <h4>CodeFest 2025 – Provincial Phase</h4>
-                <p>Diving deep into the judging criteria for “Tech for Transparent Nepal—Gen Z in Action: From Protest to Prototype” was eye‑opening.</p>
-                <div class="linkedin-meta">
-                  <span>LinkedIn • Post</span>
-                  <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7398715870392238080"
-                     target="_blank" rel="noopener">Open</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7398715870392238080"
+                 target="_blank" rel="noopener"
+                 style="display:block;text-decoration:none;color:inherit;">
+                <div class="linkedin-photo" style="background-image:url('img/li1.jpg');"></div>
+                <div class="linkedin-overlay">
+                  <h4>CodeFest 2025 – Provincial Phase</h4>
+                  <p>Diving deep into the judging criteria for “Tech for Transparent Nepal—Gen Z in Action: From Protest to Prototype” was eye‑opening.</p>
+                  <div class="linkedin-meta">
+                    <span>LinkedIn • Post</span>
+                    <span>Open</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </article>
 
             <article class="linkedin-card">
-              <div class="linkedin-photo" style="background-image:url('img/li2.jpg');"></div>
-              <div class="linkedin-overlay">
-                <h4>TEDxIIMS — Gratitude & Impact</h4>
-                <p>The success of TEDxIIMS was powered by an engaged audience and inspiring speakers whose insights will resonate for years.</p>
-                <div class="linkedin-meta">
-                  <span>LinkedIn • Post</span>
-                  <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7270331405979570176"
-                     target="_blank" rel="noopener">Open</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7270331405979570176"
+                 target="_blank" rel="noopener"
+                 style="display:block;text-decoration:none;color:inherit;">
+                <div class="linkedin-photo" style="background-image:url('img/li2.jpg');"></div>
+                <div class="linkedin-overlay">
+                  <h4>TEDxIIMS — Gratitude &amp; Impact</h4>
+                  <p>The success of TEDxIIMS was powered by an engaged audience and inspiring speakers whose insights will resonate for years.</p>
+                  <div class="linkedin-meta">
+                    <span>LinkedIn • Post</span>
+                    <span>Open</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </article>
 
             <article class="linkedin-card">
-              <div class="linkedin-photo" style="background-image:url('img/li3.jpg');"></div>
-              <div class="linkedin-overlay">
-                <h4>Hosting an Energy Systems Panel</h4>
-                <p>Panel discussion on “Innovation in Energy Management Systems: Role of IT Students” — a huge boost to my event‑management and industry exposure.</p>
-                <div class="linkedin-meta">
-                  <span>LinkedIn • Post</span>
-                  <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7216418033148321792"
-                     target="_blank" rel="noopener">Open</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7216418033148321792"
+                 target="_blank" rel="noopener"
+                 style="display:block;text-decoration:none;color:inherit;">
+                <div class="linkedin-photo" style="background-image:url('img/li3.jpg');"></div>
+                <div class="linkedin-overlay">
+                  <h4>Hosting an Energy Systems Panel</h4>
+                  <p>Panel discussion on “Innovation in Energy Management Systems: Role of IT Students” — a huge boost to my event‑management and industry exposure.</p>
+                  <div class="linkedin-meta">
+                    <span>LinkedIn • Post</span>
+                    <span>Open</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </article>
 
             <article class="linkedin-card">
-              <div class="linkedin-photo" style="background-image:url('img/li4.jpg');"></div>
-              <div class="linkedin-overlay">
-                <h4>From Idea to Delivery — Workshop</h4>
-                <p>This workshop walks through how software projects are planned, built, and shipped with real‑world tools, workflows, and strategies.</p>
-                <div class="linkedin-meta">
-                  <span>LinkedIn • Post</span>
-                  <a href="https://www.linkedin.com/feed/update/urn:li:share:7364337102513205249"
-                     target="_blank" rel="noopener">Open</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:share:7364337102513205249"
+                 target="_blank" rel="noopener"
+                 style="display:block;text-decoration:none;color:inherit;">
+                <div class="linkedin-photo" style="background-image:url('img/li4.jpg');"></div>
+                <div class="linkedin-overlay">
+                  <h4>From Idea to Delivery — Workshop</h4>
+                  <p>This workshop walks through how software projects are planned, built, and shipped with real‑world tools, workflows, and strategies.</p>
+                  <div class="linkedin-meta">
+                    <span>LinkedIn • Post</span>
+                    <span>Open</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </article>
 
             <article class="linkedin-card">
-              <div class="linkedin-photo" style="background-image:url('img/li5.jpg');"></div>
-              <div class="linkedin-overlay">
-                <h4>Merit Scholarship at IIMS</h4>
-                <p>Honored to receive a merit scholarship for scoring outstanding marks at the IIMS scholarship examination.</p>
-                <div class="linkedin-meta">
-                  <span>LinkedIn • Post</span>
-                  <a href="https://www.linkedin.com/feed/update/urn:li:share:7169346904646959104"
-                     target="_blank" rel="noopener">Open</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:share:7169346904646959104"
+                 target="_blank" rel="noopener"
+                 style="display:block;text-decoration:none;color:inherit;">
+                <div class="linkedin-photo" style="background-image:url('img/li5.jpg');"></div>
+                <div class="linkedin-overlay">
+                  <h4>Merit Scholarship at IIMS</h4>
+                  <p>Honored to receive a merit scholarship for scoring outstanding marks at the IIMS scholarship examination.</p>
+                  <div class="linkedin-meta">
+                    <span>LinkedIn • Post</span>
+                    <span>Open</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </article>
 
             <article class="linkedin-card">
-              <div class="linkedin-photo" style="background-image:url('img/li6.jpg');"></div>
-              <div class="linkedin-overlay">
-                <h4>Design Thinking for Developers</h4>
-                <p>Hands‑on workshop to help developers think beyond code and solve problems like product thinkers — how real ideas become great products.</p>
-                <div class="linkedin-meta">
-                  <span>LinkedIn • Post</span>
-                  <a href="https://www.linkedin.com/feed/update/urn:li:share:7351660548331065345"
-                     target="_blank" rel="noopener">Open</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:share:7351660548331065345"
+                 target="_blank" rel="noopener"
+                 style="display:block;text-decoration:none;color:inherit;">
+                <div class="linkedin-photo" style="background-image:url('img/li6.jpg');"></div>
+                <div class="linkedin-overlay">
+                  <h4>Design Thinking for Developers</h4>
+                  <p>Hands‑on workshop to help developers think beyond code and solve problems like product thinkers — how real ideas become great products.</p>
+                  <div class="linkedin-meta">
+                    <span>LinkedIn • Post</span>
+                    <span>Open</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </article>
+
           </div>
         </section>
 
+        <!-- GitHub Projects preview (same style as projects.html, cards clickable there) -->
         <section id="skills" class="card" aria-labelledby="skills-heading">
           <h3 id="skills-heading">Core Skills</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
