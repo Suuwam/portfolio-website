@@ -308,7 +308,7 @@
       font-weight:800;
     }
 
-    /* LinkedIn Highlights */
+    /* LINKEDIN HIGHLIGHTS */
     .linkedin-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -349,13 +349,12 @@
       padding:14px;
       background:linear-gradient(
         to top,
-        rgba(0,0,0,0.85) 0%,
-        rgba(0,0,0,0.35) 55%,
-        rgba(0,0,0,0.1) 100%
+        rgba(0,0,0,0.6) 0%,
+        rgba(0,0,0,0.0) 60%
       );
-      opacity:1;
-      transform:translateY(0);
-      transition:background 240ms var(--ease);
+      opacity:0;                /* hidden until active on mobile */
+      transform:translateY(10px);
+      transition:opacity 220ms var(--ease), transform 220ms var(--ease), background 240ms var(--ease);
     }
     .linkedin-overlay h4{
       margin:0 0 4px 0;
@@ -376,11 +375,42 @@
       color:var(--muted);
     }
 
+    /* POPPED STATE: show transparent text overlay */
     .linkedin-card.active{
       transform:translateY(-4px) scale(1.1);
       box-shadow:0 20px 44px rgba(0,0,0,0.95);
       border-color:rgba(229,9,20,0.7);
       background-color:#101010;
+    }
+    .linkedin-card.active .linkedin-overlay{
+      opacity:1;
+      transform:translateY(0);
+      background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.88) 0%,
+        rgba(0,0,0,0.35) 55%,
+        rgba(0,0,0,0.1) 100%
+      );
+    }
+
+    /* Desktop: always show overlay text, no scroll pop effect */
+    @media (min-width:576px){
+      .linkedin-overlay{
+        opacity:1;
+        transform:translateY(0);
+        background:linear-gradient(
+          to top,
+          rgba(0,0,0,0.85) 0%,
+          rgba(0,0,0,0.35) 55%,
+          rgba(0,0,0,0.1) 100%
+        );
+      }
+      .linkedin-card.active{
+        transform:translateY(0) scale(1);
+        box-shadow:0 12px 28px rgba(0,0,0,0.55);
+        border-color:rgba(255,255,255,0.06);
+        background-color:#000;
+      }
     }
 
     .linkedin-card:hover{
@@ -395,29 +425,8 @@
         rgba(0,0,0,0.45) 55%,
         rgba(0,0,0,0.18) 100%
       );
-    }
-
-    @media (max-width:575.98px){
-      .linkedin-card{
-        transition:
-          transform 200ms var(--ease),
-          box-shadow 200ms var(--ease),
-          border-color 200ms var(--ease),
-          background-color 200ms var(--ease);
-      }
-      .linkedin-card:hover{
-        transform:none;
-        box-shadow:0 12px 28px rgba(0,0,0,0.55);
-        border-color:rgba(255,255,255,0.06);
-      }
-      .linkedin-card:hover .linkedin-overlay{
-        background:linear-gradient(
-          to top,
-          rgba(0,0,0,0.85) 0%,
-          rgba(0,0,0,0.35) 55%,
-          rgba(0,0,0,0.1) 100%
-        );
-      }
+      opacity:1;
+      transform:translateY(0);
     }
 
     footer.site-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
@@ -647,14 +656,6 @@
             <a href="contact.html" class="cta-ghost" style="border-radius:999px;">Open full contact page</a>
             <a href="appointment.html" class="btn-play" style="padding:8px 14px;">Book an appointment</a>
           </div>
-             <div style="margin-top:14px;padding:12px;border-radius:8px;background:linear-gradient(180deg,#101010,#0c0c0c);border:1px solid rgba(255,255,255,0.02)">
-          <h3 style="margin:0;color:var(--accent);font-weight:800">Highlights</h3>
-          <ul style="color:var(--muted);margin:10px 0 0 18px;padding:0">
-            <li>Published applied ML &amp; NLP research</li>
-            <li>Built production-grade ML pipelines with observability</li>
-            <li>Led cross-functional teams to launch AI products</li>
-          </ul>
-        </div>
         </section>
       </div>
     </main>
@@ -704,7 +705,7 @@
       }, 3000);
     })();
 
-    // Scroll-based pop for LinkedIn on mobile
+    // Scroll-based pop for LinkedIn on mobile, including last post
     (function(){
       const cards = Array.from(document.querySelectorAll('.linkedin-card'));
       if (!cards.length) return;
