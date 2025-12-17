@@ -4,21 +4,23 @@
   <meta charset="utf-8" />
   <title>Blog — Shuvam Khanal</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Blog posts by Shuvam Khanal on AI, systems, and product thinking." />
+  <meta name="description" content="Deep dives by Shuvam Khanal on AI, large language models, and building production systems." />
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <style>
     :root{
-      --bg:#0b0b0b;
-      --panel:#121212;
+      --bg:#080808;
+      --panel:#111111;
       --muted:#b3b3b3;
-      --text:#f3f3f3;
+      --text:#f5f5f5;
       --accent:#e50914;
+      --accent-soft:#ff4b61;
       --card:#181818;
+      --code-bg:#111827;
       --container:1100px;
       --ease: cubic-bezier(.2,.9,.3,1);
     }
@@ -28,10 +30,12 @@
     body{
       margin:0;
       font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      background:linear-gradient(180deg,var(--bg) 0%,#070707 100%);
+      background:radial-gradient(circle at top,#151515 0,#050505 45%,#020202 100%);
       color:var(--text);
       padding-top:44px;
       overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
@@ -59,18 +63,21 @@
     header.topbar{
       display:flex;align-items:center;justify-content:space-between;
       padding:14px 18px;margin-top:16px;
-      background:#050505;border-radius:10px;
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 12px 40px rgba(0,0,0,0.8);
+      background:rgba(5,5,5,0.96);
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 16px 50px rgba(0,0,0,0.9);
+      backdrop-filter:blur(16px);
     }
     .brand{display:flex;align-items:center;gap:14px;}
     .logo{
       width:56px;height:56px;border-radius:12px;
       display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
-      border:2px solid rgba(255,255,255,0.08);
-      color:var(--accent);font-weight:800;font-size:20px;
-      font-family:"Bebas Neue",sans-serif;
+      background:radial-gradient(circle at 30% 0,#ff6b6b,#2b0005);
+      border:2px solid rgba(255,255,255,0.16);
+      color:#fff;font-weight:800;font-size:20px;
+      font-family:"Bebas Neue",sans-serif;letter-spacing:1px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.8);
     }
     .brand-text h3{margin:0;font-size:18px;color:var(--text);}
     .brand-text p{margin:2px 0 0 0;font-size:13px;color:var(--muted);}
@@ -83,7 +90,7 @@
       padding:8px 12px;border-radius:8px;
       font-weight:600;font-size:13px;
       position:relative;
-      transition: color 200ms var(--ease), transform 200ms var(--ease);
+      transition: color 200ms var(--ease), transform 200ms var(--ease), background 200ms var(--ease);
     }
     .nav-link::after{
       content:"";position:absolute;left:12px;right:12px;bottom:-6px;
@@ -93,7 +100,7 @@
       border-radius:2px;opacity:0.95;
     }
     .nav-link:hover{
-      color:var(--text);transform:translateY(-1px);
+      color:var(--text);transform:translateY(-1px);background:rgba(255,255,255,0.02);
     }
     .nav-link:hover::after{transform:scaleX(1);}
 
@@ -102,53 +109,276 @@
       background:var(--accent);color:#081014;
       padding:10px 18px;border-radius:999px;border:none;
       font-weight:800;font-size:13px;text-decoration:none;
-      box-shadow:0 12px 32px rgba(229,9,20,0.35);
+      box-shadow:0 14px 40px rgba(229,9,20,0.55);
       transform:translateY(0);
-      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
+      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease), background 200ms var(--ease);
       white-space:nowrap;cursor:pointer;
     }
     .btn-play:hover{
-      transform:translateY(-2px) scale(1.02);
-      box-shadow:0 18px 44px rgba(229,9,20,0.55);
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:0 20px 52px rgba(229,9,20,0.75);
+      background:var(--accent-soft);
     }
 
     main{margin-top:22px;}
 
-    section.card{
-      margin-top:18px;padding:18px;
-      border-radius:10px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      border:1px solid rgba(255,255,255,0.02);
+    /* Hero article card */
+    .hero-article{
+      margin-top:18px;
+      border-radius:14px;
+      background:radial-gradient(circle at 0 0,#20111a 0,rgba(10,10,10,0.97) 38%,#050505 100%);
+      border:1px solid rgba(255,255,255,0.12);
+      padding:18px 18px 20px 18px;
+      box-shadow:0 18px 60px rgba(0,0,0,0.9);
+      position:relative;
+      overflow:hidden;
     }
-    section.card h2{
-      margin:0 0 10px 0;
-      font-family:"Bebas Neue",sans-serif;
-      font-size:28px;letter-spacing:1px;
-      color:var(--accent);text-transform:uppercase;
+    .hero-article::before{
+      content:"";
+      position:absolute;
+      top:-120px;right:-80px;
+      width:260px;height:260px;
+      background:radial-gradient(circle,rgba(229,9,20,0.4) 0,transparent 60%);
+      opacity:0.6;
+      filter:blur(4px);
+      pointer-events:none;
     }
-    section.card p.lead{
-      margin:0 0 12px 0;
-      color:var(--muted);font-size:13px;
+    .hero-pill-row{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .hero-pill{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.12);
+      font-size:11px;color:var(--muted);
+    }
+    .hero-pill span.dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent-soft);
+      box-shadow:0 0 8px rgba(229,9,20,0.8);
     }
 
-    .blog-list{
-      display:flex;flex-direction:column;gap:16px;
+    .hero-title{
+      margin:4px 0 8px 0;
+      font-size:26px;
+      line-height:1.2;
+      font-weight:650;
+      letter-spacing:0.01em;
     }
-    .blog-post{
-      background:linear-gradient(180deg,#151515,#101010);
-      border-radius:10px;
+    .hero-title span.highlight{
+      color:var(--accent-soft);
+      font-weight:700;
+    }
+    .hero-subtitle{
+      margin:0 0 12px 0;
+      font-size:13px;
+      color:var(--muted);
+      max-width:720px;
+    }
+
+    .hero-meta{
+      display:flex;flex-wrap:wrap;gap:8px;
+      font-size:11px;color:var(--muted);
+      margin-bottom:10px;
+    }
+    .hero-meta span{
+      padding:4px 8px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.4);
       border:1px solid rgba(255,255,255,0.06);
-      padding:14px;
-      box-shadow:0 10px 26px rgba(0,0,0,0.55);
     }
-    .blog-title{
-      margin:0;font-size:17px;font-weight:700;color:var(--text);
+
+    .hero-content{
+      margin-top:6px;
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      display:grid;
+      grid-template-columns:2.2fr 1.2fr;
+      grid-gap:16px;
     }
-    .blog-meta{
-      margin-top:4px;font-size:11px;color:var(--muted);
+    @media(max-width:900px){
+      .hero-content{grid-template-columns:1fr;}
     }
-    .blog-excerpt{
-      margin-top:8px;font-size:13px;color:var(--muted);
+
+    .hero-text p{
+      margin:0 0 8px 0;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .hero-text strong{
+      color:var(--text);
+    }
+
+    .hero-bullets{
+      margin-top:6px;
+      padding-left:18px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .hero-side{
+      border-radius:10px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:10px 10px 12px 10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .hero-side h4{
+      margin:0 0 6px 0;
+      font-size:13px;
+      color:var(--accent-soft);
+      font-weight:650;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+    }
+    .hero-side ul{
+      margin:0;
+      padding-left:16px;
+    }
+    .hero-side li{margin:2px 0;}
+
+    /* Section heading */
+    section.card{
+      margin-top:20px;
+      padding:16px 16px 18px 16px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    section.card h2{
+      margin:0 0 8px 0;
+      font-family:"Bebas Neue",sans-serif;
+      font-size:26px;
+      letter-spacing:1px;
+      color:var(--accent);
+      text-transform:uppercase;
+    }
+    section.card p.lead{
+      margin:0 0 10px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Article list */
+    .blog-grid{
+      display:grid;
+      grid-template-columns:2fr 1.2fr;
+      grid-gap:18px;
+    }
+    @media(max-width:900px){
+      .blog-grid{grid-template-columns:1fr;}
+    }
+
+    .post-list{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .post-card{
+      border-radius:10px;
+      background:linear-gradient(135deg,#121212 0,#090909 100%);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:12px 13px 13px 13px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.7);
+      position:relative;
+      overflow:hidden;
+    }
+    .post-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:0;
+      background:radial-gradient(circle at top right,rgba(229,9,20,0.3),transparent 60%);
+      transition:opacity 200ms var(--ease);
+      pointer-events:none;
+    }
+    .post-card:hover::before{opacity:1;}
+
+    .post-title{
+      margin:0;
+      font-size:15px;
+      font-weight:650;
+      color:var(--text);
+    }
+    .post-meta{
+      margin-top:4px;
+      font-size:11px;
+      color:var(--muted);
+    }
+    .post-excerpt{
+      margin-top:7px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .post-tags{
+      margin-top:7px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      font-size:11px;
+    }
+    .post-tag{
+      padding:3px 7px;
+      border-radius:999px;
+      background:#101010;
+      border:1px solid rgba(255,255,255,0.08);
+      color:var(--muted);
+    }
+
+    .sidebar{
+      border-radius:10px;
+      background:linear-gradient(180deg,#121212,#080808);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:12px 13px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.7);
+    }
+    .sidebar h3{
+      margin:0 0 6px 0;
+      font-size:15px;
+      color:var(--accent-soft);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+    .sidebar p{
+      margin:4px 0 10px 0;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .sidebar ul{
+      margin:0;
+      padding-left:16px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .sidebar li{margin:3px 0;}
+
+    /* Code block styling */
+    pre{
+      margin:8px 0 10px 0;
+      padding:10px 12px;
+      border-radius:8px;
+      background:var(--code-bg);
+      border:1px solid rgba(148,163,184,0.35);
+      color:#e5e7eb;
+      font-size:12px;
+      font-family:"Source Code Pro",ui-monospace,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      overflow-x:auto;
+    }
+    code{
+      font-family:"Source Code Pro",ui-monospace,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:12px;
+      background:rgba(15,23,42,0.7);
+      padding:1px 4px;
+      border-radius:4px;
+      border:1px solid rgba(148,163,184,0.35);
+    }
+    pre code{
+      background:transparent;
+      border:none;
+      padding:0;
     }
 
     footer.site-footer{
@@ -166,7 +396,7 @@
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
-      <span>Blog &amp; Writing</span>
+      <span>AI, LLMs &amp; Systems — Notes &amp; Deep Dives</span>
     </div>
   </div>
 
@@ -185,37 +415,207 @@
         <a class="nav-link" href="skills.html">Skills</a>
         <a class="nav-link" href="blog.html">Blog</a>
         <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="appointment.html">Appointment</a>
         <a class="btn-play" href="Youtube.html">► WATCH</a>
       </nav>
     </header>
 
     <main>
-      <section class="card" aria-labelledby="blog-heading">
-        <h2 id="blog-heading">Blog</h2>
-        <p class="lead">
-          Notes on AI, systems, and building products that actually ship.
+      <!-- HERO ARTICLE: Deep, expert-style post -->
+      <article class="hero-article">
+        <div class="hero-pill-row">
+          <div class="hero-pill">
+            <span class="dot"></span>
+            <span>LLM Systems — Field Notes</span>
+          </div>
+          <div style="font-size:11px;color:var(--muted);">
+            Draft • Written for engineers who actually ship models, not only benchmark them.
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          From <span class="highlight">Toy LLM Demo</span> to Production System:  
+          What Actually Breaks in the Real World
+        </h1>
+
+        <p class="hero-subtitle">
+          Most LLM tutorials stop at “we called the API and got a cool answer.”  
+          In practice, production systems fail on boring things: context limits, latency budgets,
+          prompt drift, evaluation, and how humans actually use (and abuse) your feature.
         </p>
 
-        <div class="blog-list">
-          <!-- Example post 1 -->
-          <article class="blog-post">
-            <h3 class="blog-title">From Prototype to Product: Lessons from Student ML Projects</h3>
-            <div class="blog-meta">Draft • You can replace this text with a full blog post.</div>
-            <p class="blog-excerpt">
-              Use this page to write longer-form content. You can create one section per post, or link to markdown files
-              hosted in this repo or on another platform. Keep the design simple and focused on readability.
-            </p>
-          </article>
+        <div class="hero-meta">
+          <span>Approx. 8 min read</span>
+          <span>Topics: LLMs, Evaluation, Prompting, Systems Design</span>
+        </div>
 
-          <!-- Example post 2 -->
-          <article class="blog-post">
-            <h3 class="blog-title">Design Thinking for Developers — Beyond the Code</h3>
-            <div class="blog-meta">Draft • Edit or duplicate this block for more posts.</div>
-            <p class="blog-excerpt">
-              Developers often jump to solutions. Design thinking forces us to sit with the problem, understand users,
-              and iterate quickly. This is where AI and product thinking intersect.
+        <div class="hero-content">
+          <div class="hero-text">
+            <p>
+              When you move from a Jupyter notebook to a shipped feature, an LLM stops being a “smart autocomplete”
+              and becomes another <strong>unreliable distributed system</strong> in your stack.
             </p>
-          </article>
+
+            <p>
+              In my own projects and mentorship with students, the failures almost never come from
+              “the model isn’t big enough.” Instead, they come from:
+            </p>
+
+            <ul class="hero-bullets">
+              <li><strong>Context misuse</strong> — stuffing the entire database into the prompt.</li>
+              <li><strong>No evaluation loop</strong> — shipping prompts with vibes but no metrics.</li>
+              <li><strong>Bad UX</strong> — users don’t know what the model can or cannot do.</li>
+              <li><strong>Missing guardrails</strong> — the model happily hallucinates confident nonsense.</li>
+            </ul>
+
+            <p>
+              A practical mental model that helps:
+              treat your LLM as a <strong>probabilistic function with contracts</strong>, not as “magic”.
+              That means you define:
+            </p>
+
+            <ul class="hero-bullets">
+              <li><em>Inputs</em>: what structure do you guarantee? (e.g. JSON, schema‑bound tools)</li>
+              <li><em>Budget</em>: latency, tokens, and cost per call</li>
+              <li><em>Failure modes</em>: what you do when the model is wrong, slow, or empty</li>
+            </ul>
+
+            <p>
+              A tiny but real example — a safe wrapper for an LLM call that bakes in some of those contracts:
+            </p>
+
+            <pre><code>// Pseudo-code: robust LLM call wrapper
+async function callLLM({ prompt, schema, maxRetries = 2 }) {
+  const start = Date.now();
+  let attempt = 0;
+
+  while (attempt &lt;= maxRetries) {
+    attempt += 1;
+    const raw = await llm.chat({
+      prompt,
+      // Always constrain: model, temperature, max tokens, etc.
+      model: "gpt-4-mini",
+      temperature: 0.2,
+      max_tokens: 512
+    });
+
+    const latency = Date.now() - start;
+
+    // Basic logging for observability
+    logEvent("llm_call", { latency, attempt, promptLength: prompt.length });
+
+    // Try to coerce into the expected schema
+    const parsed = safeJsonParse(raw.content);
+    const validated = schema.safeParse(parsed);
+
+    if (validated.success) return validated.data;
+
+    // Fallback strategy: simplify prompt or ask LLM to “fix” its own output
+    prompt = buildSelfCorrectionPrompt(prompt, raw.content, schema);
+  }
+
+  throw new Error("LLM failed to return valid data after retries");
+}</code></pre>
+
+            <p>
+              This isn’t fancy — but it already moves you from “hope the model does the right thing”
+              to “we have a <strong>loop with validation and logging</strong>.”
+            </p>
+          </div>
+
+          <aside class="hero-side">
+            <h4>In this series</h4>
+            <ul>
+              <li>Part 1 — LLMs as Systems, not Magic</li>
+              <li>Part 2 — Evaluation that isn’t just “vibes”</li>
+              <li>Part 3 — Prompt design as API design</li>
+              <li>Part 4 — Glue: retrieval, tools, humans-in-the-loop</li>
+            </ul>
+            <p style="margin-top:8px;">
+              These posts are written to be <strong>implementation-friendly</strong>: code‑adjacent,
+              but still accessible if you don’t live in infra every day.
+            </p>
+          </aside>
+        </div>
+      </article>
+
+      <!-- OTHER POSTS + SIDEBAR -->
+      <section class="card" aria-labelledby="blog-heading">
+        <h2 id="blog-heading">More Notes &amp; Articles</h2>
+        <p class="lead">
+          Shorter pieces and outlines I’m turning into longer essays.  
+          These are the mental models I actually use when building AI features.
+        </p>
+
+        <div class="blog-grid">
+          <div class="post-list">
+            <article class="post-card">
+              <h3 class="post-title">How I Think About LLM Evaluation (Beyond “It Feels Smart”)</h3>
+              <div class="post-meta">Outline • Metrics, golden datasets, and human-in-the-loop review.</div>
+              <p class="post-excerpt">
+                Evaluation for LLMs is less like testing a function and more like running a survey at scale.
+                You need both <strong>automated signals</strong> (pass@k, constraint satisfaction, coverage)
+                and <strong>human judgment</strong> (Was this actually helpful?).  
+                I show a lightweight loop that student teams can realistically implement.
+              </p>
+              <div class="post-tags">
+                <span class="post-tag">LLM eval</span>
+                <span class="post-tag">MLOps</span>
+                <span class="post-tag">Product</span>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <h3 class="post-title">Prompt Engineering is Just API Design With Worse Tooling</h3>
+              <div class="post-meta">Draft • Thinking about prompts as stable contracts.</div>
+              <p class="post-excerpt">
+                Good prompts don’t start from “make it sound like a pirate.”  
+                They start from: what <strong>structure</strong> do I need back, which <strong>capabilities</strong>
+                does the model actually have, and how can future engineers understand this without reading my mind?
+              </p>
+              <div class="post-tags">
+                <span class="post-tag">Prompting</span>
+                <span class="post-tag">APIs</span>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <h3 class="post-title">RAG for Humans: Designing Retrieval That Doesn’t Confuse Users</h3>
+              <div class="post-meta">Draft • RAG UX, not just RAG pipelines.</div>
+              <p class="post-excerpt">
+                Retrieval-augmented generation is easy to diagram and hard to ship well.  
+                Most RAG failures in the wild are UX problems: users don’t know what corpus is loaded, what the
+                model can access, or why it answered with something obviously missing.
+              </p>
+              <div class="post-tags">
+                <span class="post-tag">RAG</span>
+                <span class="post-tag">UX</span>
+                <span class="post-tag">Search</span>
+              </div>
+            </article>
+          </div>
+
+          <aside class="sidebar" aria-label="Reading guide">
+            <h3>How to Read This</h3>
+            <p>
+              I try to write the way I wish someone had explained things to me:
+              no hype, no unnecessary math, but also not hand‑wavy.  
+            </p>
+            <ul>
+              <li><strong>Student / early engineer?</strong>  
+                Focus on the mental models and diagrams. You can ignore infra details at first.</li>
+              <li><strong>Already shipping products?</strong>  
+                Skim for pitfalls, checklists, and small patterns you can steal.</li>
+              <li><strong>New to AI?</strong>  
+                Use this as a guided tour. When you see something unfamiliar (e.g. “RAG”),
+                look for the intuition before the acronyms.</li>
+            </ul>
+            <p style="margin-top:10px;">
+              If you’d like me to write about a specific topic — e.g. how to structure a
+              <strong>student ML portfolio</strong> or how to <strong>explain LLMs to non‑technical stakeholders</strong> —
+              mention it in the <a href="appointment.html" style="color:var(--accent-soft);font-weight:600;">appointment form</a>.
+            </p>
+          </aside>
         </div>
       </section>
     </main>
@@ -224,5 +624,23 @@
       &copy; 2025 Shuvam Khanal.
     </footer>
   </div>
+
+  <script>
+    // Gentle pulse for WATCH button
+    (function(){
+      const playButtons = document.querySelectorAll('.btn-play');
+      if(!playButtons.length) return;
+      setInterval(function(){
+        playButtons.forEach(play => {
+          play.style.transform = 'scale(1.02)';
+          play.style.boxShadow = '0 18px 52px rgba(229,9,20,0.65)';
+          setTimeout(function(){
+            play.style.transform = '';
+            play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.55)';
+          }, 450);
+        });
+      }, 3200);
+    })();
+  </script>
 </body>
 </html>
