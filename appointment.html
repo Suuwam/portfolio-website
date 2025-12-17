@@ -231,42 +231,31 @@
 
     <main>
       <div class="appointment-layout">
-        <!-- Main card with embedded Google Form -->
         <section class="card" aria-labelledby="appointment-heading">
           <div class="floating-orb orb-1"></div>
           <div class="floating-orb orb-2"></div>
 
           <h2 id="appointment-heading">Book an Appointment</h2>
           <p class="lead">
-            Fill out this short Google Form to request a call. Your responses go directly into my Google Sheet
-            so I can keep track of all appointments.
+            Appointments are handled through a Google Form so that all responses land directly in my Google Sheet.
+            Click the button below to open the form in a new tab.
           </p>
 
-          <div style="margin-top:12px; border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); background:#000;">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform?embedded=true"
-              width="100%"
-              height="820"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              style="border:0; display:block;"
-            >
-              Loading…
-            </iframe>
-          </div>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform"
+            target="_blank"
+            rel="noopener"
+            class="btn-play"
+            style="margin-top:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;"
+          >
+            <span>Open Google Form</span>
+          </a>
 
-          <p class="helper-text" style="margin-top:10px;">
-            If the form doesn’t load, you can open it
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform"
-               target="_blank" rel="noopener"
-               style="color:var(--accent);font-weight:600;">
-              in a new tab
-            </a>.
+          <p class="helper-text" style="margin-top:12px;">
+            After you submit the Google Form, your details will be stored directly in my connected Google Sheet.
           </p>
         </section>
 
-        <!-- Side info card -->
         <aside class="card" aria-label="Appointment info">
           <h3 class="side-card-title">What to expect</h3>
           <p class="side-card-text">
@@ -301,7 +290,6 @@
   </div>
 
   <script>
-    // Light animation for WATCH button
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(!playButtons.length) return;
