@@ -9,7 +9,7 @@
   <meta property="og:description" content="AI researcher & product-minded engineer building production ML systems." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://suuwam.github.io/portfolio-website/" />
-  <meta property="og:image" content="https://suuwam.github.io/portfolio-website/coverphoto.jpeg" />
+  <meta property="og:image" content="https://suuwam.github.io/portfolio-website/coverphoto.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -241,7 +241,7 @@
       top:0;left:0;
       width:100%;height:100%;
       border:0;
-      pointer-events:none; /* feels like background */
+      pointer-events:none;
     }
 
     main{margin-top:22px;padding-bottom:40px}
@@ -350,7 +350,7 @@
 
     .linkedin-photo{
       width:100%;
-      padding-top:100%; /* 1:1 square */
+      padding-top:100%;
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -402,7 +402,7 @@
       transform:translateY(0);
     }
 
-    /* Mobile-only scroll animation + show overlay when active */
+    /* Mobile-only scroll animation + show overlay, and disable hover on mobile */
     @media (max-width: 575.98px) {
       .linkedin-card{
         transition:
@@ -424,7 +424,7 @@
         transform:translateY(0);
       }
 
-      /* DISABLE hover effect on mobile */
+      /* disable hover on mobile */
       .linkedin-card:hover{
         transform:none;
         box-shadow:0 12px 28px rgba(0,0,0,0.55);
@@ -436,7 +436,7 @@
       }
     }
 
-    /* Contact full-width like others */
+    /* Contact full-width */
     .contact-section{
       margin-top:24px;
     }
@@ -496,8 +496,9 @@
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <a class="btn-play" href="#projects" aria-label="View LinkedIn Highlights">► WATCH</a>
+        <a class="nav-link" href="blog.html">Blog</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="btn-play" href="Youtube.html" aria-label="Go to YouTube page">► WATCH</a>
       </nav>
     </header>
 
@@ -543,7 +544,7 @@
             <p>I'm Shuvam Khanal — I apply machine learning research to product-focused systems. I design model pipelines and human-centered AI features with privacy and reliability in mind.</p>
 
             <div class="cta-row" id="cta-row">
-              <a class="btn-play" href="#contact" aria-label="Go to contact section">CONTACT</a>
+              <a class="btn-play" href="contact.html" aria-label="Go to contact page">CONTACT</a>
               <a class="cta-ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
               <div class="pill">Streaming: Research • DevOps • Product</div>
             </div>
@@ -650,47 +651,6 @@
           </p>
         </section>
       </div>
-
-      <!-- Contact -->
-      <section class="contact-section">
-        <div class="contact-inner">
-          <aside class="panel" role="complementary" aria-labelledby="contact-heading">
-            <div class="contact-card" id="contact">
-              <h3 id="contact-heading">Contact</h3>
-              <p style="color:var(--muted);margin-top:8px">
-                Open to collaborations, consulting, and product roles that bridge research and real-world impact.
-              </p>
-
-              <p style="margin-top:12px"><strong>Email</strong><br>
-                <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a></p>
-
-              <p style="margin-top:10px"><strong>LinkedIn</strong><br>
-                <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">www.linkedin.com/in/shuvam-khanal</a></p>
-
-              <p style="margin-top:10px"><strong>Instagram</strong><br>
-                <a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></p>
-
-              <p style="margin-top:10px"><strong>GitHub</strong><br>
-                <a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></p>
-
-              <div class="socials" aria-hidden="true">
-                <a class="social" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
-                <a class="social" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
-                <a class="social" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
-              </div>
-            </div>
-
-            <div style="margin-top:14px;padding:12px;border-radius:8px;background:linear-gradient(180deg,#101010,#0c0c0c);border:1px solid rgba(255,255,255,0.02)">
-              <h3 style="margin:0;color:var(--accent);font-weight:800">Highlights</h3>
-              <ul style="color:var(--muted);margin:10px 0 0 18px;padding:0">
-                <li>Published applied ML &amp; NLP research</li>
-                <li>Built production-grade ML pipelines with observability</li>
-                <li>Led cross-functional teams to launch AI products</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer" role="contentinfo">
@@ -724,7 +684,7 @@
       poster.addEventListener('touchend', reset);
     })();
 
-    // Pulse play buttons
+    // Pulse play buttons (for WATCH and CONTACT buttons)
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(!playButtons.length) return;
