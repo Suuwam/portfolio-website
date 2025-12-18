@@ -5,8 +5,7 @@
   <title>Shuvam Khanal — Blog</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Blog posts on AI, large language models, and building production systems." />
-  <!-- Add Orbitron and your other fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <style>
     :root{
@@ -192,122 +191,128 @@
       border:1px solid rgba(148,163,184,0.35);
     }
     pre code{background:transparent;border:none;padding:0;}
-    footer.site-footer{
-      text-align:center;color:var(--muted);
-      margin-top:24px;font-size:12px;
-    }
 
-    /* --- UPGRADED FEATURED BLOG DESIGN --- */
-    .featured-heading {
-      margin-bottom: 0.5em;
-      font-family: 'Orbitron', 'Bebas Neue', 'Inter', sans-serif;
-      font-weight: 900;
-      font-size: 2.3rem;
-      letter-spacing: 0.12em;
-      color: #fff;
-      background: linear-gradient(90deg, #ff4b61 14%, #e50914 45%, #fcceeb 110%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 16px rgba(255, 224, 235, 0.2), 0 2px 8px #fc4a60b0;
-      text-transform: uppercase;
-      filter: brightness(1.08) saturate(1.4);
-      letter-spacing: .11em;
-    }
-    .featured-glass {
-      /* Glass, lighter, with soft border and a subtle colored drop shadow */
-      border-radius: 30px;
-      background:
-        linear-gradient(120deg, rgba(250,180,190, 0.10) 0%, rgba(255,255,255,0.14) 100%) ,
-        linear-gradient(120deg, rgba(221,45,93,0.07) , rgba(220, 34,170, 0.09) 99%, rgba(255,255,255,0.11));
-      border: 2.1px solid rgba(255,255,255,0.27);
-      box-shadow: 0 5px 44px 4px rgba(249,55,109,0.04), 0 2px 18px -2px #ffbac8;
-      backdrop-filter: blur(22px) saturate(170%);
-      -webkit-backdrop-filter: blur(22px) saturate(170%);
-      padding: 44px 38px 36px 38px;
-      margin-bottom: 10px;
-      margin-top: 3px;
+    /* --- HERO ARTICLE STYLES (for featured/main blog) --- */
+    .hero-article{
+      margin-top:18px;
+      border-radius:14px;
+      background: radial-gradient(circle at 0 0,#20111a 0,rgba(10,10,10,0.97) 38%,#050505 100%);
+      border:1px solid rgba(255,255,255,0.12);
+      padding:18px;
+      box-shadow:0 18px 60px rgba(0,0,0,0.9);
       position:relative;
       overflow:hidden;
     }
-    .featured-glass::before {
+    .hero-article::before{
       content:"";
-      display:block;
-      position:absolute;left:0;top:0;width:100%;height:12px;
-      border-radius: 30px 30px 0 0;
-      background: linear-gradient(90deg, #ffbac8 3%, #ff4b61 70%, transparent 100%);
-      filter: blur(3px) brightness(1.15);
-      opacity:.47;
+      position:absolute;
+      top:-120px;right:-80px;
+      width:260px;height:260px;
+      background:radial-gradient(circle,rgba(229,9,20,0.4) 0,transparent 60%);
+      opacity:0.6;
+      filter:blur(4px);
+      pointer-events:none;
     }
-    .featured-glass > * {
-      position:relative; z-index:2;
+    .hero-pill-row{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+      margin-bottom:10px;
     }
-    .featured-glass p,
-    .featured-glass li {
-      color: #1f0b1a;
-      font-size: 1.11em;
-      font-weight: 400;
-      line-height: 1.78;
-      letter-spacing: 0.01em;
+    .hero-pill{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.12);
+      font-size:11px;color:var(--muted);
     }
-    .featured-glass h1,
-    .featured-glass h2,
-    .featured-glass h3 {
-      color: #c62540;
-      font-family:'Orbitron','Bebas Neue',sans-serif;
-      letter-spacing: 0.06em;
-      text-shadow:0 2px 8px #fff3;
-      margin-top: 1.35em;
+    .hero-pill span.dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent-soft);
+      box-shadow:0 0 8px rgba(229,9,20,0.8);
+      display:inline-block;
     }
-    .featured-glass h1 {
-      font-size: 2.04em;
-      font-weight: 800;
+    .hero-title{
+      margin:4px 0 8px 0;
+      font-size:26px;
+      line-height:1.2;
+      font-weight:650;
+      letter-spacing:0.01em;
+      color:var(--text);
     }
-    .featured-glass h2 {
-      font-size: 1.23em;
-      color: #923e95;
-      font-weight: 700;
-      margin-bottom: 0.45em;
+    .hero-title span.highlight{color:var(--accent-soft);font-weight:700;}
+    .hero-subtitle{
+      margin:0 0 12px 0;
+      font-size:13px;
+      color:rgba(245,245,245,0.78);
+      max-width:720px;
     }
-    .featured-glass h3 {
-      color: #096DD9;
-      font-weight: 700;
+    .hero-meta{
+      display:flex;flex-wrap:wrap;gap:8px;
+      font-size:11px;color:var(--muted);
+      margin-bottom:10px;
     }
-    .featured-glass pre,
-    .featured-glass code {
-      background-color: #fff5f8 !important;
-      color: #7c0a20;
-      border: 1.5px solid #ff638c36;
-      font-size: 1em;
-      box-shadow:0 7px 27px #ffc5e610;
+    .hero-meta span{
+      padding:4px 8px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.4);
+      border:1px solid rgba(255,255,255,0.06);
     }
-    .featured-glass ul {
-      margin-bottom: 1.3em;
+    .hero-content{
+      margin-top:6px;
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      display:grid;
+      grid-template-columns:2.2fr 1.2fr;
+      grid-gap:16px;
     }
-    .featured-glass a {
-      color: #c62540;
-      text-decoration: underline;
-      font-weight:600;
-      transition: color .15s;
+    .hero-text p{
+      margin:0 0 8px 0;
+      font-size:13px;
+      color:rgba(245,245,245,0.74);
     }
-    .featured-glass a:hover {
-      color:#0f6183;
-      text-decoration:underline;
+    .hero-text strong{color:var(--text);}
+    .hero-bullets{
+      margin-top:6px;
+      padding-left:18px;
+      font-size:13px;
+      color:rgba(245,245,245,0.74);
     }
+    .hero-bullets li{margin:4px 0;}
+    .hero-side{
+      border-radius:10px;
+      background: linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:10px;
+      font-size:12px;
+      color:rgba(245,245,245,0.72);
+    }
+    .hero-side h4{
+      margin:0 0 6px 0;
+      font-size:13px;
+      color:var(--accent-soft);
+      font-weight:650;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+    }
+    .hero-side ul{margin:0;padding-left:16px;}
+    .hero-side li{margin:2px 0;}
+
     @media (max-width:720px){
       .site{padding:0 14px 32px;}
-      section.card{padding:12px;}
-      .blog-grid{grid-template-columns:1fr;grid-gap:14px;}
-      .post-card{padding:10px 11px;overflow:hidden;}
-      .post-title{font-size:14px;}
-      .post-excerpt{font-size:12px;}
-      pre{font-size:10px;padding:8px 10px;margin:8px -4px 10px -4px;}
+      .hero-article{padding:14px;}
+      .hero-pill-row{flex-direction:column;align-items:flex-start;}
+      .hero-title{font-size:22px;}
+      .hero-subtitle{font-size:12px;}
+      .hero-content{grid-template-columns:1fr;grid-gap:12px;}
+      .hero-text p,.hero-subtitle,.post-excerpt{word-wrap:break-word;overflow-wrap:break-word;hyphens:auto;}
+      pre{
+        font-size:10px;padding:8px 10px;margin:8px -4px 10px -4px;
+        max-width:calc(100vw - 60px);
+        overflow-x:auto;-webkit-overflow-scrolling:touch;
+      }
       code{font-size:10px;word-break:break-all;}
       pre code{font-size:10px;display:block;white-space:pre;overflow-x:auto;}
-      .featured-glass {
-        padding: 13px 4px 17px 7px;
-        border-radius: 18px;
-      }
-      .featured-heading{font-size:1.34em;padding:.3em 0;}
+      .hero-bullets{padding-left:16px;font-size:12px;word-wrap:break-word;}
+      .hero-bullets li{margin:4px 0;word-wrap:break-word;overflow-wrap:break-word;}
     }
     @media (max-width: 980px){
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
@@ -317,12 +322,14 @@
       .top-title-inner{padding:6px 12px;}
       header.topbar{padding:10px 12px;margin-top:12px;}
       .logo{width:50px;height:50px;font-size:18px;}
-      .post-title{font-size:13px;}
+      .hero-title{font-size:20px;}
+      .hero-subtitle{font-size:11px;}
       pre{font-size:9px;padding:6px 8px;max-width:calc(100vw - 50px);}
       code{font-size:9px;}
       pre code{font-size:9px;}
+      .hero-bullets{font-size:11px;padding-left:14px;}
+      .post-excerpt{font-size:11px;}
     }
-
   </style>
 </head>
 <body>
@@ -352,15 +359,7 @@
       </nav>
     </header>
     <main>
-      <section class="card" aria-labelledby="blog-heading" style="background:none;box-shadow:none;border:none;padding-bottom:0;">
-        <!-- UPGRADE: New Heading! -->
-        <h2 id="blog-heading" class="featured-heading">
-          <span aria-hidden="true">★</span> Featured Blog Post
-        </h2>
-        <div id="blog-featured" style="margin-top:10px;">
-          <div class="featured-glass"><p><em>Loading...</em></p></div>
-        </div>
-      </section>
+      <div id="featured-blog-hero"></div>
       <section class="card" style="margin-top:20px;" aria-labelledby="short-blogs-heading">
         <h2 id="short-blogs-heading">More Notes &amp; Articles</h2>
         <div id="short-blogs" class="blog-grid"></div>
@@ -418,23 +417,65 @@
     };
     const converter = new showdown.Converter(showdownOpts);
 
-    function mdToHTML(md) {
-      // Strip frontmatter to avoid showing it as text
-      md = md.replace(/^---[\s\S]*?---\s*/, '');
-      return converter.makeHtml(md);
+    function parseHeroFrontmatter(md) {
+      // expects frontmatter with fields: pill, subtitle, meta, aside (markdown allowed), and a big body after the first h1
+      const match = md.match(/^---([\s\S]*?)---\s*/);
+      const fields = {};
+      if (match) {
+        match[1].split('\n').forEach(line => {
+          const colon = line.indexOf(':');
+          if (colon > 0) {
+            const key = line.slice(0, colon).trim();
+            let val = line.slice(colon + 1).trim();
+            if (val.startsWith('|')) val = val.slice(1).trim(); // YAML multiline syntax supported, but not parsed here
+            fields[key] = val;
+          }
+        });
+        md = md.slice(match[0].length);
+      }
+      // Find first h1 as the title and stuff after it as hero-body
+      let h1Match = md.match(/^# (.+)$/mi);
+      let title = h1Match ? h1Match[1] : '';
+      // Extract after the title for content
+      let content = md;
+      if (h1Match) {
+        let idx = md.indexOf(h1Match[0]);
+        if (idx >= 0) content = md.slice(idx + h1Match[0].length).replace(/^\s+/, '');
+      }
+      // pull aside if found in frontmatter
+      return {...fields, title, content};
     }
 
-    // ---- FEATURED BLOG ----
+    // Render hero-article for featured blog!
     function renderFeatured() {
       fetch(mdBaseUrl + MAIN_BLOG_PATH)
         .then(r => r.ok ? r.text() : Promise.reject(r.statusText))
         .then(md => {
-          document.getElementById('blog-featured').innerHTML =
-            `<div class="featured-glass">${mdToHTML(md)}</div>`;
+          const hero = parseHeroFrontmatter(md);
+          const pills = hero.pill ? `<div class="hero-pill"><span class="dot"></span> <span>${hero.pill}</span></div>` : '';
+          const pillRow = `<div class="hero-pill-row">${pills}${hero.meta ? `<div style="font-size:11px;color:var(--muted);">${hero.meta}</div>` : ''}</div>`;
+          const subtitle = hero.subtitle ? `<p class="hero-subtitle">${hero.subtitle}</p>` : '';
+          const meta = hero.meta ? `<div class="hero-meta"><span>${hero.meta}</span></div>` : '';
+          const aside = hero.aside ? (
+            `<aside class="hero-side">${converter.makeHtml(hero.aside)}</aside>`
+          ) : '';
+          // .hero-text styles for main body text (converted from Markdown)
+          const heroText = `<div class="hero-text">${converter.makeHtml(hero.content)}</div>`;
+          document.getElementById('featured-blog-hero').innerHTML =
+            `<article class="hero-article">
+              ${pillRow}
+              <h1 class="hero-title">${hero.title}</h1>
+              ${subtitle}
+              ${meta}
+              <div class="hero-content">
+                ${heroText}
+                ${aside}
+              </div>
+            </article>`;
         })
         .catch(e => {
-          document.getElementById('blog-featured').innerHTML =
-            `<div class="featured-glass" style="color:var(--accent-soft)"><b>Error:</b> ${e}</div>`;
+          document.getElementById('featured-blog-hero').innerHTML =
+            `<div class="hero-article" style="color:var(--accent-soft)"><b>Error:</b> ${e}</div>`;
         });
     }
     renderFeatured();
@@ -513,7 +554,7 @@
           .then(md => {
             shortBlogsDiv.innerHTML = SHORT_BLOGS.map(b =>
               (b.slug === slug)
-                ? shortBlogCardHTML(b, mdToHTML(md), true)
+                ? shortBlogCardHTML(b, converter.makeHtml(md.replace(/^---[\s\S]*?---\s*/, '')), true)
                 : shortBlogCardHTML(b, null, false)
             ).join('');
             scrollToCard(slug);
