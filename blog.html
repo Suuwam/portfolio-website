@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Shuvam's Blog</title>
+  <title>Shuvam Khanal — Blog</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Blog posts on AI, large language models, and building production systems." />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,7 +33,6 @@
       -moz-osx-font-smoothing:grayscale;
     }
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
-
     .top-title-bar{
       position:fixed;top:0;left:0;right:0;
       background:#000;color:#fff;
@@ -169,8 +168,50 @@
       flex-direction:column;
       gap:14px;
     }
-    .post-card{ /* ... rest as before ... */}
-    /* ... (all prior styles are copied as in earlier answers) ... */
+    .post-card{
+      border-radius:10px;
+      background:linear-gradient(135deg,#121212 0,#090909 100%);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:12px 13px 13px 13px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.7);
+      position:relative;
+      overflow:hidden;
+    }
+    .post-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:0;
+      background:radial-gradient(circle at top right,rgba(229,9,20,0.3),transparent 60%);
+      transition:opacity 200ms var(--ease);
+      pointer-events:none;
+    }
+    .post-card:hover::before{opacity:1;}
+    @media (max-width:720px){
+      .post-card.is-active::before{opacity:1;}
+    }
+    .post-title{margin:0;font-size:15px;font-weight:650;color:var(--text);}
+    .post-meta{margin-top:4px;font-size:11px;color:rgba(245,245,245,0.62);}
+    .post-excerpt{margin-top:7px;font-size:13px;color:rgba(245,245,245,0.74);}
+    .post-tags{margin-top:7px;display:flex;flex-wrap:wrap;gap:6px;font-size:11px;}
+    .post-tag{
+      padding:3px 7px;border-radius:999px;background:#101010;
+      border:1px solid rgba(255,255,255,0.08);color:rgba(245,245,245,0.72);
+    }
+    pre{
+      margin:8px 0 10px 0;padding:10px 12px;border-radius:8px;
+      background:var(--code-bg);border:1px solid rgba(148,163,184,0.35);
+      color:#e5e7eb;font-size:12px;
+      font-family:"Source Code Pro",ui-monospace,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      overflow-x:auto;
+    }
+    code{
+      font-family:"Source Code Pro",ui-monospace,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:12px;background:rgba(15,23,42,0.7);
+      padding:1px 4px;border-radius:4px;
+      border:1px solid rgba(148,163,184,0.35);
+    }
+    pre code{background:transparent;border:none;padding:0;}
     /* --- HERO ARTICLE STYLES (for featured/main blog) --- */
     .hero-article{
       margin-top:18px;
@@ -341,7 +382,6 @@
     <main>
       <div id="featured-blog-hero"></div>
       <div style="margin-top:14px;">
-        <!-- Static sidebar guide! -->
         <aside class="sidebar" aria-label="Reading guide">
           <h3>How to Use This Blog</h3>
           <p>These posts are meant to be reference material you can come back to: not news, but <strong>mental models</strong> and checklists.</p>
@@ -375,6 +415,14 @@
     const GH_BRANCH = "main";
     const MAIN_BLOG_PATH = "posts/llm-real-world.md";
     const SHORT_BLOGS = [
+      {
+        path: "posts/vedic-astrology-neural-networks.md",
+        slug: "vedic-astrology-neural-networks",
+        title: "The Real Link Between Vedic Astrology and Neural Networks: It's Not About Predicting Your Future",
+        date: "2026-01-03",
+        tags: ["Vedic Astrology","Neural Networks","Philosophy","Science"],
+        excerpt: "Most people think astrology is just about predicting the future (and a lot of people scoff—or believe—accordingly). But the reality is much weirder, much more interesting, and maybe not even about “fortune telling” at all. Here’s what happened when I tried to connect Vedic astrology and neural nets—and what that says about being “right” or “wrong” about life."
+      },
       {
         path: "posts/student-ml-project.md",
         slug: "student-ml-project",
@@ -413,7 +461,6 @@
     const converter = new showdown.Converter(showdownOpts);
 
     function parseHeroFrontmatter(md) {
-      // expects frontmatter with fields: pill, subtitle, meta, aside (markdown allowed), and a big body after the first h1
       const match = md.match(/^---([\s\S]*?)---\s*/);
       const fields = {};
       if (match) {
@@ -422,26 +469,22 @@
           if (colon > 0) {
             const key = line.slice(0, colon).trim();
             let val = line.slice(colon + 1).trim();
-            if (val.startsWith('|')) val = val.slice(1).trim(); // YAML multiline syntax supported, but not parsed here
+            if (val.startsWith('|')) val = val.slice(1).trim();
             fields[key] = val;
           }
         });
         md = md.slice(match[0].length);
       }
-      // Find first h1 as the title and stuff after it as hero-body
       let h1Match = md.match(/^# (.+)$/mi);
       let title = h1Match ? h1Match[1] : '';
-      // Extract after the title for content
       let content = md;
       if (h1Match) {
         let idx = md.indexOf(h1Match[0]);
         if (idx >= 0) content = md.slice(idx + h1Match[0].length).replace(/^\s+/, '');
       }
-      // pull aside if found in frontmatter
       return {...fields, title, content};
     }
 
-    // Render hero-article for featured blog!
     function renderFeatured() {
       fetch(mdBaseUrl + MAIN_BLOG_PATH)
         .then(r => r.ok ? r.text() : Promise.reject(r.statusText))
@@ -454,7 +497,6 @@
           const aside = hero.aside ? (
             `<aside class="hero-side">${converter.makeHtml(hero.aside)}</aside>`
           ) : '';
-          // .hero-text styles for main body text (converted from Markdown)
           const heroText = `<div class="hero-text">${converter.makeHtml(hero.content)}</div>`;
           document.getElementById('featured-blog-hero').innerHTML =
             `<article class="hero-article">
@@ -475,9 +517,8 @@
     }
     renderFeatured();
 
-    // ---- SHORT BLOGS PREVIEWS ----
     const shortBlogsDiv = document.getElementById('short-blogs');
-    let expandedSlug = null; // Only one card open at a time
+    let expandedSlug = null;
 
     function shortBlogCardHTML(blog, html, expanded) {
       if (expanded && html) {
@@ -515,7 +556,6 @@
     }
     renderShortBlogs();
 
-    // ---- EXPAND/COLLAPSE/CLICK HANDLER ----
     shortBlogsDiv.addEventListener('click', shortBlogExpandHandler);
     shortBlogsDiv.addEventListener('keydown', function(e){
       if((e.key === "Enter"||e.key===" ") && e.target.classList.contains('post-card')) {
@@ -576,12 +616,10 @@
     }
 
     function formatDate(date){
-      // YYYY-MM-DD -> Month Day, Year
       const [y,m,d] = date.split('-');
       return new Date(`${y}-${m}-${d}`).toLocaleDateString(undefined, {month:'short',day:'numeric',year:'numeric'});
     }
 
-    // PLAY button pulse animation
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(playButtons.length){
