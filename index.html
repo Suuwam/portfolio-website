@@ -21,13 +21,16 @@
 
   <style>
     :root{
-      --bg:#0b0b0b;
-      --panel:#121212;
-      --muted:#b3b3b3;
-      --text:#f3f3f3;
-      --accent:#e50914;
-      --card:#181818;
-      --glass:rgba(255,255,255,0.03);
+      --bg:#1a1a1d;
+      --panel:#252527;
+      --muted:#a8a8a8;
+      --text:#e8e8e8;
+      --accent:#B87333;
+      --accent-soft:#D4A574;
+      --card:#2a2a2d;
+      --card-highlight:#35353a;
+      --glass:rgba(255,255,255,0.04);
+      --metallic-glow:rgba(184,115,51,0.15);
       --radius:12px;
       --container:1100px;
       --ease: cubic-bezier(.2,.9,.3,1);
@@ -38,7 +41,7 @@
     body{
       margin:0;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: linear-gradient(180deg,var(--bg) 0%, #070707 100%);
+      background: linear-gradient(180deg, #1a1a1d 0%, #0f0f11 50%, #1a1a1d 100%);
       color:var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -56,9 +59,9 @@
       left:0;
       right:0;
       z-index:10000;
-      background:#000;
+      background:#0f0f11;
       color:#fff;
-      border-bottom:1px solid rgba(255,255,255,0.1);
+      border-bottom:1px solid rgba(184,115,51,0.2);
     }
     .top-title-inner{
       max-width:var(--container);
@@ -87,10 +90,10 @@
       justify-content:space-between;
       padding:14px 18px;
       margin-top:16px;
-      background:#050505;
+      background:linear-gradient(135deg, #2a2a2d 0%, #1f1f22 100%);
       border-radius:10px;
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 12px 40px rgba(0,0,0,0.8);
+      border:1px solid rgba(184,115,51,0.15);
+      box-shadow:0 12px 40px rgba(0,0,0,0.8), 0 0 20px var(--metallic-glow);
     }
     .brand{
       display:flex;
@@ -104,14 +107,15 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
-      border:2px solid rgba(255,255,255,0.08);
+      background:linear-gradient(135deg, #3a3a3d 0%, #252527 100%);
+      border:2px solid rgba(184,115,51,0.3);
       color:var(--accent);
       font-weight:800;
       font-size:20px;
       letter-spacing:1px;
       font-family:"Bebas Neue",sans-serif;
       flex-shrink:0;
+      box-shadow:0 4px 12px var(--metallic-glow);
     }
     .brand-text h3{
       margin:0;
@@ -167,15 +171,15 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      background:var(--accent);
-      color:#081014;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+      color:#0f0f11;
       padding:10px 18px;
       border-radius:999px;
-      border:none;
+      border:1px solid rgba(212,165,116,0.3);
       font-weight:800;
       font-size:13px;
       text-decoration:none;
-      box-shadow:0 12px 32px rgba(229,9,20,0.35);
+      box-shadow:0 12px 32px var(--metallic-glow), 0 4px 12px rgba(184,115,51,0.25);
       transform:translateY(0);
       transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
       white-space:nowrap;
@@ -183,28 +187,57 @@
     }
     .btn-play:hover{
       transform:translateY(-2px) scale(1.02);
-      box-shadow:0 18px 44px rgba(229,9,20,0.55);
+      box-shadow:0 18px 44px var(--metallic-glow), 0 8px 24px rgba(184,115,51,0.4);
     }
 
     .hero-video-wrapper{
       margin-top:10px;
-      border-radius:10px;
+      border-radius:14px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,0.08);
-      background:#000;
+      border:1px solid rgba(184,115,51,0.2);
+      background:linear-gradient(135deg, #2a2a2d 0%, #1f1f22 50%, #2a2a2d 100%);
       position:relative;
+      padding:80px 40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 12px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(184,115,51,0.1);
+    }
+    .hero-video-wrapper::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(184,115,51,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212,165,116,0.06) 0%, transparent 50%);
+      pointer-events:none;
     }
     .hero-video-inner{
       position:relative;
-      padding-top:56.25%;
       z-index:1;
+      text-align:center;
     }
-    .hero-video-inner iframe{
-      position:absolute;
-      top:0;left:0;
-      width:100%;height:100%;
-      border:0;
-      pointer-events:none;
+    .hero-video-inner h2{
+      margin:0 0 12px 0;
+      font-family:"Bebas Neue",sans-serif;
+      font-size:48px;
+      letter-spacing:3px;
+      color:var(--accent);
+      text-transform:uppercase;
+      text-shadow:0 2px 8px var(--metallic-glow);
+    }
+    .hero-video-inner p{
+      margin:0;
+      font-size:16px;
+      color:var(--text);
+      max-width:600px;
+    }
+    @media(max-width:600px){
+      .hero-video-wrapper{padding:60px 20px;}
+      .hero-video-inner h2{font-size:36px;}
     }
 
     .hero-name-block{
@@ -327,11 +360,11 @@
       position:relative;
       border-radius:10px;
       overflow:hidden;
-      background:#000;
+      background:#1f1f22;
       box-shadow:0 12px 28px rgba(0,0,0,0.55);
       transform:translateY(0) scale(1);
       transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease), background-color 220ms var(--ease);
-      border:1px solid rgba(255,255,255,0.06);
+      border:1px solid rgba(184,115,51,0.15);
     }
 
     .linkedin-photo{
@@ -379,9 +412,9 @@
 
     .linkedin-card.active{
       transform:translateY(-4px) scale(1.1);
-      box-shadow:0 20px 44px rgba(0,0,0,0.95);
-      border-color:rgba(229,9,20,0.7);
-      background-color:#101010;
+      box-shadow:0 20px 44px rgba(0,0,0,0.95), 0 0 24px var(--metallic-glow);
+      border-color:rgba(184,115,51,0.6);
+      background-color:#2a2a2d;
     }
     .linkedin-card.active .linkedin-overlay{
       opacity:1;
@@ -415,8 +448,8 @@
 
     .linkedin-card:hover{
       transform:translateY(-6px) scale(1.02);
-      box-shadow:0 22px 48px rgba(0,0,0,0.85);
-      border-color:rgba(229,9,20,0.6);
+      box-shadow:0 22px 48px rgba(0,0,0,0.85), 0 0 28px var(--metallic-glow);
+      border-color:rgba(184,115,51,0.5);
     }
     .linkedin-card:hover .linkedin-overlay{
       background:linear-gradient(
@@ -434,9 +467,9 @@
       margin-top:18px;
       padding:16px 16px 14px 16px;
       border-radius:12px;
-      background:linear-gradient(135deg, rgba(229,9,20,0.18), rgba(0,0,0,0.9));
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 18px 40px rgba(0,0,0,0.9);
+      background:linear-gradient(135deg, rgba(184,115,51,0.12), rgba(42,42,45,0.95));
+      border:1px solid rgba(184,115,51,0.2);
+      box-shadow:0 18px 40px rgba(0,0,0,0.7), 0 0 20px var(--metallic-glow);
       position:relative;
       overflow:hidden;
       transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),border-color 200ms var(--ease);
@@ -445,7 +478,7 @@
       content:'';
       position:absolute;
       inset:-60%;
-      background:radial-gradient(circle at 0 0,rgba(255,255,255,0.08),transparent 50%);
+      background:radial-gradient(circle at 0 0, rgba(184,115,51,0.12), transparent 50%);
       opacity:0.75;
       pointer-events:none;
     }
@@ -499,9 +532,9 @@
       transition:background 200ms var(--ease), transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
     }
     .social:hover{
-      background:var(--accent);
-      border-color:rgba(255,255,255,0.9);
-      box-shadow:0 10px 24px rgba(229,9,20,0.65);
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+      border-color:rgba(212,165,116,0.8);
+      box-shadow:0 10px 24px var(--metallic-glow), 0 4px 12px rgba(184,115,51,0.4);
       transform:translateY(-1px);
     }
 
@@ -549,8 +582,8 @@
       .contact-card.section-active,
       .highlights-card.section-active{
         transform:translateY(-4px) scale(1.03);
-        box-shadow:0 20px 44px rgba(0,0,0,0.95);
-        border-color:rgba(229,9,20,0.8);
+        box-shadow:0 20px 44px rgba(0,0,0,0.95), 0 0 24px var(--metallic-glow);
+        border-color:rgba(184,115,51,0.7);
       }
     }
   </style>
@@ -584,20 +617,11 @@
       </nav>
     </header>
 
-    <section class="hero-video-wrapper" aria-label="Intro video">
+    <section class="hero-video-wrapper" aria-label="Hero section">
       <div class="hero-video-inner">
-        <iframe
-          src="https://www.youtube.com/embed/IILSKEJOTiA?autoplay=1&mute=1&loop=1&playlist=IILSKEJOTiA&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&iv_load_policy=3&playsinline=1&disablekb=1"
-          title="Intro video"
-          frameborder="0"
-          allow="autoplay; encrypted-media">
-        </iframe>
+        <h2>SHUVAM KHANAL</h2>
+        <p>Undergrad Computer Science Student • AI Researcher • Product-minded Engineer</p>
       </div>
-    </section>
-
-    <section class="hero-name-block">
-      <h2>SHUVAM KHANAL</h2>
-      <p>Undergrad Computer Science Student • AI Researcher • Product-minded</p>
     </section>
 
     <main>
