@@ -5,7 +5,7 @@
   <title>Appointment — Shuvam Khanal</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Book an appointment with Shuvam Khanal for AI, projects, or collaboration discussions." />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <style>
     :root{
@@ -16,7 +16,7 @@
       --accent:#e50914;
       --accent-soft:#ff4b61;
       --card:#181818;
-      --container:1100px;
+      --container: 1100px;
       --ease: cubic-bezier(.2,.9,.3,1);
     }
     *{box-sizing:border-box}
@@ -100,59 +100,64 @@
       display:inline-flex;align-items:center;gap:8px;
       background:var(--accent);
       color:#081014;
-      padding:10px 18px;border-radius:999px;border:none;
-      font-weight:800;font-size:15px;text-decoration:none;
+      padding:7px 17px;
+      border-radius:999px;border:none;
+      font-weight:800;font-size:13px;text-decoration:none;
       box-shadow:0 14px 40px rgba(229,9,20,0.55);
       transform:translateY(0);
       transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),background 200ms var(--ease);
       white-space:nowrap;cursor:pointer;
-      letter-spacing:0.04em;
+      line-height:1.3;
+    }
+    .btn-play span,
+    .btn-play svg{ 
+      display: inline-block; 
+      vertical-align: middle; 
+    }
+    .btn-play svg{
+      width:16px;
+      height:16px;
+      margin-right:2px;
+      margin-left:-2px;
+      fill:currentColor;
     }
     .btn-play:hover{
-      transform:translateY(-2px) scale(1.07);
-      box-shadow:0 20px 52px rgba(229,9,20,0.75);
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:0 20px 52px rgba(229,9,20,0.65);
       background:var(--accent-soft);
       color:#081014;
     }
     main{margin-top:22px;}
-    .appointment-layout{
+    .appointment-grid{
       display:grid;
       grid-template-columns:2fr 1.2fr;
       grid-gap:18px;
       margin-top:18px;
     }
-    @media(max-width:991.98px){
-      .appointment-layout{
+    @media (max-width:991.98px){
+      .appointment-grid{
         grid-template-columns:1fr;
       }
     }
-    .card{
-      position:relative;
+    section.card{
+      margin-top:20px;
+      padding:18px 20px 28px 24px;
       border-radius:12px;
       background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
       border:1px solid rgba(255,255,255,0.06);
-      padding:22px 22px 26px 22px;
-      box-shadow:0 12px 32px rgba(0,0,0,0.65);
     }
-    .card h2, .card h3{
-      margin:0 0 12px 0;
+    section.card h2{
+      margin:0 0 8px 0;
       font-family:"Bebas Neue",sans-serif;
-      font-size:28px;letter-spacing:1px;
+      font-size:26px;
+      letter-spacing:1px;
       color:var(--accent);
       text-transform:uppercase;
     }
-    .card p.lead{
-      margin:0 0 15px 0;
-      color:rgba(245,245,245,0.85);
-      font-size:15.5px;
-      font-weight:600;
-      letter-spacing:0.01em;
-    }
-    .helper-text{
-      font-size:12px;
-      color:var(--muted);
-      margin-top:8px;
-      font-style:italic;
+    section.card p.lead{
+      margin:0 0 10px 0;
+      color:rgba(245,245,245,1);
+      font-size:15px;
     }
     .side-card-title{
       font-family:"Bebas Neue",sans-serif;
@@ -160,63 +165,75 @@
       letter-spacing:1px;
       color:var(--accent-soft);
       text-transform:uppercase;
-      margin:0 0 6px 0;
+      margin:0 0 5px 0;
     }
     .side-card-text{
-      font-size:13.5px;
-      color:rgba(245,245,245,0.8);
-      margin:0 0 12px 0;
+      font-size:13.4px;
+      color:rgba(250,230,240,0.95);
+      margin:0 0 11px 0;
+      line-height:1.7;
     }
     .side-card-text strong{
       color:var(--accent);
-      font-weight:700;
+      font-weight:650;
+    }
+    ul.side-card-text{
+      color:rgba(236,231,237,0.93);
     }
     .deep-section {
-      margin-top: 20px;
-      padding: 17px 16px 12px 13px;
-      background:linear-gradient(100deg,rgba(255,255,255,0.018),rgba(245,75,97,0.015));
+      margin-top: 22px;
+      padding: 18px 18px 14px 16px;
+      background:rgba(255,255,255,0.021);
       border-radius:10px;
-      border: 1px solid rgba(229,9,20,0.08);
-      box-shadow:0 2px 22px 0px #200c185a;
+      border: 1px solid rgba(255,255,255,0.06);
     }
     .deep-section h4 {
       font-family: "Bebas Neue", sans-serif;
       font-size: 17px;
       color: var(--accent-soft);
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
     .deep-section p {
-      font-size: 13.5px;
-      color: #e8e6ec;
+      font-size: 14px;
+      color: var(--muted);
       margin: 0 0 8px 0;
-      line-height:1.72;
+      line-height:1.7;
     }
     .deep-section ul {
-      padding-left: 21px;
-      margin-bottom: 12px;
+      padding-left: 22px;
+      margin-bottom: 8px;
     }
     .deep-section li {
       color: var(--text);
-      margin-bottom: 6px;
-      font-size: 13.8px;
+      margin-bottom: 5px;
+      font-size: 13.7px;
+      line-height: 1.5;
     }
-    footer.site-footer{
-      text-align:center;color:var(--muted);
-      margin-top:24px;font-size:12px;
-      letter-spacing:0.06em;
+    .helper-text{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:6px;
+      font-style:italic;
     }
     @media (max-width:980px){
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
       nav.hud{justify-content:flex-start;}
-      .appointment-layout{grid-template-columns:1fr;}
+      .appointment-grid{grid-template-columns:1fr;}
     }
     @media (max-width:600px) {
-      .card,.deep-section{padding:10px 6px 12px 8px;}
+      section.card, .deep-section{padding:10px 6px 13px 6px;}
       .side-card-title{font-size:17px;}
       .brand-text h3{font-size:15px;}
       .logo{width:47px;height:47px;font-size:17px;}
+      .btn-play{font-size:12px;padding:6px 13px;}
+      .btn-play svg{width:13px;height:13px;}
+    }
+    footer.site-footer{
+      text-align:center;color:var(--muted);
+      margin-top:44px;font-size:12px;
+      letter-spacing:0.07em;
     }
   </style>
 </head>
@@ -224,7 +241,7 @@
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
-      <span>Book an Appointment</span>
+      <span>Appointments &amp; Booking</span>
     </div>
   </div>
   <div class="site">
@@ -243,73 +260,76 @@
         <a class="nav-link" href="blog.html">Blog</a>
         <a class="nav-link" href="contact.html">Contact</a>
         <a class="nav-link" href="appointment.html">Appointment</a>
-        <a class="btn-play" href="Youtube.html">► WATCH</a>
+        <a class="btn-play" href="Youtube.html">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#fff" opacity="0.13"/><polygon points="7,5 15,10 7,15" style="fill:currentColor"/></svg>
+          <span>WATCH</span>
+        </a>
       </nav>
     </header>
     <main>
-      <div class="appointment-layout">
+      <div class="appointment-grid">
         <section class="card" aria-labelledby="appointment-heading">
           <h2 id="appointment-heading">Book an Appointment</h2>
           <p class="lead">
-            Want to get feedback, brainstorm, or just chat tech and goals? I’d love to connect.<br>
-            Fill out my quick Google Form — I read every submission personally and reply within 1–2 days.
+            I’m always excited to meet new people, chat about ideas, help with projects, or brainstorm wild possibilities in tech, learning, and research. Everyone is welcome — just bring your curiosity!
           </p>
           <div class="deep-section">
-            <h4>The Booking Flow</h4>
+            <h4>How does it work?</h4>
             <p>
-              Click <span style="color:var(--accent);font-weight:600;">BOOK</span> and fill out a short, privacy‑safe form.<br>
-              I ask only the essentials: your topic/interests, your time zone, and when you’re hoping to talk.
+              Just click the button below. The form asks a few thoughtful questions: your goal for the call, your background, timing, and any details you'd like to share.
             </p>
             <ul>
-              <li><strong>Tell your story:</strong> Background or context helps, but come as you are! All levels and ideas welcome.</li>
-              <li><strong>Your mission:</strong> Unsure what to book about? "I’m exploring X" or "Need advice for Y" is enough.</li>
-              <li><strong>Your schedule:</strong> Share some possible days and your time zone — I try to adjust for you.</li>
+              <li><strong>Your story:</strong> Who are you, what are you building or exploring?</li>
+              <li><strong>Your mission:</strong> What would you love to discuss or get feedback on?</li>
+              <li><strong>Best time for you:</strong> Suggest days/times (and your time zone for easier coordination).</li>
             </ul>
             <p>
-              I’ll respond to all requests with a few hand‑picked time slots and, if helpful, suggestions to get the most out of our call.
+              You’ll get a personal reply (not an auto-reply) within 24–48 hours, with suggested slots and tips if needed. It’s private and relaxed — no need to “prepare”, just come as you are.
             </p>
           </div>
           <div class="deep-section">
-            <h4>Relax — This Is Human</h4>
+            <h4>What can we do on a call?</h4>
             <ul>
-              <li><strong>No pressure.</strong> Not an interview, not a sales call, not a test. No gatekeeping either.</li>
-              <li><strong>Any topics are welcome,</strong> from "how do I start in ML" to deep technical rabbit holes. Even wild ideas!</li>
-              <li><strong>Confidential.</strong> Your info is read only by me. Our call is a safe space.</li>
+              <li>Review your <strong>AI/ML</strong> project, research plan, or product idea</li>
+              <li>Get mentorship or advice on learning, career navigation, or skill building</li>
+              <li>Brainstorm features, design, or user challenges</li>
+              <li>Plan or discuss events, workshops, or collaborations</li>
+              <li>Just chat and swap stories — curiosity is a superpower!</li>
             </ul>
           </div>
-          <div style="margin-top:30px; text-align:center;">
+          <div style="margin-top:34px; text-align:center;">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform"
               target="_blank"
               rel="noopener"
               class="btn-play"
-              style="font-size:18px; font-weight:900;"
+              style="font-size:19px; font-weight:900;"
             >
               Book
             </a>
             <p class="helper-text" style="margin-top:14px;">
-              Fast, personal, and privacy-first. I can't wait to meet you!
+              All info is private and safe — you’re talking to Shuvam, not a bot. Questions? Just ask!
             </p>
           </div>
         </section>
         <aside class="card" aria-label="Appointment info">
-          <h3 class="side-card-title">What to expect</h3>
+          <h3 class="side-card-title">What happens next?</h3>
           <p class="side-card-text">
-            I review every appointment myself — usually within <strong>24–48 hours</strong>. You’ll get a reply with call slots and, if helpful, tips or resources.
-          </p>
-          <p class="side-card-text">
-            <strong>Best for:</strong>
+            I’ll review your submission personally and send you a few times for the call, tailored to your timezone. If there’s a specific area you want to go deep on, mention it — I’ll prepare!
           </p>
           <ul class="side-card-text" style="padding-left:18px;margin-bottom:10px;">
-            <li>Reviewing an AI/ML or research idea</li>
-            <li>Learning/career roadmaps</li>
-            <li>Brainstorming a product or technical vision</li>
-            <li>Portfolio/project feedback</li>
-            <li>Event or workshop collaboration</li>
-            <li>Just connecting — anything welcome!</li>
+            <li>Feedback on research and creative work</li>
+            <li>Learning/finding your path in tech and AI</li>
+            <li>UX/product brainstorming</li>
+            <li>Collaboration or peer coding</li>
+            <li>Just connecting and sharing ideas</li>
           </ul>
-          <p class="side-card-text"><strong>Time zones:</strong> I’m based in Nepal Time (NPT, UTC+5:45), but will adjust for you. Just mention your own time zone.</p>
-          <p class="side-card-text"><strong>Issues?</strong> If the form ever fails, just email me: <a href="mailto:shuvamkhanal1000@gmail.com" style="color:var(--accent);font-weight:600;">shuvamkhanal1000@gmail.com</a></p>
+          <p class="side-card-text"><strong>Time zones:</strong>
+            Based in Nepal (NPT, UTC+5:45) but happy to work worldwide — just let me know yours.
+          </p>
+          <p class="side-card-text"><strong>Problems with the form?</strong>
+            Email me directly: <a href="mailto:shuvamkhanal1000@gmail.com" style="color:var(--accent);font-weight:600;">shuvamkhanal1000@gmail.com</a>
+          </p>
         </aside>
       </div>
     </main>
@@ -323,14 +343,14 @@
       if(playButtons.length){
         setInterval(function(){
           playButtons.forEach(play => {
-            play.style.transform = 'scale(1.03)';
+            play.style.transform = 'scale(1.02)';
             play.style.boxShadow = '0 18px 52px rgba(229,9,20,0.65)';
             setTimeout(function(){
               play.style.transform = '';
               play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.55)';
             }, 450);
           });
-        }, 3200);
+        }, 3400);
       }
     })();
   </script>
