@@ -124,6 +124,9 @@
       .appointment-grid{
         grid-template-columns:1fr;
       }
+      aside.card{
+        margin-top:24px !important;
+      }
     }
     section.card{
       margin-top:20px;
@@ -145,6 +148,11 @@
       color:rgba(245,245,245,1);
       font-size:15px;
     }
+    aside.card{
+      margin-top:44px; /* Lower the side card a bit */
+      min-height:300px;
+      align-self: flex-start;
+    }
     .side-card-title{
       font-family:"Bebas Neue",sans-serif;
       font-size:20px;
@@ -154,10 +162,11 @@
       margin:0 0 5px 0;
     }
     .side-card-text{
-      font-size:13.4px;
+      font-size:13.8px;
       color:rgba(250,230,240,0.95);
       margin:0 0 11px 0;
       line-height:1.7;
+      list-style-position: inside;
     }
     .side-card-text strong{
       color:var(--accent);
@@ -165,6 +174,8 @@
     }
     ul.side-card-text{
       color:rgba(236,231,237,0.93);
+      padding-left:1em;
+      margin-bottom:8px;
     }
     .deep-section {
       margin-top: 22px;
@@ -207,12 +218,14 @@
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
       nav.hud{justify-content:flex-start;}
       .appointment-grid{grid-template-columns:1fr;}
+      aside.card{margin-top:24px !important;}
     }
     @media (max-width:600px) {
       section.card, .deep-section{padding:10px 6px 13px 6px;}
       .side-card-title{font-size:17px;}
       .brand-text h3{font-size:15px;}
       .logo{width:47px;height:47px;font-size:17px;}
+      aside.card{margin-top:22px !important;}
     }
     footer.site-footer{
       text-align:center;color:var(--muted);
@@ -225,7 +238,7 @@
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
-      <span>Book &amp; Appointment</span>
+      <span>Book - Appointment</span>
     </div>
   </div>
   <div class="site">
@@ -265,7 +278,7 @@
               <li><strong>Best time for you:</strong> Suggest days/times (and your time zone for easier coordination).</li>
             </ul>
             <p>
-              You’ll get a personal reply (not an auto-reply) within 24–48 hours, with suggested slots and tips if needed. It’s private and relaxed - no need to “prepare”, just come as you are.
+              You’ll get a personal reply (not an auto-reply) within 24-48 hours, with suggested slots and tips if needed. It’s private and relaxed - no need to "prepare", just come as you are.
             </p>
           </div>
           <div class="deep-section">
@@ -298,7 +311,7 @@
           <p class="side-card-text">
             I’ll review your submission personally and send you a few times for the call, tailored to your timezone. If there’s a specific area you want to go deep on, mention it - I’ll prepare!
           </p>
-          <ul class="side-card-text" style="padding-left:18px;margin-bottom:10px;">
+          <ul class="side-card-text">
             <li>Feedback on research and creative work</li>
             <li>Learning/finding your path in tech and AI</li>
             <li>UX/product brainstorming</li>
