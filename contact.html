@@ -132,15 +132,29 @@
       transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
     }
     .social:hover{ transform: translateY(-6px) scale(1.05); box-shadow: 0 12px 26px rgba(0,0,0,0.6); }
+    .social--facebook { color: #3b5998; }
 
-    footer.site-footer{
-      text-align:center;color:var(--muted);
-      margin-top:24px;font-size:12px;
+    .contact-details-table {
+      width:100%;
+      border-spacing:0;
+      border-collapse:collapse;
+      margin-top:18px;
     }
-
+    .contact-details-table td {
+      padding:4px 10px 4px 0;
+      vertical-align:top;
+      font-size:15px;
+      color:var(--text);
+    }
+    .contact-details-table td.label {
+      color:var(--muted);
+      font-weight:600;
+      width:105px;
+    }
     @media (max-width:980px){
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
       nav.hud{justify-content:flex-start;}
+      .contact-details-table td.label { width: 80px; }
     }
   </style>
 </head>
@@ -179,26 +193,55 @@
           <p style="color:var(--muted);margin-top:8px">
             Open to collaborations, consulting, and product roles that bridge research and real-world impact.
           </p>
-
-          <p style="margin-top:12px"><strong>Email</strong><br>
-            <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a></p>
-
-          <p style="margin-top:10px"><strong>LinkedIn</strong><br>
-            <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">www.linkedin.com/in/shuvam-khanal</a></p>
-
-          <p style="margin-top:10px"><strong>Instagram</strong><br>
-            <a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></p>
-
-          <p style="margin-top:10px"><strong>GitHub</strong><br>
-            <a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></p>
-
+          <table class="contact-details-table">
+            <tr>
+              <td class="label"><strong>Email</strong></td>
+              <td>
+                <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a><br>
+                <a href="mailto:shuvamkhanal1001@gmail.com">shuvamkhanal1001@gmail.com</a><br>
+                <a href="mailto:shuvamkhanal1002@gmail.com">shuvamkhanal1002@gmail.com</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="label"><strong>Call</strong></td>
+              <td><a href="tel:+9779823426494">+977 9823426494</a></td>
+            </tr>
+            <tr>
+              <td class="label"><strong>WhatsApp</strong></td>
+              <td><a href="https://wa.me/9779764556303" target="_blank" rel="noopener">+977 9764556303</a></td>
+            </tr>
+            <tr>
+              <td class="label"><strong>LinkedIn</strong></td>
+              <td><a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">www.linkedin.com/in/shuvam-khanal</a></td>
+            </tr>
+            <tr>
+              <td class="label"><strong>Facebook</strong></td>
+              <td><a href="https://www.facebook.com/shubham.khanal.10/" target="_blank" rel="noopener">facebook.com/shubham.khanal.10</a></td>
+            </tr>
+            <tr>
+              <td class="label"><strong>Instagram</strong></td>
+              <td><a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></td>
+            </tr>
+            <tr>
+              <td class="label"><strong>GitHub</strong></td>
+              <td><a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></td>
+            </tr>
+            <tr>
+              <td class="label"><strong>Location</strong></td>
+              <td>
+                <strong>Temporary:</strong> Kathmandu<br>
+                <strong>Permanent:</strong> Bhaktapur
+              </td>
+            </tr>
+          </table>
           <div class="socials" aria-hidden="true">
             <a class="social" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
             <a class="social" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
             <a class="social" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
+            <a class="social social--facebook" href="https://www.facebook.com/shubham.khanal.10/" target="_blank" rel="noopener" title="Facebook">fb</a>
+            <a class="social" href="https://wa.me/9779764556303" target="_blank" rel="noopener" title="WhatsApp">wa</a>
           </div>
         </div>
-
      
       </section>
     </main>
