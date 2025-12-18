@@ -135,7 +135,7 @@
       box-shadow:0 12px 32px rgba(0,0,0,0.65);
     }
 
-    .card h2{
+    .card h2, .card h3{
       margin:0 0 8px 0;
       font-family:"Bebas Neue",sans-serif;
       font-size:28px;letter-spacing:1px;
@@ -190,6 +190,38 @@
       margin:0 0 10px 0;
     }
 
+    .deep-section {
+      margin-top: 26px;
+      padding: 21px 20px 14px 20px;
+      background:rgba(255,255,255,0.03);
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 6px 22px rgba(0,0,0,0.17);
+    }
+    .deep-section h4 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 19px;
+      color: var(--accent);
+      margin: 0 0 12px 0;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .deep-section p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 8px 0;
+      line-height:1.7;
+    }
+    .deep-section ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .deep-section li {
+      color: var(--text);
+      margin-bottom: 5px;
+      font-size: 13.5px;
+    }
+
     footer.site-footer{
       text-align:center;color:var(--muted);
       margin-top:24px;font-size:12px;
@@ -237,47 +269,79 @@
 
           <h2 id="appointment-heading">Book an Appointment</h2>
           <p class="lead">
-            Appointments are handled through a Google Form so that all responses land directly in my Google Sheet.
-            Click the button below to open the form in a new tab.
+            Let’s make your ideas come to life — and talk about what matters to you.<br>
+            I'm genuinely looking forward to every new conversation. Whether you’re passionate about AI, building an exciting product, curious about research roadmaps, or simply want to brainstorm ideas, I'm here to help. 
           </p>
 
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform"
-            target="_blank"
-            rel="noopener"
-            class="btn-play"
-            style="margin-top:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;"
-          >
-            <span>Open Google Form</span>
-          </a>
+          <div class="deep-section">
+            <h4>How does booking work?</h4>
+            <p>
+              Click below to open my simple booking form. I keep things easy — there’s no endless complexity, just a few questions to help me understand what you hope to achieve, your background, and your ideas.
+            </p>
+            <ul>
+              <li><strong>Your story:</strong> Tell me a little about yourself, what you want to discuss, and your goals.</li>
+              <li><strong>Your schedule:</strong> Let me know preferred days/times. I'll always try to match.</li>
+              <li><strong>Zone:</strong> Mention your time zone, especially if you're outside Nepal — so we can connect smoothly.</li>
+            </ul>
+            <p>
+              Once you submit, your answers go straight into my personal (secure) Google Sheet — no third-parties involved! I’ll review your request and respond, typically within 24–48 hours, with some time slots to choose from. Simple, transparent, and friendly.
+            </p>
+          </div>
 
-          <p class="helper-text" style="margin-top:12px;">
-            After you submit the Google Form, your details will be stored directly in my connected Google Sheet.
-          </p>
+          <div class="deep-section">
+            <h4>Why book an appointment?</h4>
+            <ul>
+              <li>Need advice for your AI or machine learning project?</li>
+              <li>Want feedback or mentorship on research, product, or learning plans?</li>
+              <li>Wish to discuss practical applications and the impact of AI?</li>
+              <li>Curious about how to use modern technology workflows, tooling, and career navigation?</li>
+              <li>Want to collaborate or co-host an event/workshop together?</li>
+              <li>Just want to connect, share stories, or ask questions? I'm happy to listen.</li>
+            </ul>
+            <p>
+              Every conversation is a chance to learn together. Even if you're unsure — reach out, and let's explore your thoughts together.
+            </p>
+          </div>
+
+          <div style="margin-top:28px; text-align:center;">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeSWxc8KJBbsQM7hs7aO_shCy8TB6KXcpAWciY5xPsHNpM4Jw/viewform"
+              target="_blank"
+              rel="noopener"
+              class="btn-play"
+              style="margin-top:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:900;"
+            >
+              <span>✉️ Book Appointment</span>
+            </a>
+            <p class="helper-text" style="margin-top:12px;">
+              The booking form opens in a new tab — it's quick, private, and your data stays with me.<br>
+              <span style="color:var(--accent);">I can't wait to hear from you!</span>
+            </p>
+          </div>
         </section>
 
         <aside class="card" aria-label="Appointment info">
           <h3 class="side-card-title">What to expect</h3>
           <p class="side-card-text">
-            Once you submit the form, your request is stored in my Google Sheet. I’ll review it and reply with
-            available time slots, usually within 24–48 hours.
+            After you submit the form, I’ll personally review your responses and send you available time slots.
+            Usually, I reply within <strong>24–48 hours</strong>. If I’m traveling or at an event, it may take a bit longer — but you’ll always get a reply!
           </p>
 
-          <p class="side-card-text"><strong>Best topics for a call:</strong></p>
+          <p class="side-card-text"><strong>Great ways to use your call:</strong></p>
           <ul class="side-card-text" style="padding-left:18px;margin-bottom:10px;">
-            <li>Reviewing your AI / ML project or research idea</li>
-            <li>Planning a learning roadmap in data, ML, or DevOps</li>
-            <li>Brainstorming a product or feature using AI</li>
-            <li>Event / workshop collaboration</li>
+            <li>Review your AI/ML project, research proposal, or portfolio</li>
+            <li>Get tips on learning, tech careers, career pivots, or upskilling</li>
+            <li>Bounce ideas about products, features, or user needs</li>
+            <li>Connect to co-organize a technical event, or invite me as a guest speaker</li>
+            <li>Learn about the reality of research, publishing, or working in tech from Nepal</li>
           </ul>
 
           <p class="side-card-text"><strong>Time zones:</strong><br/>
-            I’m based in Nepal Time (NPT, UTC+5:45). If you’re in a different region, mention your time zone
-            in the form so we can align easily.
+            I’m based in Nepal Time (NPT, UTC+5:45), but flexible for global calls. Please mention your preferred time zone, and I’ll do my best to accommodate.
           </p>
 
           <p class="side-card-text"><strong>Contact alternatives:</strong><br/>
-            If the form ever fails, feel free to email me directly at
+            If the form ever acts up, you can also email me anytime at
             <a href="mailto:shuvamkhanal1000@gmail.com" style="color:var(--accent);font-weight:600;">shuvamkhanal1000@gmail.com</a>.
           </p>
         </aside>
