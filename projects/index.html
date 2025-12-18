@@ -261,10 +261,9 @@
     .github-project-image{
       width:100%;
       padding-top:56.25%;
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
       background-color:#000;
+      position:relative;
+      overflow:hidden;
     }
 
     .github-project-body{
@@ -404,13 +403,28 @@
 
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
-            const builtPath = imageForRepoName(repo.name);
-            const imgUrl = builtPath || fallbackImage || '';
-            if (imgUrl) {
-              imgDiv.style.backgroundImage = `url('${imgUrl}')`;
-            } else {
-              imgDiv.style.backgroundColor = '#111';
-            }
+            
+            const img = document.createElement('img');
+            img.alt = `${repo.name} project thumbnail`;
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            img.style.position = 'absolute';
+            img.style.top = '0';
+            img.style.left = '0';
+            
+            // Set onerror handler before src to ensure it's ready when image starts loading
+            img.onerror = function() {
+              if (fallbackImage && this.src !== fallbackImage) {
+                this.src = fallbackImage;
+                this.onerror = null; // Prevent infinite loop if fallback also fails
+              }
+            };
+            
+            // Set src last to trigger loading after error handler is ready
+            img.src = imageForRepoName(repo.name);
+            
+            imgDiv.appendChild(img);
 
             const body = document.createElement('div');
             body.className = 'github-project-body';
