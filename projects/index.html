@@ -405,7 +405,6 @@
             imgDiv.className = 'github-project-image';
             
             const img = document.createElement('img');
-            img.src = imageForRepoName(repo.name);
             img.alt = `${repo.name} project thumbnail`;
             img.style.width = '100%';
             img.style.height = '100%';
@@ -414,11 +413,16 @@
             img.style.top = '0';
             img.style.left = '0';
             
-            // Fallback to default image if the specific project image fails to load
+            // Set onerror handler before src to ensure it's ready when image starts loading
             img.onerror = function() {
-              this.src = fallbackImage;
-              this.onerror = null; // Prevent infinite loop if fallback also fails
+              if (fallbackImage && this.src !== fallbackImage) {
+                this.src = fallbackImage;
+                this.onerror = null; // Prevent infinite loop if fallback also fails
+              }
             };
+            
+            // Set src last to trigger loading after error handler is ready
+            img.src = imageForRepoName(repo.name);
             
             imgDiv.appendChild(img);
 
