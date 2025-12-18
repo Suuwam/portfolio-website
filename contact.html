@@ -164,13 +164,18 @@
       color:var(--text);
       line-height:1.6;
       margin-bottom:2px;
+      word-break: break-word;      /* Added to prevent awkward breaking */
+      overflow-wrap: break-word;   /* Added for link/email readability */
+      white-space: normal;         /* Ensures normal wrapping */
     }
     .contact-card a {
       color:var(--accent);
       text-decoration:none;
       font-weight:600;
       transition:color .16s;
-      word-break:break-all;
+      word-break: break-word;    /* Added for link/email readability */
+      overflow-wrap: break-word; /* Ditto */
+      white-space: normal;       /* Ditto */
     }
     .contact-card a:hover { color:var(--accent-soft); text-decoration:underline;}
     .location-list {
