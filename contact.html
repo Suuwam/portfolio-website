@@ -2,247 +2,229 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Contact — Shuvam Khanal</title>
+  <title>Shuvam Khanal — Contact</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Contact information for Shuvam Khanal." />
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <meta name="description" content="Contact information and credentials for Shuvam Khanal." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
   <style>
     :root {
       --bg: #0b0b0b;
-      --panel: #181c24;
+      --panel: #111111;
       --muted: #b3b3b3;
-      --text: #f3f3f3;
+      --text: #f5f5f5;
       --accent: #e50914;
-      --accent2: #16e0bd;
-      --accent3: #9264f5;
-      --card: #15171e;
+      --accent-soft: #ff4b61;
+      --card: #181818;
       --container: 1100px;
       --ease: cubic-bezier(.2,.9,.3,1);
-      --border-radius: 15px;
-      --card-shadow: 0 4px 24px #18163a66;
     }
     * { box-sizing: border-box }
     html, body { height: 100% }
     body {
       margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: linear-gradient(135deg, var(--bg) 0%, #18164a 100%);
-      color: var(--text);
-      padding-top: 44px;
-      overflow-x: hidden;
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background: linear-gradient(180deg,var(--bg) 0%,#070707 100%);
+      color:var(--text);
+      padding-top:44px;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
     .site { max-width: var(--container); margin: 0 auto; padding: 0 18px 48px }
     .top-title-bar {
-      position: fixed; top: 0; left: 0; right: 0;
-      background: #000; color: #fff;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      z-index: 10000;
+      position:fixed; top:0; left:0; right:0;
+      background:#000; color:#fff;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      z-index:10000;
     }
     .top-title-inner {
-      max-width: var(--container); margin: 0 auto;
-      padding: 8px 18px; display: flex;
-      align-items: center; justify-content: space-between;
+      max-width:var(--container);margin:0 auto;
+      padding:8px 18px;display:flex;
+      align-items:center;justify-content:space-between;
     }
     .top-title-inner h1 {
-      margin: 0; font-size: 22px;
-      letter-spacing: 0.09em; text-transform: uppercase;
-      font-family: "Bebas Neue",sans-serif; color: var(--accent);
-      letter-spacing: 0.15em;
+      margin:0;font-size:18px;
+      letter-spacing:0.08em;text-transform:uppercase;
+      font-family:"Bebas Neue",sans-serif;color:var(--accent);
     }
-    .top-title-inner span {
-      font-size: 13px; color: var(--muted);
-      letter-spacing: 0.09em;
-    }
+    .top-title-inner span { font-size:12px;color:var(--muted);}
     header.topbar {
       display:flex;align-items:center;justify-content:space-between;
-      padding:14px 18px;margin-top:24px;
-      background:rgba(27,27,40,0.95);border-radius:13px;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 36px #1a173877;
-      backdrop-filter: blur(4px);
+      padding:14px 18px;margin-top:16px;
+      background:#050505;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 12px 40px rgba(0,0,0,0.8);
     }
     .brand{display:flex;align-items:center;gap:14px;}
     .logo{
-      width:58px;height:58px;border-radius:15px;
+      width:56px;height:56px;border-radius:12px;
       display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#1b1b1b,#18164a);
-      border:2px solid var(--accent);
-      color:var(--accent);font-weight:800;font-size:22px;
-      font-family:"Bebas Neue",sans-serif;
-      box-shadow: 0 4px 20px #e5091447;
+      background: linear-gradient(180deg,#1b1b1b,#0f0f0f);
+      border:2px solid rgba(255,255,255,0.16);
+      color:var(--accent);
+      font-weight:800;font-size:20px;
+      font-family:"Bebas Neue",sans-serif;letter-spacing:1px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.8);
     }
-    .brand-text h3 {margin:0;font-size:19px;color:var(--text);}
-    .brand-text p {margin:2px 0 0 0;font-size:13px;color:var(--muted);}
+    .brand-text h3{margin:0;font-size:18px;color:var(--text);}
+    .brand-text p{margin:2px 0 0 0;font-size:13px;color:var(--muted);}
     nav.hud{
       display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end;
     }
     .nav-link{
-      color: var(--muted); text-decoration: none;
-      padding: 8px 12px; border-radius: 8px;
-      font-weight: 600; font-size: 13px;
-      position: relative; transition: color 220ms var(--ease), transform 200ms var(--ease);
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;border-radius:8px;
+      font-weight:600;font-size:13px;
+      position:relative;
+      transition:color 200ms var(--ease),transform 200ms var(--ease),background 200ms var(--ease);
     }
     .nav-link::after{
-      content:"";position:absolute;left:12px;right:12px;bottom:-6px;
-      height:2px;background:var(--accent2);
-      transform:scaleX(0);transform-origin:left center;
-      transition:transform 240ms var(--ease);border-radius:2px;opacity:0.95;
+      content:"";
+      position:absolute;left:12px;right:12px;bottom:-6px;
+      height:2px;background:var(--accent);
+      transform:scaleX(0);
+      transform-origin:left center;
+      transition:transform 240ms var(--ease);
+      border-radius:2px;opacity:0.95;
     }
-    .nav-link:hover { color:var(--accent2);transform:translateY(-2px); }
-    .nav-link:hover::after{ transform:scaleX(1);}
+    .nav-link:hover{
+      color:var(--text);
+      transform:translateY(-1px);
+      background:rgba(255,255,255,0.02);
+    }
+    .nav-link:hover::after{transform:scaleX(1);}
     .btn-play{
       display:inline-flex;align-items:center;gap:8px;
-      background:var(--accent);color:#081014;
+      background:var(--accent);
+      color:#081014;
       padding:10px 18px;border-radius:999px;border:none;
       font-weight:800;font-size:13px;text-decoration:none;
-      box-shadow:0 12px 32px rgba(229,9,20,0.35);
+      box-shadow:0 14px 40px rgba(229,9,20,0.55);
       transform:translateY(0);
-      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
+      transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),background 200ms var(--ease);
       white-space:nowrap;cursor:pointer;
     }
+    .btn-play::first-letter{color:#fff;}
     .btn-play:hover{
-      transform:translateY(-2px) scale(1.04);
-      box-shadow:0 18px 48px rgba(229,9,20,0.55);
-      color: #fff;
-      background:var(--accent3);
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:0 20px 52px rgba(229,9,20,0.75);
+      background:var(--accent-soft);
+      color:#081014;
     }
+    .btn-play:hover::first-letter{color:#fff;}
 
-    /* Hero/Section Styling */
-    .contact-hero {
-      padding: 50px 24px 22px 24px;
-      background: linear-gradient(90deg, #121228cc 70%, #16e0bd11 100%);
-      border-radius: var(--border-radius);
-      text-align: center;
-      margin-bottom: 40px;
-      box-shadow: var(--card-shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-hero:after {
-      content:"";
-      display:block;
-      position:absolute;
-      right:-70px;top:-40px;
-      width:220px;height:220px;
-      background:radial-gradient(circle, var(--accent2) 0%, #07092700 85%);
-      filter: blur(26px); opacity:.18; pointer-events:none;
-      z-index:0;
-    }
-    .contact-hero h2 {
-      font-size: 2.58rem;
-      margin: 0 0 8px 0;
-      font-family: "Bebas Neue",sans-serif;
-      letter-spacing:.06em;
-      color: var(--accent);
-      position:relative; z-index: 1;
-      text-shadow: 0 2px 32px #16e0bd99;
-    }
-    .contact-hero p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 0;
-      position:relative; z-index: 1;
-    }
+    main{margin-top:22px;}
 
-    /* Contact Grid */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(265px,1fr));
-      gap: 26px;
-      margin: 0 0 22px 0;
+    /* --- Panel/card styles for contact info, like blog --- */
+    section.card-contact{
+      margin-top:20px;
+      padding:18px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 10px 30px rgba(0,0,0,0.7);
+      color:var(--text);
+      max-width:720px;
+      margin-left:auto;
+      margin-right:auto;
     }
-    .contact-card {
-      background: linear-gradient(120deg, var(--card) 60%, #18164a27 100%);
-      border-radius: var(--border-radius);
-      box-shadow: var(--card-shadow);
-      padding: 28px 20px 20px 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      position: relative;
-      transition: box-shadow 220ms var(--ease), transform 260ms var(--ease);
-      border:1.3px solid rgba(255,255,255,0.02);
-      min-height: 130px;
-      font-size:1.06rem;
-    }
-    .contact-card:hover {
-      box-shadow: 0 14px 44px #16e0bd22, var(--card-shadow);
-      transform: translateY(-5px) scale(1.012);
-      border: 1.3px solid var(--accent2);
-    }
-    .contact-icon {
-      font-size: 1.9em;
-      margin-bottom: 3px;
-      line-height:1em;
-    }
-    .contact-label {
-      color: var(--accent2);
-      font-weight: 700;
-      letter-spacing:0.07em;
-      font-size: .98em;
-    }
-    .contact-value a {
-      color: var(--accent3);
-      text-decoration: none;
-      word-break: break-all;
-      font-weight: 700;
-      transition: color 220ms var(--ease);
-    }
-    .contact-value a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-    .contact-location-list {
-      display: flex; flex-direction:column; gap:4px;
-    }
-    @media (max-width:670px){
-      .contact-hero { padding: 26px 8px 10px 8px; }
-      .contact-hero h2 { font-size: 2.0rem; }
-      .contact-grid { gap: 14px;}
-      .contact-card { padding: 16px 12px 13px 15px;}
-    }
-
-    /* Socials */
-    .socials {
-      display: flex;
-      gap: 17px;
-      justify-content: center;
-      margin-top:34px;
-      margin-bottom:7px;
-      flex-wrap:wrap;
-    }
-    .social {
-      width: 56px;
-      height: 56px;
+    .contact-header{
       display: flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg,#181d2b 60%,#16e0bd26 100%);
-      font-size: 2em;
-      color: var(--accent2);
-      margin: 0 2px;
-      border: 2.2px solid #353353;
-      transition: background 220ms var(--ease), color 220ms var(--ease), border 220ms var(--ease), transform 200ms var(--ease);
-      box-shadow: 0 4px 18px #16e0bd3a;
-      text-decoration: none;
+      gap: 15px;
+      margin-bottom: 6px;
     }
-    .social:hover {
+    .contact-header-icon{
+      font-size: 34px;
+      background: var(--accent);
       color: #fff;
-      background: var(--accent3);
-      border: 2.2px solid var(--accent2);
-      transform: translateY(-5px) scale(1.08) rotate(-4deg);
+      border-radius:12px;
+      width:44px; height:44px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow:0 4px 16px rgba(229,9,20,0.22);
+    }
+    .contact-header h2{
+      font-family:"Bebas Neue",sans-serif;
+      font-size:27px;
+      margin:0;
+      letter-spacing:.06em;
+      color:var(--accent);
+      text-transform:uppercase;
+    }
+    .cred-table{
+      width:100%;
+      border-spacing:0;
+      border-collapse:collapse;
+      margin-top:13px;
+    }
+    .cred-table td{
+      padding:7px 8px 7px 0;
+      vertical-align:top;
+      font-size:15px;
+      color:var(--text);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .cred-table td.label{
+      color:var(--accent-soft);
+      font-weight:600;
+      width:108px;
+      font-size:13.5px;
+      letter-spacing:.05em;
+      vertical-align:top;
+      white-space:nowrap;
+    }
+    .cred-table td:last-child{border-bottom: none;}
+    .cred-table a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      transition:color 0.18s;
+      word-break:break-all;
+    }
+    .cred-table a:hover{color:var(--accent-soft);text-decoration:underline;}
+    .loc-list{display:flex;flex-direction:column;gap:2px;}
+    /* Socials Row */
+    .socials{
+      display:flex;gap:13px;margin-top:19px;
+      flex-wrap: wrap;
+      justify-content:flex-start;
+    }
+    .social{
+      min-width:37px;
+      min-height:37px;
+      border-radius:99px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:17px;
+      background:linear-gradient(180deg,#19181b 50%,#232021 100%);
+      color:var(--accent-soft);
+      border:1.5px solid rgba(255,255,255,0.08);
+      box-shadow:0 6px 18px rgba(0,0,0,0.30);
+      font-weight:700;
+      transition: background 180ms,var(--ease), color 180ms var(--ease), border 180ms var(--ease), transform 180ms var(--ease);
+      text-decoration:none;
+    }
+    .social:hover{
+      background:var(--accent);
+      color:#fff;
+      border:1.5px solid var(--accent-soft);
+      transform:translateY(-3px) scale(1.09);
+      text-decoration:none;
     }
     .social--linkedin { color: #0077b5; }
     .social--instagram { color: #d62976; }
     .social--github { color: #c9510c; }
     .social--facebook { color: #3b5998; }
     .social--whatsapp { color: #25d366; }
+    @media (max-width:600px){
+      .card-contact{padding:8px;}
+      .cred-table td{font-size:14px;}
+      .contact-header h2 {font-size:21px;}
+      .contact-header-icon{font-size:25px;width:34px;height:34px;}
+      .social{font-size:15px;min-width:29px;min-height:29px;}
+    }
     /* Footer */
     footer.site-footer {
       text-align:center;color:var(--muted);
@@ -259,10 +241,9 @@
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
-      <span>Contact</span>
+      <span>Contact &amp; Credentials</span>
     </div>
   </div>
-
   <div class="site">
     <header class="topbar" role="banner" aria-label="Main navigation">
       <div class="brand">
@@ -282,94 +263,65 @@
         <a class="btn-play" href="Youtube.html">► WATCH</a>
       </nav>
     </header>
-
     <main>
-      <section class="contact-hero" role="complementary" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Let’s Connect<span style="color:var(--accent2)">.</span></h2>
-        <p>Open to collaborations, consulting, and unique opportunities that bridge AI, product, and impact.<br>
-        Reach out by your favorite method below!</p>
-      </section>
-
-      <section class="contact-grid" aria-label="Contact Details Cards">
-        <!-- EMAILS -->
-        <div class="contact-card">
-          <span class="contact-icon">✉️</span>
-          <span class="contact-label">Email</span>
-          <div class="contact-value">
-            <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a><br>
-            <a href="mailto:shuvamkhanal1001@gmail.com">shuvamkhanal1001@gmail.com</a><br>
-            <a href="mailto:shuvamkhanal1002@gmail.com">shuvamkhanal1002@gmail.com</a>
-          </div>
+      <section class="card-contact" aria-labelledby="contact-heading" style="margin-top:34px;">
+        <div class="contact-header">
+          <span class="contact-header-icon" aria-hidden="true">📇</span>
+          <h2 id="contact-heading">Contact Me</h2>
         </div>
-        <!-- PHONE -->
-        <div class="contact-card">
-          <span class="contact-icon">📞</span>
-          <span class="contact-label">Call</span>
-          <div class="contact-value">
-            <a href="tel:+9779823426494">+977 9823426494</a>
-          </div>
-        </div>
-        <!-- WHATSAPP -->
-        <div class="contact-card">
-          <span class="contact-icon">💬</span>
-          <span class="contact-label">WhatsApp</span>
-          <div class="contact-value">
-            <a href="https://wa.me/9779764556303" target="_blank" rel="noopener">+977 9764556303</a>
-          </div>
-        </div>
-        <!-- LINKEDIN -->
-        <div class="contact-card">
-          <span class="contact-icon">🔗</span>
-          <span class="contact-label">LinkedIn</span>
-          <div class="contact-value">
-            <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">linkedin.com/in/shuvam-khanal</a>
-          </div>
-        </div>
-        <!-- FACEBOOK -->
-        <div class="contact-card">
-          <span class="contact-icon">📘</span>
-          <span class="contact-label">Facebook</span>
-          <div class="contact-value">
-            <a href="https://www.facebook.com/shubham.khanal.10/" target="_blank" rel="noopener">facebook.com/shubham.khanal.10</a>
-          </div>
-        </div>
-        <!-- INSTAGRAM -->
-        <div class="contact-card">
-          <span class="contact-icon">📸</span>
-          <span class="contact-label">Instagram</span>
-          <div class="contact-value">
-            <a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a>
-          </div>
-        </div>
-        <!-- GITHUB -->
-        <div class="contact-card">
-          <span class="contact-icon">💻</span>
-          <span class="contact-label">GitHub</span>
-          <div class="contact-value">
-            <a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a>
-          </div>
-        </div>
-        <!-- LOCATION -->
-        <div class="contact-card">
-          <span class="contact-icon">📍</span>
-          <span class="contact-label">Location</span>
-          <div class="contact-value contact-location-list">
-            <div><strong>Temp:</strong> Kathmandu</div>
-            <div><strong>Permanent:</strong> Bhaktapur</div>
-          </div>
+        <p style="color:var(--muted);margin-bottom:16px;">
+          Open to collaborations, consulting, and product roles that bridge research and real‑world impact. Reach out by your favorite method!
+        </p>
+        <table class="cred-table">
+          <tr>
+            <td class="label">Email</td>
+            <td>
+              <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a><br>
+              <a href="mailto:shuvamkhanal1001@gmail.com">shuvamkhanal1001@gmail.com</a><br>
+              <a href="mailto:shuvamkhanal1002@gmail.com">shuvamkhanal1002@gmail.com</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Call</td>
+            <td><a href="tel:+9779823426494">+977 9823426494</a></td>
+          </tr>
+          <tr>
+            <td class="label">WhatsApp</td>
+            <td><a href="https://wa.me/9779764556303" target="_blank" rel="noopener">+977 9764556303</a></td>
+          </tr>
+          <tr>
+            <td class="label">LinkedIn</td>
+            <td><a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">linkedin.com/in/shuvam-khanal</a></td>
+          </tr>
+          <tr>
+            <td class="label">Facebook</td>
+            <td><a href="https://www.facebook.com/shubham.khanal.10/" target="_blank" rel="noopener">facebook.com/shubham.khanal.10</a></td>
+          </tr>
+          <tr>
+            <td class="label">Instagram</td>
+            <td><a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></td>
+          </tr>
+          <tr>
+            <td class="label">GitHub</td>
+            <td><a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></td>
+          </tr>
+          <tr>
+            <td class="label">Location</td>
+            <td class="loc-list">
+              <span><strong>Temp:</strong> Kathmandu</span>
+              <span><strong>Permanent:</strong> Bhaktapur</span>
+            </td>
+          </tr>
+        </table>
+        <div class="socials" aria-label="Contact on social platforms">
+          <a class="social social--linkedin" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
+          <a class="social social--instagram" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
+          <a class="social social--github" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
+          <a class="social social--facebook" href="https://www.facebook.com/shubham.khanal.10/" target="_blank" rel="noopener" title="Facebook">fb</a>
+          <a class="social social--whatsapp" href="https://wa.me/9779764556303" target="_blank" rel="noopener" title="WhatsApp">wa</a>
         </div>
       </section>
-
-      <div class="socials" aria-label="Contact on social platforms">
-        <a class="social social--linkedin" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
-        <a class="social social--instagram" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">🎞️</a>
-        <a class="social social--github" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
-        <a class="social social--facebook" href="https://www.facebook.com/shubham.khanal.10/" target="_blank" rel="noopener" title="Facebook">f</a>
-        <a class="social social--whatsapp" href="https://wa.me/9779764556303" target="_blank" rel="noopener" title="WhatsApp">💬</a>
-      </div>
-
     </main>
-
     <footer class="site-footer">
       &copy; 2025 Shuvam Khanal.
     </footer>
