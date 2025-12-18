@@ -2,16 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-
   <title>Shuvam Khanal — Blog</title>
-
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Blog posts on AI, large language models, and building production systems." />
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
   <style>
     :root{
       --bg:#0b0b0b;
@@ -25,7 +20,6 @@
       --container: 1100px;
       --ease: cubic-bezier(.2,.9,.3,1);
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -38,9 +32,7 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
-
     .top-title-bar{
       position:fixed;top:0;left:0;right:0;
       background:#000;color:#fff;
@@ -58,7 +50,6 @@
       font-family:"Bebas Neue",sans-serif;color:var(--accent);
     }
     .top-title-inner span{font-size:12px;color:var(--muted);}
-
     header.topbar{
       display:flex;align-items:center;justify-content:space-between;
       padding:14px 18px;margin-top:16px;
@@ -80,7 +71,6 @@
     }
     .brand-text h3{margin:0;font-size:18px;color:var(--text);}
     .brand-text p{margin:2px 0 0 0;font-size:13px;color:var(--muted);}
-
     nav.hud{
       display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end;
     }
@@ -107,7 +97,6 @@
       background:rgba(255,255,255,0.02);
     }
     .nav-link:hover::after{transform:scaleX(1);}
-
     .btn-play{
       display:inline-flex;align-items:center;gap:8px;
       background:var(--accent);
@@ -127,118 +116,7 @@
       color:#081014;
     }
     .btn-play:hover::first-letter{color:#fff;}
-
     main{margin-top:22px;}
-
-    .hero-article{
-      margin-top:18px;
-      border-radius:14px;
-      background: radial-gradient(circle at 0 0,#20111a 0,rgba(10,10,10,0.97) 38%,#050505 100%);
-      border:1px solid rgba(255,255,255,0.12);
-      padding:18px;
-      box-shadow:0 18px 60px rgba(0,0,0,0.9);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-article::before{
-      content:"";
-      position:absolute;
-      top:-120px;right:-80px;
-      width:260px;height:260px;
-      background:radial-gradient(circle,rgba(229,9,20,0.4) 0,transparent 60%);
-      opacity:0.6;
-      filter:blur(4px);
-      pointer-events:none;
-    }
-    .hero-pill-row{
-      display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
-      margin-bottom:10px;
-    }
-    .hero-pill{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:4px 9px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.12);
-      font-size:11px;color:var(--muted);
-    }
-    .hero-pill span.dot{
-      width:8px;height:8px;border-radius:999px;background:var(--accent-soft);
-      box-shadow:0 0 8px rgba(229,9,20,0.8);
-      display:inline-block;
-    }
-
-    .hero-title{
-      margin:4px 0 8px 0;
-      font-size:26px;
-      line-height:1.2;
-      font-weight:650;
-      letter-spacing:0.01em;
-      color:var(--text);
-    }
-    .hero-title span.highlight{color:var(--accent-soft);font-weight:700;}
-    .hero-subtitle{
-      margin:0 0 12px 0;
-      font-size:13px;
-      color:rgba(245,245,245,0.78);
-      max-width:720px;
-    }
-
-    .hero-meta{
-      display:flex;flex-wrap:wrap;gap:8px;
-      font-size:11px;color:var(--muted);
-      margin-bottom:10px;
-    }
-    .hero-meta span{
-      padding:4px 8px;
-      border-radius:999px;
-      background:rgba(0,0,0,0.4);
-      border:1px solid rgba(255,255,255,0.06);
-    }
-
-    .hero-content{
-      margin-top:6px;
-      padding-top:12px;
-      border-top:1px solid rgba(255,255,255,0.08);
-      display:grid;
-      grid-template-columns:2.2fr 1.2fr;
-      grid-gap:16px;
-    }
-
-    .hero-text p{
-      margin:0 0 8px 0;
-      font-size:13px;
-      color:rgba(245,245,245,0.74);
-    }
-    .hero-text strong{color:var(--text);}
-
-    .hero-bullets{
-      margin-top:6px;
-      padding-left:18px;
-      font-size:13px;
-      color:rgba(245,245,245,0.74);
-    }
-    .hero-bullets li{margin:4px 0;}
-
-    .hero-side{
-      border-radius:10px;
-      background: linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:10px;
-      font-size:12px;
-      color:rgba(245,245,245,0.72);
-    }
-    .hero-side h4{
-      margin:0 0 6px 0;
-      font-size:13px;
-      color:var(--accent-soft);
-      font-weight:650;
-      letter-spacing:0.04em;
-      text-transform:uppercase;
-    }
-    .hero-side ul{margin:0;padding-left:16px;}
-    .hero-side li{margin:2px 0;}
-
     section.card{
       margin-top:20px;
       padding:16px;
@@ -259,13 +137,11 @@
       color:rgba(245,245,245,0.72);
       font-size:13px;
     }
-
     .blog-grid{
       display:grid;
       grid-template-columns:2fr 1.2fr;
       grid-gap:18px;
     }
-
     .post-list{
       display:flex;
       flex-direction:column;
@@ -290,14 +166,9 @@
       pointer-events:none;
     }
     .post-card:hover::before{opacity:1;}
-
-    /* MOBILE "AUTO-HOVER" CLASS */
     @media (max-width:720px){
-      .post-card.is-active::before{
-        opacity:1;
-      }
+      .post-card.is-active::before{opacity:1;}
     }
-
     .post-title{margin:0;font-size:15px;font-weight:650;color:var(--text);}
     .post-meta{margin-top:4px;font-size:11px;color:rgba(245,245,245,0.62);}
     .post-excerpt{margin-top:7px;font-size:13px;color:rgba(245,245,245,0.74);}
@@ -306,28 +177,6 @@
       padding:3px 7px;border-radius:999px;background:#101010;
       border:1px solid rgba(255,255,255,0.08);color:rgba(245,245,245,0.72);
     }
-
-    .sidebar{
-      border-radius:10px;
-      background:linear-gradient(180deg,#121212,#080808);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:12px 13px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.7);
-      color:rgba(245,245,245,0.74);
-    }
-    .sidebar h3{
-      margin:0 0 6px 0;
-      font-size:15px;
-      color:var(--accent-soft);
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-    }
-    .sidebar p{margin:4px 0 10px 0;font-size:12px;color:rgba(245,245,245,0.72);}
-    .sidebar ul{margin:0;padding-left:16px;font-size:12px;color:rgba(245,245,245,0.72);}
-    .sidebar li{margin:3px 0;}
-    .sidebar a{color:var(--accent-soft);font-weight:600;text-decoration:none;}
-    .sidebar a:hover{color:#fff;text-decoration:underline;}
-
     pre{
       margin:8px 0 10px 0;padding:10px 12px;border-radius:8px;
       background:var(--code-bg);border:1px solid rgba(148,163,184,0.35);
@@ -342,52 +191,33 @@
       border:1px solid rgba(148,163,184,0.35);
     }
     pre code{background:transparent;border:none;padding:0;}
-
     footer.site-footer{
       text-align:center;color:var(--muted);
       margin-top:24px;font-size:12px;
     }
-
     @media (max-width: 980px){
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px;}
       nav.hud{justify-content:flex-start;}
     }
-
     @media (max-width:720px){
       .site{padding:0 14px 32px;}
-      .hero-article{padding:14px;}
-      .hero-pill-row{flex-direction:column;align-items:flex-start;}
-      .hero-title{font-size:22px;}
-      .hero-subtitle{font-size:12px;}
-      .hero-content{grid-template-columns:1fr;grid-gap:12px;}
-      .hero-text p,.hero-subtitle,.post-excerpt{word-wrap:break-word;overflow-wrap:break-word;hyphens:auto;}
-      pre{
-        font-size:10px;padding:8px 10px;margin:8px -4px 10px -4px;
-        max-width:calc(100vw - 60px);
-        overflow-x:auto;-webkit-overflow-scrolling:touch;
-      }
-      code{font-size:10px;word-break:break-all;}
-      pre code{font-size:10px;display:block;white-space:pre;overflow-x:auto;}
-      .hero-bullets{padding-left:16px;font-size:12px;word-wrap:break-word;}
-      .hero-bullets li{margin:4px 0;word-wrap:break-word;overflow-wrap:break-word;}
       section.card{padding:12px;}
       .blog-grid{grid-template-columns:1fr;grid-gap:14px;}
-      .post-excerpt{font-size:12px;}
       .post-card{padding:10px 11px;overflow:hidden;}
       .post-title{font-size:14px;}
+      .post-excerpt{font-size:12px;}
+      pre{font-size:10px;padding:8px 10px;margin:8px -4px 10px -4px;}
+      code{font-size:10px;word-break:break-all;}
+      pre code{font-size:10px;display:block;white-space:pre;overflow-x:auto;}
     }
-
     @media (max-width:480px){
       .top-title-inner{padding:6px 12px;}
       header.topbar{padding:10px 12px;margin-top:12px;}
       .logo{width:50px;height:50px;font-size:18px;}
-      .hero-title{font-size:20px;}
-      .hero-subtitle{font-size:11px;}
+      .post-title{font-size:13px;}
       pre{font-size:9px;padding:6px 8px;max-width:calc(100vw - 50px);}
       code{font-size:9px;}
       pre code{font-size:9px;}
-      .hero-bullets{font-size:11px;padding-left:14px;}
-      .post-excerpt{font-size:11px;}
     }
   </style>
 </head>
@@ -398,7 +228,6 @@
       <span>Blog &amp; Writing</span>
     </div>
   </div>
-
   <div class="site">
     <header class="topbar" role="banner" aria-label="Main navigation">
       <div class="brand">
@@ -418,201 +247,198 @@
         <a class="btn-play" href="Youtube.html">► WATCH</a>
       </nav>
     </header>
-
     <main>
-      <!-- YOUR CONTENT BELOW IS UNCHANGED -->
-      <article class="hero-article">
-        <div class="hero-pill-row">
-          <div class="hero-pill">
-            <span class="dot"></span>
-            <span>LLM Systems — Field Notes</span>
-          </div>
-          <div style="font-size:11px;color:var(--muted);">
-            Approx. 8 min read • Written for engineers who actually ship models, not only benchmark them.
-          </div>
-        </div>
-
-        <h1 class="hero-title">
-          From <span class="highlight">Toy LLM Demo</span> to Production System:
-          What Actually Breaks in the Real World
-        </h1>
-
-        <p class="hero-subtitle">
-          Most LLM tutorials stop at "we called the API and got a cool answer."
-          In practice, production systems fail on boring things: context limits, latency budgets,
-          prompt drift, evaluation, and how humans actually use (and abuse) your feature.
-        </p>
-
-        <div class="hero-meta">
-          <span>Topics: LLMs, Evaluation, Prompting, Systems Design</span>
-        </div>
-
-        <div class="hero-content">
-          <div class="hero-text">
-            <p>
-              When you move from a Jupyter notebook to a shipped feature, an LLM stops being a "smart autocomplete"
-              and becomes another <strong>unreliable distributed system</strong> in your stack.
-            </p>
-            <p>
-              In my own projects and in mentoring student teams, failures almost never come from
-              "the model isn't big enough." Instead, they come from:
-            </p>
-
-            <ul class="hero-bullets">
-              <li><strong>Context misuse</strong> — stuffing the entire database into a single prompt.</li>
-              <li><strong>No evaluation loop</strong> — shipping prompts based only on vibes.</li>
-              <li><strong>Bad UX</strong> — users don't know what the model can or cannot do.</li>
-              <li><strong>Missing guardrails</strong> — the model hallucinates confident nonsense.</li>
-            </ul>
-
-            <p>
-              A useful way to think about LLMs is: they are <strong>probabilistic functions with contracts</strong>, not magic.
-              That means you define:
-            </p>
-
-            <ul class="hero-bullets">
-              <li><em>Inputs</em> — what structure you guarantee (JSON schemas, tools, system prompts).</li>
-              <li><em>Budget</em> — latency, token limits, and cost per call.</li>
-              <li><em>Failure modes</em> — what you do when the model is wrong, slow, or empty.</li>
-            </ul>
-
-            <p>
-              Here's a small but real pattern I use: wrap every LLM call in a function that <strong>logs, validates and retries</strong>.
-            </p>
-
-            <pre><code>// Pseudo-code: robust LLM call wrapper
-async function callLLM({ prompt, schema, maxRetries = 2 }) {
-  const start = Date.now();
-  let attempt = 0;
-
-  while (attempt &lt;= maxRetries) {
-    attempt += 1;
-    const raw = await llm.chat({
-      prompt,
-      model: "gpt-4-mini",
-      temperature: 0.2,
-      max_tokens: 512
-    });
-
-    const latency = Date.now() - start;
-    logEvent("llm_call", { latency, attempt, promptLength: prompt.length });
-
-    const parsed = safeJsonParse(raw.content);
-    const validated = schema.safeParse(parsed);
-
-    if (validated.success) return validated.data;
-
-    // Ask the model to fix its own output
-    prompt = buildSelfCorrectionPrompt(prompt, raw.content, schema);
-  }
-
-  throw new Error("LLM failed to return valid data after retries");
-}</code></pre>
-
-            <p>This wrapper does three simple things:</p>
-            <ul class="hero-bullets">
-              <li>Enforces a specific <strong>model, temperature, and token budget</strong>.</li>
-              <li>Logs latency so you don't guess later where your time went.</li>
-              <li>Validates output against a <strong>schema</strong> instead of hoping it's well‑formed.</li>
-            </ul>
-
-            <p>
-              The exact implementation doesn't matter as much as the mindset:
-              you treat the LLM as <em>one component</em> in a system you own, not as a black box you pray to.
-            </p>
-          </div>
-
-          <aside class="hero-side">
-            <h4>In this series</h4>
-            <ul>
-              <li>Part 1 — LLMs as Systems, not Magic</li>
-              <li>Part 2 — Evaluation that isn't just "vibes"</li>
-              <li>Part 3 — Prompt design as API design</li>
-              <li>Part 4 — Glue: retrieval, tools, humans‑in‑the‑loop</li>
-            </ul>
-            <p style="margin-top:8px;">
-              I'm writing these notes to be <strong>implementation‑friendly</strong>: close to code and product,
-              and honest about where things break.
-            </p>
-          </aside>
-        </div>
-      </article>
-
       <section class="card" aria-labelledby="blog-heading">
-        <h2 id="blog-heading">More Notes &amp; Articles</h2>
-        <p class="lead">Shorter pieces on AI, systems, and building products that actually ship.</p>
-
-        <div class="blog-grid">
-          <div class="post-list">
-            <article class="post-card">
-              <h3 class="post-title">From Student ML Project to a Real Portfolio Piece</h3>
-              <div class="post-meta">Approx. 5 min read • Portfolio, Students, ML</div>
-              <p class="post-excerpt">Many student projects look impressive on paper, but fall apart when you ask: "Can I run this? Can I trust it? Does anyone actually want this?" In this post I outline a simple checklist I use with students to turn a lab assignment into a <strong>portfolio story</strong>.</p>
-              <p class="post-excerpt">The key shifts are: scope down the problem, make the demo reproducible, and add just enough UX so a non‑ML person understands what the model does — and what it doesn't.</p>
-              <div class="post-tags">
-                <span class="post-tag">Students</span>
-                <span class="post-tag">Portfolio</span>
-                <span class="post-tag">ML Projects</span>
-              </div>
-            </article>
-
-            <article class="post-card">
-              <h3 class="post-title">Prompt Engineering is Just API Design With Worse Tooling</h3>
-              <div class="post-meta">Approx. 4 min read • Prompting, Product</div>
-              <p class="post-excerpt">Good prompts are less like poetry and more like <strong>API contracts</strong>. You define what goes in, what must come out, and how future engineers can change it without breaking everything.</p>
-              <p class="post-excerpt">Instead of stuffing style and instructions into one mega‑prompt, I prefer to separate:</p>
-              <ul class="hero-bullets" style="margin-top:4px;">
-                <li>A stable <strong>system prompt</strong> that defines behavior and constraints.</li>
-                <li>A small <strong>task prompt</strong> that focuses on the immediate user question.</li>
-                <li>Clear <strong>output format</strong> examples (JSON, markdown sections, etc.).</li>
-              </ul>
-              <div class="post-tags">
-                <span class="post-tag">Prompting</span>
-                <span class="post-tag">APIs</span>
-              </div>
-            </article>
-
-            <article class="post-card">
-              <h3 class="post-title">RAG for Humans: Designing Retrieval That Feels Intuitive</h3>
-              <div class="post-meta">Approx. 6 min read • RAG, UX, Search</div>
-              <p class="post-excerpt">Retrieval‑augmented generation (RAG) diagrams are easy; building one that users actually trust is harder.</p>
-              <p class="post-excerpt">Most RAG failures I see are UX issues: users don't know what documents are indexed, what "knowledge" the system has, or why it answered with something obviously incomplete.</p>
-              <p class="post-excerpt">In this note I talk about: showing <strong>source snippets</strong>, exposing <strong>filters</strong> ("search in: docs / FAQ / emails"), and giving users a simple way to say "this answer is wrong" that feeds back into evaluation.</p>
-              <div class="post-tags">
-                <span class="post-tag">RAG</span>
-                <span class="post-tag">UX</span>
-                <span class="post-tag">Search</span>
-              </div>
-            </article>
-          </div>
-
-          <aside class="sidebar" aria-label="Reading guide">
-            <h3>How to Use This Blog</h3>
-            <p>These posts are meant to be reference material you can come back to: not news, but <strong>mental models</strong> and checklists.</p>
-            <ul>
-              <li><strong>New to AI?</strong> Focus on the intuition sections and diagrams; ignore implementation details at first.</li>
-              <li><strong>Student or early‑career?</strong> Look for parts where I talk about <em>portfolios</em>, <em>team projects</em>, and <em>communicating your work</em>.</li>
-              <li><strong>Already shipping products?</strong> Skim for patterns you can steal: evaluation loops, prompt structures, UX ideas.</li>
-            </ul>
-            <p style="margin-top:10px;">
-              If there's a topic you want me to write about — for example,
-              <strong>"How to explain LLMs to non‑technical stakeholders"</strong> or
-              <strong>"Setting up a tiny but real MLOps pipeline as a student"</strong> —
-              mention it in the <a href="appointment.html">appointment form</a>.
-            </p>
-          </aside>
+        <h2 id="blog-heading">Featured Blog Post</h2>
+        <div id="blog-featured" style="margin-top:18px;">
+          <p><em>Loading...</em></p>
         </div>
       </section>
+      <section class="card" style="margin-top:20px;" aria-labelledby="short-blogs-heading">
+        <h2 id="short-blogs-heading">More Notes &amp; Articles</h2>
+        <div id="short-blogs" class="blog-grid"></div>
+      </section>
     </main>
-
     <footer class="site-footer">
       &copy; 2025 Shuvam Khanal.
     </footer>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
   <script>
+    // ---- SETTINGS ----
+    const GH_USER = "Suuwam";
+    const GH_REPO = "blog-posts";
+    const GH_BRANCH = "main";
+    const MAIN_BLOG_PATH = "posts/llm-real-world.md";
+
+    const SHORT_BLOGS = [
+      {
+        path: "posts/student-ml-project.md",
+        slug: "student-ml-project",
+        title: "From Student ML Project to a Real Portfolio Piece",
+        date: "2025-10-23",
+        tags: ["Students","Portfolio","ML Projects"],
+        excerpt: "Why do most student ML projects gather digital dust? Here's how to ship one that actually survives outside your repo."
+      },
+      {
+        path: "posts/prompt-api-design.md",
+        slug: "prompt-api-design",
+        title: "Prompt Engineering is Just API Design With Worse Tooling",
+        date: "2025-11-05",
+        tags: ["Prompting","APIs","Product"],
+        excerpt: "Prompts aren't magic, they're messy contracts. Here’s why treating prompts like you treat APIs saves you (and your teammates) headaches."
+      },
+      {
+        path: "posts/rag-for-humans.md",
+        slug: "rag-for-humans",
+        title: "RAG for Humans: Designing Retrieval That Feels Intuitive",
+        date: "2025-12-01",
+        tags: ["RAG","UX","Search"],
+        excerpt: "RAG diagrams are easy. Building a retrieval system normal people trust? Now that’s hard. Here’s what I found."
+      }
+    ];
+    // ---- END SETTINGS ----
+
+    const mdBaseUrl = `https://raw.githubusercontent.com/${GH_USER}/${GH_REPO}/${GH_BRANCH}/`;
+    const showdownOpts = {
+      tables: true,
+      ghCompatibleHeaderId: true,
+      metadata: true,
+      simplifiedAutoLink: true,
+      strikethrough: true,
+      ghMentions: true,
+      tasklists: true,
+    };
+    const converter = new showdown.Converter(showdownOpts);
+
+    function mdToHTML(md) {
+      // Strip frontmatter to avoid showing it as text
+      md = md.replace(/^---[\s\S]*?---\s*/, '');
+      return converter.makeHtml(md);
+    }
+
+    // ---- FEATURED BLOG ----
+    function renderFeatured() {
+      fetch(mdBaseUrl + MAIN_BLOG_PATH)
+        .then(r => r.ok ? r.text() : Promise.reject(r.statusText))
+        .then(md => {
+          document.getElementById('blog-featured').innerHTML = mdToHTML(md);
+        })
+        .catch(e => {
+          document.getElementById('blog-featured').innerHTML =
+            `<div style="color:var(--accent-soft)"><b>Error:</b> ${e}</div>`;
+        });
+    }
+    renderFeatured();
+
+    // ---- SHORT BLOGS PREVIEWS ----
+    const shortBlogsDiv = document.getElementById('short-blogs');
+    let expandedSlug = null; // Only one card open at a time
+
+    function shortBlogCardHTML(blog, html, expanded) {
+      if (expanded && html) {
+        return `
+        <article class="post-card" data-slug="${blog.slug}">
+          <h3 class="post-title">${blog.title}</h3>
+          <div class="post-meta">${formatDate(blog.date)} • ${blog.tags.join(", ")}</div>
+          <div class="post-excerpt" style="margin:5px 0 0 0">${html}
+            <div style="margin-top:12px;">
+              <button class="btn btn-sm btn-secondary" style="font-size:12px;padding:5px 12px;border-radius:8px;color:var(--accent-soft);margin:0;" data-action="collapse">Show less</button>
+            </div>
+          </div>
+        </article>
+        `;
+      } else {
+        return `
+        <article class="post-card" data-slug="${blog.slug}" tabindex="0" style="cursor:pointer;">
+          <h3 class="post-title">${blog.title}</h3>
+          <div class="post-meta">${formatDate(blog.date)} • ${blog.tags.join(", ")}</div>
+          <p class="post-excerpt">${blog.excerpt}</p>
+          <div class="post-tags">
+            ${blog.tags.map(t=>`<span class="post-tag">${t}</span>`).join("")}
+          </div>
+          <div>
+            <a href="#" class="nav-link" data-slug="${blog.slug}" style="font-size:12px;padding:0;" data-action="expand">Read more &rarr;</a>
+          </div>
+        </article>
+        `;
+      }
+    }
+
+    function renderShortBlogs() {
+      shortBlogsDiv.innerHTML = SHORT_BLOGS.map(blog =>
+        shortBlogCardHTML(blog, null, false)).join('');
+    }
+    renderShortBlogs();
+
+    // ---- EXPAND/COLLAPSE/CLICK HANDLER ----
+    shortBlogsDiv.addEventListener('click', shortBlogExpandHandler);
+    shortBlogsDiv.addEventListener('keydown', function(e){
+      if((e.key === "Enter"||e.key===" ") && e.target.classList.contains('post-card')) {
+        e.target.querySelector('[data-action="expand"]').click();
+      }
+    });
+    function shortBlogExpandHandler(e){
+      let btn = e.target.closest('[data-action]');
+      let card = e.target.closest('.post-card');
+      if (!btn && card && !card.querySelector('[data-action="collapse"]')) {
+        btn = card.querySelector('[data-action="expand"]');
+      }
+      if (!btn) return;
+      e.preventDefault();
+
+      const action = btn.getAttribute('data-action');
+      const slug = btn.closest('[data-slug]').getAttribute('data-slug');
+      if (action === "expand") {
+        if (expandedSlug === slug) return;
+        expandedSlug = slug;
+
+        const blog = SHORT_BLOGS.find(b => b.slug === slug);
+        shortBlogsDiv.innerHTML = SHORT_BLOGS.map(b =>
+          (b.slug === slug)
+            ? shortBlogCardHTML(b, `<div style="text-align:center;"><em>Loading&hellip;</em></div>`, true)
+            : shortBlogCardHTML(b, null, false)
+        ).join('');
+
+        fetch(mdBaseUrl + blog.path)
+          .then(r => r.ok ? r.text() : Promise.reject(r.statusText))
+          .then(md => {
+            shortBlogsDiv.innerHTML = SHORT_BLOGS.map(b =>
+              (b.slug === slug)
+                ? shortBlogCardHTML(b, mdToHTML(md), true)
+                : shortBlogCardHTML(b, null, false)
+            ).join('');
+            scrollToCard(slug);
+          })
+          .catch(e => {
+            shortBlogsDiv.innerHTML = SHORT_BLOGS.map(b =>
+              (b.slug === slug)
+                ? shortBlogCardHTML(b, `<div style="color:var(--accent-soft)">Error: ${e}</div>`, true)
+                : shortBlogCardHTML(b, null, false)
+            ).join('');
+          });
+      }
+      if (action === "collapse") {
+        expandedSlug = null;
+        renderShortBlogs();
+      }
+    }
+
+    function scrollToCard(slug){
+      setTimeout(() => {
+        const card = document.querySelector(`[data-slug="${slug}"]`);
+        if(card) card.scrollIntoView({behavior:"smooth", block:"start"});
+      },200);
+    }
+
+    function formatDate(date){
+      // YYYY-MM-DD -> Month Day, Year
+      const [y,m,d] = date.split('-');
+      return new Date(`${y}-${m}-${d}`).toLocaleDateString(undefined, {month:'short',day:'numeric',year:'numeric'});
+    }
+
+    // PLAY button pulse animation
     (function(){
-      // Keep your existing WATCH button pulse
       const playButtons = document.querySelectorAll('.btn-play');
       if(playButtons.length){
         setInterval(function(){
@@ -626,33 +452,6 @@ async function callLLM({ prompt, schema, maxRetries = 2 }) {
           });
         }, 3200);
       }
-
-      // MOBILE: auto-highlight post-card when it's in the middle of the screen
-      function enableMobileAutoHover(){
-        if(!window.matchMedia('(max-width: 720px)').matches) return;
-
-        const cards = Array.from(document.querySelectorAll('.post-card'));
-        if(!cards.length) return;
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if(entry.isIntersecting){
-              // Only one active at a time
-              cards.forEach(c => c.classList.remove('is-active'));
-              entry.target.classList.add('is-active');
-            }
-          });
-        }, {
-          // "middle zone" of the viewport
-          root: null,
-          rootMargin: '-45% 0px -45% 0px',
-          threshold: 0.01
-        });
-
-        cards.forEach(card => observer.observe(card));
-      }
-
-      enableMobileAutoHover();
     })();
   </script>
 </body>
