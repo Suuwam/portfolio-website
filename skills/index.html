@@ -13,12 +13,15 @@
 
   <style>
     :root{
-      --bg:#0b0b0b;
-      --panel:#121212;
-      --muted:#b3b3b3;
-      --text:#f3f3f3;
-      --accent:#e50914;
-      --card:#181818;
+      --bg:#1a1a1d;
+      --panel:#252527;
+      --muted:#a8a8a8;
+      --text:#e8e8e8;
+      --accent:#B87333;
+      --accent-soft:#D4A574;
+      --card:#2a2a2d;
+      --card-highlight:#35353a;
+      --metallic-glow:rgba(184,115,51,0.15);
       --container:1100px;
       --ease: cubic-bezier(.2,.9,.3,1);
     }
@@ -28,7 +31,7 @@
     body{
       margin:0;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: linear-gradient(180deg,var(--bg) 0%, #070707 100%);
+      background: linear-gradient(180deg, #1a1a1d 0%, #0f0f11 50%, #1a1a1d 100%);
       color:var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -46,9 +49,9 @@
       left:0;
       right:0;
       z-index:10000;
-      background:#000;
+      background:#0f0f11;
       color:#fff;
-      border-bottom:1px solid rgba(255,255,255,0.1);
+      border-bottom:1px solid rgba(184,115,51,0.2);
     }
     .top-title-inner{
       max-width:var(--container);
@@ -77,10 +80,10 @@
       justify-content:space-between;
       padding:14px 18px;
       margin-top:16px;
-      background:#050505;
+      background:linear-gradient(135deg, #2a2a2d 0%, #1f1f22 100%);
       border-radius:10px;
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 12px 40px rgba(0,0,0,0.8);
+      border:1px solid rgba(184,115,51,0.15);
+      box-shadow:0 12px 40px rgba(0,0,0,0.8), 0 0 20px var(--metallic-glow);
     }
     .brand{
       display:flex;
@@ -94,13 +97,14 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(180deg,#1b1b1b,#0f0f0f);
-      border:2px solid rgba(255,255,255,0.08);
+      background:linear-gradient(135deg, #3a3a3d 0%, #252527 100%);
+      border:2px solid rgba(184,115,51,0.3);
       color:var(--accent);
       font-weight:800;
       font-size:20px;
       letter-spacing:1px;
       font-family:"Bebas Neue",sans-serif;
+      box-shadow:0 4px 12px var(--metallic-glow);
     }
     .brand-text h3{
       margin:0;
@@ -156,15 +160,15 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      background:var(--accent);
-      color:#081014;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+      color:#0f0f11;
       padding:10px 18px;
       border-radius:999px;
-      border:none;
+      border:1px solid rgba(212,165,116,0.3);
       font-weight:800;
       font-size:13px;
       text-decoration:none;
-      box-shadow:0 12px 32px rgba(229,9,20,0.35);
+      box-shadow:0 12px 32px var(--metallic-glow), 0 4px 12px rgba(184,115,51,0.25);
       transform:translateY(0);
       transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
       white-space:nowrap;
@@ -172,7 +176,7 @@
     }
     .btn-play:hover{
       transform:translateY(-2px) scale(1.02);
-      box-shadow:0 18px 44px rgba(229,9,20,0.55);
+      box-shadow:0 18px 44px var(--metallic-glow), 0 8px 24px rgba(184,115,51,0.4);
     }
 
     main{margin-top:22px;padding-bottom:40px}
@@ -211,9 +215,9 @@
     }
 
     .skill-card{
-      background:linear-gradient(180deg,#151515,#101010);
+      background:linear-gradient(135deg, #2a2a2d 0%, #1f1f22 100%);
       border-radius:10px;
-      border:1px solid rgba(255,255,255,0.06);
+      border:1px solid rgba(184,115,51,0.15);
       padding:14px;
       box-shadow:0 10px 26px rgba(0,0,0,0.55);
       transition:transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
@@ -221,14 +225,14 @@
     }
     .skill-card:hover{
       transform:translateY(-4px);
-      box-shadow:0 18px 40px rgba(0,0,0,0.9);
-      border-color:rgba(229,9,20,0.7);
+      box-shadow:0 18px 40px rgba(0,0,0,0.9), 0 0 24px var(--metallic-glow);
+      border-color:rgba(184,115,51,0.5);
     }
     .skill-card.active{
       transform:translateY(-4px) scale(1.05);
-      box-shadow:0 20px 44px rgba(0,0,0,0.95);
-      border-color:rgba(229,9,20,0.7);
-      background-color:#101010;
+      box-shadow:0 20px 44px rgba(0,0,0,0.95), 0 0 24px var(--metallic-glow);
+      border-color:rgba(184,115,51,0.6);
+      background-color:#2a2a2d;
     }
     .skill-card h3{
       margin:0 0 6px 0;
@@ -259,7 +263,7 @@
     .modal-backdrop{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.8);
+      background:rgba(0,0,0,0.85);
       display:none;
       align-items:center;
       justify-content:center;
@@ -269,10 +273,10 @@
     .modal-card{
       width:92%;
       max-width:420px;
-      background:#050505;
+      background:linear-gradient(135deg, #2a2a2d 0%, #1f1f22 100%);
       border-radius:12px;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 20px 60px rgba(0,0,0,0.95);
+      border:1px solid rgba(184,115,51,0.3);
+      box-shadow:0 20px 60px rgba(0,0,0,0.95), 0 0 30px var(--metallic-glow);
       padding:14px 14px 12px 14px;
     }
     .modal-title{
