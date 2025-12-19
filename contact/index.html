@@ -16,6 +16,9 @@
       --text:#f3f3f3;
       --accent:#e50914;
       --card:#181818;
+      --accent-shadow-soft: rgba(229,9,20,0.18);
+      --accent-shadow-mid: rgba(229,9,20,0.25);
+      --accent-shadow-strong: rgba(229,9,20,0.4);
       --glass:rgba(255,255,255,0.03);
       --radius:12px;
       --container:1100px;
@@ -113,12 +116,12 @@
       font-weight:800;
       font-size:13px;
       text-decoration:none;
-      box-shadow:0 12px 32px rgba(229,9,20,0.18), 0 4px 12px rgba(229,9,20,0.25);
+      box-shadow:0 12px 32px var(--accent-shadow-soft), 0 4px 12px var(--accent-shadow-mid);
       transform: translateY(0);
       transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
       white-space:nowrap;cursor:pointer;
     }
-    .btn-play:hover{ transform: translateY(-4px) scale(1.02); box-shadow:0 18px 44px rgba(229,9,20,0.18), 0 8px 24px rgba(229,9,20,0.4); }
+    .btn-play:hover{ transform: translateY(-4px) scale(1.02); box-shadow:0 18px 44px var(--accent-shadow-soft), 0 8px 24px var(--accent-shadow-strong); }
     main{margin-top:22px;padding-bottom:40px}
     .contact-hero{
       margin-top:18px;

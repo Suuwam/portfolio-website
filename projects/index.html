@@ -422,10 +422,9 @@
                   } else if (fallbackImage) {
                     imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
                   }
-                  preload.onload = preload.onerror = null;
                 };
-                preload.onload = () => finalize('ok');
-                preload.onerror = () => finalize('error');
+                preload.addEventListener('load', () => finalize('ok'), { once: true });
+                preload.addEventListener('error', () => finalize('error'), { once: true });
                 preload.src = builtPath;
               }
             } else if (fallbackImage) {
