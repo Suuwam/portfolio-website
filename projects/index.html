@@ -405,9 +405,9 @@
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
             const builtPath = imageForRepoName(repo.name);
-            const imgUrl = builtPath || fallbackImage || '';
-            if (imgUrl) {
-              imgDiv.style.backgroundImage = `url('${imgUrl}')`;
+            const sources = [builtPath, fallbackImage].filter(Boolean);
+            if (sources.length) {
+              imgDiv.style.backgroundImage = sources.map(src => `url('${src}')`).join(', ');
             } else {
               imgDiv.style.backgroundColor = '#111';
             }
