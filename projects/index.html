@@ -406,11 +406,7 @@
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
             const builtPath = imageForRepoName(repo.name);
-            if (fallbackImage) {
-              imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
-            } else {
-              imgDiv.style.backgroundColor = '#111';
-            }
+            imgDiv.style.backgroundColor = '#111';
             if (builtPath) {
               const cached = imageCache.get(builtPath);
               if (cached === 'ok') {
@@ -429,6 +425,8 @@
                 };
                 preload.src = builtPath;
               }
+            } else if (fallbackImage) {
+              imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
             }
 
             const body = document.createElement('div');
