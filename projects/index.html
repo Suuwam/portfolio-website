@@ -421,12 +421,14 @@
                 setImage('ok');
               } else if (cached === 'error') {
                 setImage('error');
-              } else {
+              } else if (cached === undefined) {
                 const preload = new Image();
                 const finalize = (status) => {
                   imageCache.set(builtPath, status);
                   while (imageCache.size > MAX_CACHE_ENTRIES) {
-                    for (const key of imageCache.keys()) { imageCache.delete(key); break; }
+                    const firstKey = imageCache.keys().next().value;
+                    if (firstKey === undefined) break;
+                    imageCache.delete(firstKey);
                   }
                   setImage(status);
                 };
