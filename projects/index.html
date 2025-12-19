@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <style>
-    :root{
+    : root{
       --bg:#0b0b0b;
       --panel:#121212;
       --muted:#b3b3b3;
@@ -21,19 +21,19 @@
       --accent-soft:#ff6b6b;
       --card:#181818;
       --card-highlight:#1f1f1f;
-      --glass:rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.04);
       --metallic-glow:rgba(229,9,20,0.18);
       --radius:12px;
-      --container:1100px;
-      --ease: cubic-bezier(.2,.9,.3,1);
+      --container: 1100px;
+      --ease:  cubic-bezier(. 2,.9,.3,1);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: linear-gradient(180deg, #0b0b0b 0%, #070707 100%);
+      font-family:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background:  linear-gradient(180deg, #0b0b0b 0%, #070707 100%);
       color:var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -43,7 +43,7 @@
       padding-top:44px;
     }
 
-    .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
+    . site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
     .top-title-bar{
       position:fixed;
@@ -76,12 +76,12 @@
       color:var(--muted);
     }
 
-    header.topbar{
+    header. topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       padding:14px 18px;
-      margin-top:16px;
+      margin-top: 16px;
       background:linear-gradient(90deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35));
       border-radius:10px;
       border:1px solid rgba(255,255,255,0.03);
@@ -92,7 +92,7 @@
       align-items:center;
       gap:14px;
     }
-    .logo{
+    . logo{
       width:56px;
       height:56px;
       border-radius:12px;
@@ -115,28 +115,28 @@
     }
     .brand-text p{
       margin:2px 0 0 0;
-      font-size:13px;
+      font-size: 13px;
       color:var(--muted);
     }
 
     nav.hud{
       display:flex;
       gap:10px;
-      align-items:center;
+      align-items: center;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
-    .nav-link{
+    . nav-link{
       color:var(--muted);
       text-decoration:none;
       padding:8px 12px;
-      border-radius:8px;
+      border-radius: 8px;
       font-weight:600;
       font-size:13px;
       position:relative;
-      transition: color 200ms var(--ease), transform 200ms var(--ease);
+      transition:  color 200ms var(--ease), transform 200ms var(--ease);
     }
-    .nav-link::after{
+    .nav-link:: after{
       content:"";
       position:absolute;
       left:12px;
@@ -165,7 +165,7 @@
       background:var(--accent);
       color:#081014;
       padding:10px 18px;
-      border-radius:999px;
+      border-radius: 999px;
       border:none;
       font-weight:800;
       font-size:13px;
@@ -198,7 +198,7 @@
       color:var(--accent);
       text-transform:uppercase;
     }
-    section.card p.lead{
+    section.card p. lead{
       margin:0 0 12px 0;
       color:var(--muted);
       font-size:13px;
@@ -210,7 +210,7 @@
       grid-gap:20px;
       align-items:start;
     }
-    @media(max-width:991.98px){
+    @media(max-width:991. 98px){
       .github-projects-grid{grid-template-columns:repeat(2,1fr);}
     }
     @media(max-width:575.98px){
@@ -236,22 +236,22 @@
       z-index:5;
     }
 
-    @media (max-width: 575.98px) {
+    @media (max-width:  575.98px) {
       .github-project-card{
-        transition:
+        transition: 
           transform 200ms var(--ease),
           box-shadow 200ms var(--ease),
           border-color 200ms var(--ease),
           background-color 200ms var(--ease);
       }
-      .github-project-card.active{
+      .github-project-card. active{
         transform:translateY(-4px) scale(1.1);
         box-shadow:0 20px 44px rgba(0,0,0,0.95), 0 0 24px var(--metallic-glow);
-        border-color:rgba(229,9,20,0.6);
+        border-color: rgba(229,9,20,0.6);
         background-color:#2a2a2d;
       }
 
-      .github-project-card:hover{
+      .github-project-card: hover{
         transform:none;
         box-shadow:0 12px 28px rgba(0,0,0,0.55);
         border-color:rgba(229,9,20,0.15);
@@ -260,7 +260,7 @@
 
     .github-project-image{
       width:100%;
-      padding-top:56.25%;
+      padding-top:56. 25%;
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -271,10 +271,10 @@
       padding:12px 14px 14px 14px;
       display:flex;
       flex-direction:column;
-      gap:6px;
+      gap: 6px;
     }
 
-    .github-project-name{
+    . github-project-name{
       font-weight:700;
       font-size:14px;
       color:var(--text);
@@ -302,14 +302,14 @@
       gap:6px;
     }
 
-    footer.site-footer{
+    footer. site-footer{
       text-align:center;
       color:var(--muted);
       margin-top:24px;
       font-size:12px;
     }
 
-    @media (max-width:980px){
+    @media (max-width: 980px){
       header.topbar{flex-direction:column;align-items:flex-start;gap:10px}
       nav.hud{justify-content:flex-start}
     }
@@ -348,7 +348,7 @@
       <section id="github-projects" class="card" aria-labelledby="github-projects-heading">
         <h2 id="github-projects-heading">GitHub Projects</h2>
         <p class="lead">
-          Pulled from my public GitHub repositories. Only projects with a written description are shown.
+          Pulled from my public GitHub repositories. Only projects with a written description are shown. 
         </p>
         <div id="github-projects-grid" class="github-projects-grid">
           <p id="github-projects-loading" style="color:var(--muted);">Loading projects…</p>
@@ -357,7 +357,7 @@
     </main>
 
     <footer class="site-footer">
-      &copy; 2025 Shuvam Khanal.
+      &copy; 2025 Shuvam Khanal. 
     </footer>
   </div>
 
@@ -366,23 +366,23 @@
       const username = 'Suuwam';
       const grid = document.getElementById('github-projects-grid');
       const loading = document.getElementById('github-projects-loading');
-      if (!grid) return;
+      if (! grid) return;
 
       const fallbackImage = 'img/proj-default.png';
       function imageForRepoName(name) { return `img/proj-${name}.png`; }
 
-      fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
+      fetch(`https://api.github.com/users/${username}/repos? per_page=100&sort=updated`)
         .then(res => res.json())
         .then(repos => {
           if (loading) loading.remove();
 
-          if (!Array.isArray(repos)) {
+          if (! Array.isArray(repos)) {
             grid.innerHTML = '<p style="color:var(--muted);">Could not load projects.</p>';
             return;
           }
 
           const withDescription = repos.filter(r => r.description && r.description.trim().length > 0);
-          if (!withDescription.length) {
+          if (! withDescription.length) {
             grid.innerHTML = '<p style="color:var(--muted);">No projects with descriptions found yet.</p>';
             return;
           }
@@ -397,27 +397,44 @@
             const link = document.createElement('a');
             link.href = repo.html_url;
             link.target = '_blank';
-            link.rel = 'noopener';
+            link. rel = 'noopener';
             link.style.display = 'block';
             link.style.textDecoration = 'none';
             link.style.color = 'inherit';
 
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
+            imgDiv.style.position = 'relative';
+            imgDiv.style.overflow = 'hidden';
+
+            // Create actual img element with error handling
+            const img = document. createElement('img');
+            img.style.position = 'absolute';
+            img.style.top = '0';
+            img.style. left = '0';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            img.alt = `${repo.name} project thumbnail`;
+
             const builtPath = imageForRepoName(repo.name);
-            const imgUrl = builtPath || fallbackImage || '';
-            if (imgUrl) {
-              imgDiv.style.backgroundImage = `url('${imgUrl}')`;
-            } else {
-              imgDiv.style.backgroundColor = '#111';
-            }
+            img.src = builtPath;
+
+            // Fallback to default image if specific image fails to load
+            img.onerror = function() {
+              console.log(`Failed to load: ${builtPath}, falling back to default`);
+              this.onerror = null; // Prevent infinite loop
+              this.src = fallbackImage;
+            };
+
+            imgDiv.appendChild(img);
 
             const body = document.createElement('div');
             body.className = 'github-project-body';
 
             const name = document.createElement('h3');
             name.className = 'github-project-name';
-            name.textContent = repo.name;
+            name.textContent = repo. name;
 
             const desc = document.createElement('p');
             desc.className = 'github-project-desc';
@@ -460,7 +477,7 @@
 
       function setupMobileScrollAnimation() {
         const cards = Array.from(document.querySelectorAll('.github-project-card'));
-        if (!cards.length) return;
+        if (! cards.length) return;
 
         function isMobile() {
           return window.innerWidth <= 575.98;
