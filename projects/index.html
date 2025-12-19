@@ -418,10 +418,12 @@
                 preload.onload = () => {
                   imageCache.set(builtPath, 'ok');
                   imgDiv.style.backgroundImage = `url('${builtPath}')`;
+                  preload.onload = preload.onerror = null;
                 };
                 preload.onerror = () => {
                   imageCache.set(builtPath, 'error');
                   if (fallbackImage) imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
+                  preload.onload = preload.onerror = null;
                 };
                 preload.src = builtPath;
               }
