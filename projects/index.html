@@ -414,7 +414,7 @@
               } else if (cached === 'error') {
                 if (fallbackImage) imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
               } else {
-                const preload = new Image();
+                let preload = new Image();
                 const finalize = (status) => {
                   imageCache.set(builtPath, status);
                   if (status === 'ok') {
@@ -422,6 +422,7 @@
                   } else if (fallbackImage) {
                     imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
                   }
+                  preload = null;
                 };
                 preload.addEventListener('load', () => finalize('ok'), { once: true });
                 preload.addEventListener('error', () => finalize('error'), { once: true });
