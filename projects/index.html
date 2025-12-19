@@ -425,6 +425,7 @@
                 };
                 preload.onerror = () => {
                   imageCache.set(builtPath, 'error');
+                  if (fallbackImage) imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
                 };
                 preload.src = builtPath;
               }
