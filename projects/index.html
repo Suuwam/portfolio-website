@@ -407,28 +407,31 @@
             imgDiv.className = 'github-project-image';
             const builtPath = imageForRepoName(repo.name);
             imgDiv.style.backgroundColor = '#111';
+            const setImage = (status) => {
+              if (status === 'ok') {
+                imgDiv.style.backgroundImage = `url('${builtPath}')`;
+              } else if (fallbackImage) {
+                imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
+              }
+            };
             if (builtPath) {
               const cached = imageCache.get(builtPath);
               if (cached === 'ok') {
-                imgDiv.style.backgroundImage = `url('${builtPath}')`;
+                setImage('ok');
               } else if (cached === 'error') {
-                if (fallbackImage) imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
+                setImage('error');
               } else {
                 const preload = new Image();
                 const finalize = (status) => {
                   imageCache.set(builtPath, status);
-                  if (status === 'ok') {
-                    imgDiv.style.backgroundImage = `url('${builtPath}')`;
-                  } else if (fallbackImage) {
-                    imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
-                  }
+                  setImage(status);
                 };
                 preload.addEventListener('load', () => finalize('ok'), { once: true });
                 preload.addEventListener('error', () => finalize('error'), { once: true });
                 preload.src = builtPath;
               }
             } else if (fallbackImage) {
-              imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
+              setImage('error');
             }
 
             const body = document.createElement('div');
