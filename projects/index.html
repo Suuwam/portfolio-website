@@ -411,7 +411,7 @@
             const setImage = (status) => {
               if (status === 'ok') {
                 imgDiv.style.backgroundImage = `url('${builtPath}')`;
-              } else if (fallbackImage) {
+              } else if ((status === 'error' || status === 'fallback') && fallbackImage) {
                 imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
               }
             };
@@ -425,7 +425,10 @@
                 const preload = new Image();
                 const finalize = (status) => {
                   imageCache.set(builtPath, status);
-                  if (imageCache.size > MAX_CACHE_ENTRIES) imageCache.clear();
+                  if (imageCache.size > MAX_CACHE_ENTRIES) {
+                    const oldest = imageCache.keys().next().value;
+                    if (oldest) imageCache.delete(oldest);
+                  }
                   setImage(status);
                 };
                 preload.addEventListener('load', () => finalize('ok'), { once: true });
