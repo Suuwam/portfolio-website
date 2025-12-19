@@ -22,7 +22,7 @@
       --card:#181818;
       --card-highlight:#1f1f1f;
       --glass: rgba(255,255,255,0.04);
-      --metallic-glow:rgba(229,9,20,0.18);
+      --metallic-glow: rgba(229,9,20,0.18);
       --radius:12px;
       --container: 1100px;
       --ease:  cubic-bezier(. 2,.9,.3,1);
@@ -34,7 +34,7 @@
       margin:0;
       font-family:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background:  linear-gradient(180deg, #0b0b0b 0%, #070707 100%);
-      color:var(--text);
+      color: var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       line-height:1.5;
@@ -76,18 +76,18 @@
       color:var(--muted);
     }
 
-    header. topbar{
+    header.topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       padding:14px 18px;
-      margin-top: 16px;
+      margin-top:16px;
       background:linear-gradient(90deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35));
       border-radius:10px;
       border:1px solid rgba(255,255,255,0.03);
       box-shadow:0 12px 40px rgba(0,0,0,0.6);
     }
-    .brand{
+    . brand{
       display:flex;
       align-items:center;
       gap:14px;
@@ -114,8 +114,8 @@
       color:var(--text);
     }
     .brand-text p{
-      margin:2px 0 0 0;
-      font-size: 13px;
+      margin: 2px 0 0 0;
+      font-size:13px;
       color:var(--muted);
     }
 
@@ -123,15 +123,15 @@
       display:flex;
       gap:10px;
       align-items: center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-    . nav-link{
+    .nav-link{
       color:var(--muted);
       text-decoration:none;
       padding:8px 12px;
-      border-radius: 8px;
-      font-weight:600;
+      border-radius:8px;
+      font-weight: 600;
       font-size:13px;
       position:relative;
       transition:  color 200ms var(--ease), transform 200ms var(--ease);
@@ -139,7 +139,7 @@
     .nav-link:: after{
       content:"";
       position:absolute;
-      left:12px;
+      left: 12px;
       right:12px;
       bottom:-6px;
       height:2px;
@@ -155,7 +155,7 @@
       transform:translateY(-1px);
     }
     .nav-link:hover::after{
-      transform:scaleX(1);
+      transform: scaleX(1);
     }
 
     .btn-play{
@@ -165,12 +165,12 @@
       background:var(--accent);
       color:#081014;
       padding:10px 18px;
-      border-radius: 999px;
+      border-radius:999px;
       border:none;
       font-weight:800;
       font-size:13px;
-      text-decoration:none;
-      box-shadow:0 12px 32px var(--metallic-glow), 0 4px 12px rgba(229,9,20,0.25);
+      text-decoration: none;
+      box-shadow: 0 12px 32px var(--metallic-glow), 0 4px 12px rgba(229,9,20,0.25);
       transform:translateY(0);
       transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
       white-space:nowrap;
@@ -205,12 +205,12 @@
     }
 
     .github-projects-grid{
-      display:grid;
+      display: grid;
       grid-template-columns:repeat(3,1fr);
       grid-gap:20px;
       align-items:start;
     }
-    @media(max-width:991. 98px){
+    @media(max-width:991.98px){
       .github-projects-grid{grid-template-columns:repeat(2,1fr);}
     }
     @media(max-width:575.98px){
@@ -232,11 +232,11 @@
     .github-project-card:hover{
       transform:translateY(-6px) scale(1.1);
       box-shadow:0 22px 48px rgba(0,0,0,0.9), 0 0 28px var(--metallic-glow);
-      border-color:rgba(229,9,20,0.5);
+      border-color: rgba(229,9,20,0.5);
       z-index:5;
     }
 
-    @media (max-width:  575.98px) {
+    @media (max-width: 575.98px) {
       .github-project-card{
         transition: 
           transform 200ms var(--ease),
@@ -251,7 +251,7 @@
         background-color:#2a2a2d;
       }
 
-      .github-project-card: hover{
+      .github-project-card:hover{
         transform:none;
         box-shadow:0 12px 28px rgba(0,0,0,0.55);
         border-color:rgba(229,9,20,0.15);
@@ -271,7 +271,7 @@
       padding:12px 14px 14px 14px;
       display:flex;
       flex-direction:column;
-      gap: 6px;
+      gap:6px;
     }
 
     . github-project-name{
@@ -298,7 +298,7 @@
     }
     .github-project-meta span{
       display:inline-flex;
-      align-items:center;
+      align-items: center;
       gap:6px;
     }
 
@@ -348,7 +348,7 @@
       <section id="github-projects" class="card" aria-labelledby="github-projects-heading">
         <h2 id="github-projects-heading">GitHub Projects</h2>
         <p class="lead">
-          Pulled from my public GitHub repositories. Only projects with a written description are shown. 
+          Pulled from my public GitHub repositories. Only projects with a written description are shown.
         </p>
         <div id="github-projects-grid" class="github-projects-grid">
           <p id="github-projects-loading" style="color:var(--muted);">Loading projects…</p>
@@ -366,7 +366,7 @@
       const username = 'Suuwam';
       const grid = document.getElementById('github-projects-grid');
       const loading = document.getElementById('github-projects-loading');
-      if (! grid) return;
+      if (!grid) return;
 
       const fallbackImage = 'img/proj-default.png';
       function imageForRepoName(name) { return `img/proj-${name}.png`; }
@@ -376,14 +376,14 @@
         .then(repos => {
           if (loading) loading.remove();
 
-          if (! Array.isArray(repos)) {
+          if (!Array.isArray(repos)) {
             grid.innerHTML = '<p style="color:var(--muted);">Could not load projects.</p>';
             return;
           }
 
           const withDescription = repos.filter(r => r.description && r.description.trim().length > 0);
           if (! withDescription.length) {
-            grid.innerHTML = '<p style="color:var(--muted);">No projects with descriptions found yet.</p>';
+            grid.innerHTML = '<p style="color:var(--muted);">No projects with descriptions found yet. </p>';
             return;
           }
 
@@ -391,50 +391,33 @@
           grid.innerHTML = '';
 
           toShow.forEach(repo => {
-            const card = document.createElement('article');
+            const card = document. createElement('article');
             card.className = 'github-project-card';
 
             const link = document.createElement('a');
             link.href = repo.html_url;
             link.target = '_blank';
-            link. rel = 'noopener';
+            link.rel = 'noopener';
             link.style.display = 'block';
             link.style.textDecoration = 'none';
             link.style.color = 'inherit';
 
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
-            imgDiv.style.position = 'relative';
-            imgDiv.style.overflow = 'hidden';
-
-            // Create actual img element with error handling
-            const img = document. createElement('img');
-            img.style.position = 'absolute';
-            img.style.top = '0';
-            img.style. left = '0';
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.objectFit = 'cover';
-            img.alt = `${repo.name} project thumbnail`;
-
             const builtPath = imageForRepoName(repo.name);
-            img.src = builtPath;
-
-            // Fallback to default image if specific image fails to load
-            img.onerror = function() {
-              console.log(`Failed to load: ${builtPath}, falling back to default`);
-              this.onerror = null; // Prevent infinite loop
-              this.src = fallbackImage;
-            };
-
-            imgDiv.appendChild(img);
+            const imgUrl = builtPath || fallbackImage || '';
+            if (imgUrl) {
+              imgDiv.style.backgroundImage = `url('${imgUrl}')`;
+            } else {
+              imgDiv.style.backgroundColor = '#111';
+            }
 
             const body = document.createElement('div');
             body.className = 'github-project-body';
 
             const name = document.createElement('h3');
             name.className = 'github-project-name';
-            name.textContent = repo. name;
+            name.textContent = repo.name;
 
             const desc = document.createElement('p');
             desc.className = 'github-project-desc';
