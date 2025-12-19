@@ -371,6 +371,7 @@
       const fallbackImage = 'img/proj-default.png';
       function imageForRepoName(name) { return `img/proj-${name}.png`; }
       const imageCache = new Map();
+      const MAX_CACHE_ENTRIES = 200;
 
       fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
         .then(res => res.json())
@@ -424,6 +425,7 @@
                 const preload = new Image();
                 const finalize = (status) => {
                   imageCache.set(builtPath, status);
+                  if (imageCache.size > MAX_CACHE_ENTRIES) imageCache.clear();
                   setImage(status);
                 };
                 preload.addEventListener('load', () => finalize('ok'), { once: true });
@@ -431,7 +433,7 @@
                 preload.src = builtPath;
               }
             } else if (fallbackImage) {
-              setImage('error');
+              setImage('fallback');
             }
 
             const body = document.createElement('div');
