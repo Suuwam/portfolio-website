@@ -370,6 +370,7 @@
 
       const fallbackImage = 'img/proj-default.png';
       function imageForRepoName(name) { return `img/proj-${name}.png`; }
+      const imageCache = new Map();
 
       fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
         .then(res => res.json())
@@ -411,9 +412,21 @@
               imgDiv.style.backgroundColor = '#111';
             }
             if (builtPath) {
-              const preload = new Image();
-              preload.onload = () => { imgDiv.style.backgroundImage = `url('${builtPath}')`; };
-              preload.src = builtPath;
+              const cached = imageCache.get(builtPath);
+              if (cached === 'ok') {
+                imgDiv.style.backgroundImage = `url('${builtPath}')`;
+              } else {
+                const preload = new Image();
+                preload.onload = () => {
+                  imageCache.set(builtPath, 'ok');
+                  imgDiv.style.backgroundImage = `url('${builtPath}')`;
+                };
+                preload.onerror = () => {
+                  imageCache.set(builtPath, 'error');
+                  if (fallbackImage) imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
+                };
+                preload.src = builtPath;
+              }
             }
 
             const body = document.createElement('div');
