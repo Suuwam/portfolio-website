@@ -415,6 +415,8 @@
               const cached = imageCache.get(builtPath);
               if (cached === 'ok') {
                 imgDiv.style.backgroundImage = `url('${builtPath}')`;
+              } else if (cached === 'error') {
+                if (fallbackImage) imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
               } else {
                 const preload = new Image();
                 preload.onload = () => {
@@ -423,7 +425,6 @@
                 };
                 preload.onerror = () => {
                   imageCache.set(builtPath, 'error');
-                  if (fallbackImage) imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
                 };
                 preload.src = builtPath;
               }
