@@ -426,9 +426,7 @@
                 const finalize = (status) => {
                   imageCache.set(builtPath, status);
                   while (imageCache.size > MAX_CACHE_ENTRIES) {
-                    const oldest = imageCache.keys().next().value;
-                    if (oldest) imageCache.delete(oldest);
-                    else break;
+                    for (const key of imageCache.keys()) { imageCache.delete(key); break; }
                   }
                   setImage(status);
                 };
