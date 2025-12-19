@@ -405,11 +405,15 @@
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
             const builtPath = imageForRepoName(repo.name);
-            const sources = [builtPath, fallbackImage].filter(Boolean);
-            if (sources.length) {
-              imgDiv.style.backgroundImage = sources.map(src => `url('${src}')`).join(', ');
+            if (fallbackImage) {
+              imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
             } else {
               imgDiv.style.backgroundColor = '#111';
+            }
+            if (builtPath) {
+              const preload = new Image();
+              preload.onload = () => { imgDiv.style.backgroundImage = `url('${builtPath}')`; };
+              preload.src = builtPath;
             }
 
             const body = document.createElement('div');
