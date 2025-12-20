@@ -370,6 +370,8 @@
 
       const fallbackImage = 'img/proj-default.png';
       function imageForRepoName(name) { return `img/proj-${name}.png`; }
+      const imageCache = new Map();
+      const MAX_CACHE_ENTRIES = 200;
 
       fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
         .then(res => res.json())
@@ -405,11 +407,37 @@
             const imgDiv = document.createElement('div');
             imgDiv.className = 'github-project-image';
             const builtPath = imageForRepoName(repo.name);
-            const imgUrl = builtPath || fallbackImage || '';
-            if (imgUrl) {
-              imgDiv.style.backgroundImage = `url('${imgUrl}')`;
-            } else {
-              imgDiv.style.backgroundColor = '#111';
+            imgDiv.style.backgroundColor = '#111';
+            const setImage = (status) => {
+              if (status === 'ok') {
+                imgDiv.style.backgroundImage = `url('${builtPath}')`;
+              } else if ((status === 'error' || status === 'fallback') && fallbackImage) {
+                imgDiv.style.backgroundImage = `url('${fallbackImage}')`;
+              }
+            };
+            if (builtPath) {
+              const cached = imageCache.get(builtPath);
+              if (cached === 'ok') {
+                setImage('ok');
+              } else if (cached === 'error') {
+                setImage('error');
+              } else if (cached === undefined) {
+                const preload = new Image();
+                const finalize = (status) => {
+                  imageCache.set(builtPath, status);
+                  while (imageCache.size > MAX_CACHE_ENTRIES) {
+                    const firstKey = imageCache.keys().next().value;
+                    if (firstKey === undefined) break;
+                    imageCache.delete(firstKey);
+                  }
+                  setImage(status);
+                };
+                preload.addEventListener('load', () => finalize('ok'), { once: true });
+                preload.addEventListener('error', () => finalize('error'), { once: true });
+                preload.src = builtPath;
+              }
+            } else if (fallbackImage) {
+              setImage('fallback');
             }
 
             const body = document.createElement('div');

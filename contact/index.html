@@ -16,6 +16,9 @@
       --text:#f3f3f3;
       --accent:#e50914;
       --card:#181818;
+      --accent-shadow-soft: rgba(229,9,20,0.18);
+      --accent-shadow-mid: rgba(229,9,20,0.25);
+      --accent-shadow-strong: rgba(229,9,20,0.4);
       --glass:rgba(255,255,255,0.03);
       --radius:12px;
       --container:1100px;
@@ -102,13 +105,23 @@
     .nav-link:hover{ color:var(--text); transform: translateY(-2px); }
     .nav-link:hover::after{ transform: scaleX(1); }
     .btn-play{
-      display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#081014;padding:10px 14px;border-radius:8px;border:none;font-weight:700;text-decoration:none;
-      box-shadow:0 8px 28px rgba(229,9,20,0.18);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--accent);
+      color:#081014;
+      padding:10px 18px;
+      border-radius:999px;
+      border:none;
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
+      box-shadow:0 12px 32px var(--accent-shadow-soft), 0 4px 12px var(--accent-shadow-mid);
       transform: translateY(0);
-      transition: transform 240ms var(--ease), box-shadow 240ms var(--ease);
-      white-space:nowrap;
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+      white-space:nowrap;cursor:pointer;
     }
-    .btn-play:hover{ transform: translateY(-4px) scale(1.02); box-shadow:0 18px 44px rgba(229,9,20,0.28); }
+    .btn-play:hover{ transform: translateY(-4px) scale(1.02); box-shadow:0 18px 44px var(--accent-shadow-soft), 0 8px 24px var(--accent-shadow-strong); }
     main{margin-top:22px;padding-bottom:40px}
     .contact-hero{
       margin-top:18px;
@@ -211,7 +224,7 @@
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
-      <span>Contact &amp; Credentials</span>
+      <span>AI · ML · DevOps · Systems</span>
     </div>
   </div>
   <div class="site">
