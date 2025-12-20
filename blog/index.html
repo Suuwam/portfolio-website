@@ -176,6 +176,7 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.7);
       position:relative;
       overflow:hidden;
+      transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease), background-color 220ms var(--ease);
     }
     .post-card::before{
       content:"";
@@ -188,6 +189,12 @@
     }
     .post-card:hover::before{opacity:1;}
     @media (max-width:720px){
+      .post-card.is-active{
+        transform:translateY(-4px) scale(1.03);
+        box-shadow:0 20px 44px rgba(0,0,0,0.95), 0 0 24px var(--metallic-glow);
+        border-color:rgba(229,9,20,0.6);
+        background-color:#1a1a1d;
+      }
       .post-card.is-active::before{opacity:1;}
     }
     .post-title{margin:0;font-size:15px;font-weight:650;color:var(--text);}
@@ -337,6 +344,7 @@
       .hero-bullets{padding-left:16px;font-size:12px;word-wrap:break-word;}
       .hero-bullets li{margin:4px 0;word-wrap:break-word;overflow-wrap:break-word;}
       .sidebar{margin-top:12px;}
+      .blog-grid{grid-template-columns:1fr;}
     }
     @media (max-width:480px){
       .top-title-inner{padding:6px 12px;}
@@ -634,6 +642,76 @@
           });
         }, 3200);
       }
+    })();
+
+    // Scroll-based highlighting for blog cards on mobile
+    (function(){
+      const shortBlogsSection = document.getElementById('short-blogs');
+      if (!shortBlogsSection) return;
+
+      function isMobile() {
+        return window.innerWidth <= 720;
+      }
+
+      let ticking = false;
+
+      function onScroll() {
+        if (!isMobile()) {
+          const cards = shortBlogsSection.querySelectorAll('.post-card');
+          cards.forEach(c => c.classList.remove('is-active'));
+          return;
+        }
+
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const cards = Array.from(shortBlogsSection.querySelectorAll('.post-card'));
+            if (!cards.length) {
+              ticking = false;
+              return;
+            }
+
+            const viewportCenter = window.innerHeight / 2;
+
+            let closestCard = null;
+            let closestDistance = Infinity;
+
+            cards.forEach(card => {
+              const rect = card.getBoundingClientRect();
+              const cardCenter = rect.top + rect.height / 2;
+              const distance = Math.abs(cardCenter - viewportCenter);
+
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCard = card;
+              }
+            });
+
+            cards.forEach(card => {
+              if (card === closestCard) {
+                card.classList.add('is-active');
+              } else {
+                card.classList.remove('is-active');
+              }
+            });
+
+            ticking = false;
+          });
+
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      window.addEventListener('load', () => {
+        setTimeout(onScroll, 100);
+      });
+
+      // Also trigger on blog expansion/collapse
+      const observer = new MutationObserver(() => {
+        setTimeout(onScroll, 50);
+      });
+      observer.observe(shortBlogsSection, { childList: true, subtree: true });
     })();
   </script>
 </body>
