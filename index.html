@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,11 +35,6 @@
       --radius:12px;
       --container:1100px;
       --ease: cubic-bezier(.2,.9,.3,1);
-      /* Holiday palette */
-      --xmas-red:#b3001b;
-      --xmas-green:#0c6b2f;
-      --xmas-white:#f7f7f7;
-      --xmas-gold:#d4af37;
     }
 
     *{box-sizing:border-box}
@@ -55,26 +51,6 @@
       scroll-behavior:smooth;
       padding-top:44px;
     }
-    body.holiday-mode::before{
-      content:"";
-      pointer-events:none;
-      position:fixed;
-      inset:0;
-      background-image:
-        radial-gradient(2px 2px at 20% 20%, rgba(255,255,255,0.75) 50%, transparent 52%),
-        radial-gradient(2px 2px at 70% 10%, rgba(255,255,255,0.85) 50%, transparent 52%),
-        radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,0.65) 50%, transparent 52%),
-        radial-gradient(1.4px 1.4px at 85% 60%, rgba(255,255,255,0.55) 50%, transparent 52%),
-        radial-gradient(1.6px 1.6px at 15% 55%, rgba(255,255,255,0.6) 50%, transparent 52%);
-      background-size: 160px 220px, 200px 260px, 180px 240px, 220px 280px, 260px 320px;
-      animation: snow 16s linear infinite;
-      z-index:10000;
-      mix-blend-mode:screen;
-    }
-    @keyframes snow{
-      from{transform:translateY(-10px);}
-      to{transform:translateY(20px);}
-    }
 
     .site{max-width:var(--container);margin:0 auto;padding:0 18px 48px}
 
@@ -87,11 +63,6 @@
       background:#000;
       color:#fff;
       border-bottom:1px solid rgba(255,255,255,0.1);
-      box-shadow:0 10px 30px rgba(0,0,0,0.45);
-    }
-    .holiday-mode .top-title-bar{
-      border-bottom:2px solid var(--xmas-red);
-      box-shadow:0 12px 32px rgba(0,0,0,0.55), 0 0 14px rgba(12,107,47,0.4);
     }
     .top-title-inner{
       max-width:var(--container);
@@ -109,10 +80,6 @@
       font-family:"Bebas Neue",sans-serif;
       color:var(--accent);
     }
-    .holiday-mode .top-title-inner h1{
-      color:var(--xmas-red);
-      text-shadow:0 2px 6px rgba(179,0,27,0.35);
-    }
     .top-title-inner span{
       font-size:12px;
       color:var(--muted);
@@ -128,19 +95,6 @@
       border-radius:10px;
       border:1px solid rgba(255,255,255,0.03);
       box-shadow:0 12px 40px rgba(0,0,0,0.6);
-      position:relative;
-      overflow:hidden;
-    }
-    .holiday-mode header.topbar{
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 16px 44px rgba(0,0,0,0.7), 0 0 20px rgba(12,107,47,0.3);
-    }
-    .holiday-mode header.topbar::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(179,0,27,0.14), rgba(12,107,47,0.08));
-      pointer-events:none;
     }
     .brand{
       display:flex;
@@ -163,12 +117,6 @@
       font-family:"Bebas Neue",sans-serif;
       flex-shrink:0;
       box-shadow:0 4px 12px var(--metallic-glow);
-      position:relative;
-      z-index:1;
-    }
-    .holiday-mode .logo{
-      color:var(--xmas-red);
-      box-shadow:0 4px 12px rgba(179,0,27,0.35), 0 0 12px rgba(12,107,47,0.25);
     }
     .brand-text h3{
       margin:0;
@@ -187,8 +135,6 @@
       align-items:center;
       flex-wrap:wrap;
       justify-content:flex-end;
-      position:relative;
-      z-index:1;
     }
     .nav-link{
       color:var(--muted);
@@ -214,7 +160,6 @@
       border-radius:2px;
       opacity:0.95;
     }
-    .holiday-mode .nav-link::after{background:linear-gradient(90deg,var(--xmas-red),var(--xmas-green));}
     .nav-link:hover{
       color:var(--text);
       transform:translateY(-1px);
@@ -237,63 +182,14 @@
       text-decoration:none;
       box-shadow:0 12px 32px var(--metallic-glow), 0 4px 12px rgba(229,9,20,0.25);
       transform:translateY(0);
-      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease), background 200ms var(--ease);
+      transition:transform 200ms var(--ease), box-shadow 200ms var(--ease);
       white-space:nowrap;
       cursor:pointer;
-    }
-    .holiday-mode .btn-play{
-      background:linear-gradient(135deg,var(--xmas-red),var(--xmas-green));
-      color:var(--xmas-white);
-      box-shadow:0 12px 32px rgba(179,0,27,0.28), 0 6px 18px rgba(12,107,47,0.24);
     }
     .btn-play:hover{
       transform:translateY(-2px) scale(1.02);
       box-shadow:0 18px 44px var(--metallic-glow), 0 8px 24px rgba(229,9,20,0.4);
     }
-    .holiday-mode .btn-play:hover{
-      box-shadow:0 18px 44px rgba(179,0,27,0.38), 0 10px 28px rgba(12,107,47,0.35);
-    }
-
-    .xmas-banner{
-      text-align:center;
-      padding:10px 16px;
-      background:linear-gradient(135deg,var(--xmas-red),var(--xmas-green));
-      color:var(--xmas-white);
-      font-weight:800;
-      letter-spacing:0.6px;
-      border-radius:12px;
-      margin:14px auto 10px;
-      max-width:960px;
-      box-shadow:0 8px 22px rgba(0,0,0,0.35), 0 0 16px rgba(179,0,27,0.35);
-      position:relative;
-      overflow:hidden;
-    }
-    .xmas-banner::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at 20% 30%, rgba(255,255,255,0.18) 0%, transparent 35%),
-                 radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15) 0%, transparent 40%);
-      pointer-events:none;
-    }
-
-    .garland{
-      position:relative;
-      height:20px;
-      background:repeating-linear-gradient(
-        90deg,
-        var(--xmas-green) 0 18px,
-        transparent 18px 28px,
-        var(--xmas-red) 28px 46px,
-        transparent 46px 56px
-      );
-      mask-image: radial-gradient(circle 10px at 10px 10px, #000 78%, transparent 100%);
-      -webkit-mask-image: radial-gradient(circle 10px at 10px 10px, #000 78%, transparent 100%);
-      opacity:0.92;
-      box-shadow:0 8px 16px rgba(0,0,0,0.25);
-    }
-    .garland-top{margin:2px 0 10px;border-radius:0 0 12px 12px;}
-    .garland-bottom{margin:10px 0 2px;border-radius:12px 12px 0 0;}
 
     .hero-video-wrapper{
       margin-top:10px;
@@ -308,11 +204,6 @@
       justify-content:center;
       box-shadow:0 12px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(229,9,20,0.1);
     }
-    .holiday-mode .hero-video-wrapper{
-      border:1px solid rgba(12,107,47,0.4);
-      background:linear-gradient(135deg, rgba(12,107,47,0.15) 0%, rgba(179,0,27,0.12) 50%, rgba(12,107,47,0.12) 100%);
-      box-shadow:0 14px 42px rgba(0,0,0,0.65), inset 0 1px 0 rgba(212,175,55,0.2);
-    }
     .hero-video-wrapper::before{
       content:'';
       position:absolute;
@@ -324,12 +215,6 @@
         radial-gradient(circle at 20% 30%, rgba(229,9,20,0.08) 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, rgba(255,107,107,0.06) 0%, transparent 50%);
       pointer-events:none;
-    }
-    .holiday-mode .hero-video-wrapper::before{
-      background:
-        radial-gradient(circle at 20% 30%, rgba(179,0,27,0.14) 0%, transparent 55%),
-        radial-gradient(circle at 80% 70%, rgba(12,107,47,0.14) 0%, transparent 55%),
-        radial-gradient(circle at 50% 50%, rgba(212,175,55,0.18) 0%, transparent 45%);
     }
     .hero-video-inner{
       position:relative;
@@ -344,10 +229,6 @@
       color:var(--accent);
       text-transform:uppercase;
       text-shadow:0 2px 8px var(--metallic-glow);
-    }
-    .holiday-mode .hero-video-inner h2{
-      color:var(--xmas-white);
-      text-shadow:0 3px 10px rgba(179,0,27,0.45), 0 0 10px rgba(12,107,47,0.3);
     }
     .hero-video-inner p{
       margin:0;
@@ -373,9 +254,6 @@
       color:var(--accent);
       text-transform:uppercase;
     }
-    .holiday-mode .hero-name-block h2{
-      color:var(--xmas-red);
-    }
     .hero-name-block p{
       margin:6px 0 0 0;
       font-size:15px;
@@ -395,11 +273,6 @@
       background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
       border:1px solid rgba(255,255,255,0.03);
       overflow:visible;
-    }
-    .holiday-mode .banner{
-      border:1px solid rgba(255,255,255,0.08);
-      background:linear-gradient(180deg, rgba(12,107,47,0.08), rgba(179,0,27,0.05));
-      box-shadow:0 18px 38px rgba(0,0,0,0.55);
     }
     .hero-row{
       display:flex;
@@ -426,10 +299,6 @@
       transform-style:preserve-3d;
       transition:transform 300ms var(--ease), box-shadow 300ms var(--ease);
     }
-    .holiday-mode .poster{
-      border:1px solid rgba(212,175,55,0.25);
-      box-shadow:0 20px 42px rgba(0,0,0,0.65), 0 0 18px rgba(12,107,47,0.3);
-    }
     .poster img{
       width:100%;height:100%;object-fit:cover;display:block;transform:translateZ(20px);
       transition:transform 350ms var(--ease);
@@ -449,16 +318,6 @@
       text-decoration:none;
       font-weight:700;
       font-size:13px;
-      transition:border 180ms var(--ease), color 180ms var(--ease), box-shadow 180ms var(--ease);
-    }
-    .holiday-mode .cta-ghost{
-      border:1px solid rgba(212,175,55,0.6);
-      color:var(--xmas-white);
-      box-shadow:0 6px 14px rgba(0,0,0,0.35);
-    }
-    .cta-ghost:hover{
-      border-color:rgba(255,255,255,0.25);
-      box-shadow:0 10px 24px rgba(0,0,0,0.35);
     }
     .pill{
       background:rgba(255,255,255,0.02);
@@ -469,11 +328,6 @@
       font-size:11px;
       border:1px solid rgba(255,255,255,0.03);
     }
-    .holiday-mode .pill{
-      border-color:rgba(12,107,47,0.4);
-      background:rgba(12,107,47,0.12);
-      color:#e6f5eb;
-    }
 
     section.card{
       margin-top:18px;
@@ -482,37 +336,12 @@
       background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
       border:1px solid rgba(255,255,255,0.02);
       transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),border-color 200ms var(--ease);
-      position:relative;
-      overflow:hidden;
     }
     section.card h3{
       margin:0 0 12px 0;
       color:var(--accent);
       font-size:16px;
       font-weight:800;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      position:relative;
-    }
-    .holiday-mode section.card{
-      border:1px solid rgba(255,255,255,0.06);
-      background:linear-gradient(180deg, rgba(12,107,47,0.06), transparent);
-      box-shadow:0 14px 32px rgba(0,0,0,0.5);
-    }
-    .holiday-mode section.card h3{
-      color:var(--xmas-red);
-      padding-left:18px;
-    }
-    .holiday-mode section.card h3::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:6px;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--xmas-red),var(--xmas-green));
-      box-shadow:0 0 0 3px rgba(212,175,55,0.25);
     }
 
     /* LINKEDIN HIGHLIGHTS */
@@ -537,11 +366,6 @@
       transform:translateY(0) scale(1);
       transition:transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease), background-color 220ms var(--ease);
       border:1px solid rgba(255,255,255,0.03);
-    }
-    .holiday-mode .linkedin-card{
-      border:1px solid rgba(12,107,47,0.35);
-      box-shadow:0 14px 32px rgba(0,0,0,0.6);
-      background:linear-gradient(160deg, rgba(12,107,47,0.2), rgba(179,0,27,0.12));
     }
 
     .linkedin-photo{
@@ -593,10 +417,6 @@
       border-color:rgba(229,9,20,0.6);
       background-color:#2a2a2d;
     }
-    .holiday-mode .linkedin-card.active{
-      box-shadow:0 20px 44px rgba(0,0,0,0.9), 0 0 24px rgba(12,107,47,0.35);
-      border-color:rgba(12,107,47,0.6);
-    }
     .linkedin-card.active .linkedin-overlay{
       opacity:1;
       transform:translateY(0);
@@ -632,10 +452,6 @@
       box-shadow:0 22px 48px rgba(0,0,0,0.85), 0 0 28px var(--metallic-glow);
       border-color:rgba(229,9,20,0.5);
     }
-    .holiday-mode .linkedin-card:hover{
-      border-color:rgba(12,107,47,0.6);
-      box-shadow:0 22px 48px rgba(0,0,0,0.85), 0 0 28px rgba(12,107,47,0.35);
-    }
     .linkedin-card:hover .linkedin-overlay{
       background:linear-gradient(
         to top,
@@ -659,11 +475,6 @@
       overflow:hidden;
       transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),border-color 200ms var(--ease);
     }
-    .holiday-mode .contact-card{
-      background:linear-gradient(135deg, rgba(12,107,47,0.16), rgba(179,0,27,0.14));
-      border:1px solid rgba(212,175,55,0.35);
-      box-shadow:0 18px 42px rgba(0,0,0,0.72), 0 0 20px rgba(212,175,55,0.25);
-    }
     .contact-card::before{
       content:'';
       position:absolute;
@@ -671,10 +482,6 @@
       background:radial-gradient(circle at 0 0, rgba(229,9,20,0.12), transparent 50%);
       opacity:0.75;
       pointer-events:none;
-    }
-    .holiday-mode .contact-card::before{
-      background:radial-gradient(circle at 0 0, rgba(212,175,55,0.2), transparent 50%);
-      opacity:0.9;
     }
     .contact-card h3{
       margin:0;
@@ -685,9 +492,6 @@
       letter-spacing:0.08em;
       position:relative;
       z-index:1;
-    }
-    .holiday-mode .contact-card h3{
-      color:var(--xmas-red);
     }
     .contact-card p{
       position:relative;
@@ -701,9 +505,6 @@
       color:var(--accent);
       font-weight:600;
       text-decoration:none;
-    }
-    .holiday-mode .contact-card a{
-      color:var(--xmas-gold);
     }
     .contact-card a:hover{
       text-decoration:underline;
@@ -731,21 +532,11 @@
       background:rgba(0,0,0,0.4);
       transition:background 200ms var(--ease), transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
     }
-    .holiday-mode .social{
-      border-color:rgba(212,175,55,0.6);
-      background:rgba(12,107,47,0.2);
-      color:var(--xmas-white);
-    }
     .social:hover{
       background:var(--accent);
       border-color:rgba(255,107,107,0.8);
       box-shadow:0 10px 24px var(--metallic-glow), 0 4px 12px rgba(229,9,20,0.4);
       transform:translateY(-1px);
-    }
-    .holiday-mode .social:hover{
-      background:linear-gradient(135deg,var(--xmas-red),var(--xmas-green));
-      border-color:rgba(212,175,55,0.8);
-      box-shadow:0 10px 24px rgba(179,0,27,0.35), 0 6px 14px rgba(12,107,47,0.35);
     }
 
     /* HIGHLIGHTS SECTION */
@@ -757,11 +548,6 @@
       border:1px solid rgba(255,255,255,0.06);
       transition:transform 200ms var(--ease),box-shadow 200ms var(--ease),border-color 200ms var(--ease);
     }
-    .holiday-mode .highlights-card{
-      border:1px solid rgba(255,255,255,0.12);
-      background:linear-gradient(180deg, rgba(12,107,47,0.08), rgba(179,0,27,0.06));
-      box-shadow:0 14px 32px rgba(0,0,0,0.55);
-    }
     .highlights-card h3{
       margin:0 0 8px 0;
       font-size:16px;
@@ -769,22 +555,6 @@
       color:var(--accent);
       text-transform:uppercase;
       letter-spacing:0.08em;
-      position:relative;
-    }
-    .holiday-mode .highlights-card h3{
-      color:var(--xmas-green);
-      padding-left:18px;
-    }
-    .holiday-mode .highlights-card h3::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:6px;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--xmas-green),var(--xmas-red));
-      box-shadow:0 0 0 3px rgba(212,175,55,0.25);
     }
     .highlights-card ul{
       margin:6px 0 0 0;
@@ -816,16 +586,10 @@
         box-shadow:0 20px 44px rgba(0,0,0,0.95), 0 0 24px var(--metallic-glow);
         border-color:rgba(229,9,20,0.7);
       }
-      .holiday-mode #skills.section-active,
-      .holiday-mode .contact-card.section-active,
-      .holiday-mode .highlights-card.section-active{
-        box-shadow:0 20px 44px rgba(0,0,0,0.95), 0 0 24px rgba(12,107,47,0.4);
-        border-color:rgba(12,107,47,0.7);
-      }
     }
   </style>
 </head>
-<body class="holiday-mode">
+<body>
   <div class="top-title-bar">
     <div class="top-title-inner">
       <h1>Shuvam Portfolio</h1>
@@ -853,10 +617,6 @@
         <a class="btn-play" href="/Youtube/" aria-label="Go to YouTube page">► WATCH</a>
       </nav>
     </header>
-
-    <div class="garland garland-top" aria-hidden="true"></div>
-    <div class="xmas-banner" role="presentation">Happy Holidays! Wishing you a season of learning, building, and shipping.</div>
-    <div class="garland garland-bottom" aria-hidden="true"></div>
 
     <section class="hero-video-wrapper" aria-label="Hero section">
       <div class="hero-video-inner">
@@ -886,7 +646,7 @@
 
           <div class="hero-copy" id="hero-copy">
             <h2 id="intro-title">Undergrad CS student with hands-on experience in AI/ML.</h2>
-            <p>I'm Shuvam Khanal — an undergraduate Computer Science student who applies machine learning research to product-focused systems. I design model pipelines and human-centered AI features[...]
+            <p>I'm Shuvam Khanal — an undergraduate Computer Science student who applies machine learning research to product-focused systems. I design model pipelines and human-centered AI features with privacy and reliability in mind.</p>
 
             <div class="cta-row" id="cta-row">
               <a class="btn-play" href="/contact/" aria-label="Go to contact page">CONTACT</a>
@@ -910,314 +670,4 @@
                   <p>Diving deep into the judging criteria for “Tech for Transparent Nepal—Gen Z in Action: From Protest to Prototype” was eye‑opening.</p>
                   <div class="linkedin-meta">
                     <span>LinkedIn • Post</span>
-                    <span>Open</span>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="linkedin-card">
-              <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7270331405979570176"
-                 target="_blank" rel="noopener"
-                 style="display:block;text-decoration:none;color:inherit;">
-                <div class="linkedin-photo" style="background-image:url('img/li2.jpg');"></div>
-                <div class="linkedin-overlay">
-                  <h4>TEDxIIMS — Gratitude &amp; Impact</h4>
-                  <p>The success of TEDxIIMS was powered by an engaged audience and inspiring speakers whose insights will resonate for years.</p>
-                  <div class="linkedin-meta">
-                    <span>LinkedIn • Post</span>
-                    <span>Open</span>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="linkedin-card">
-              <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7216418033148321792"
-                 target="_blank" rel="noopener"
-                 style="display:block;text-decoration:none;color:inherit;">
-                <div class="linkedin-photo" style="background-image:url('img/li3.jpg');"></div>
-                <div class="linkedin-overlay">
-                  <h4>Hosting an Energy Systems Panel</h4>
-                  <p>Panel discussion on “Innovation in Energy Management Systems: Role of IT Students” — a huge boost to my event‑management and industry exposure.</p>
-                  <div class="linkedin-meta">
-                    <span>LinkedIn • Post</span>
-                    <span>Open</span>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="linkedin-card">
-              <a href="https://www.linkedin.com/feed/update/urn:li:share:7364337102513205249"
-                 target="_blank" rel="noopener"
-                 style="display:block;text-decoration:none;color:inherit;">
-                <div class="linkedin-photo" style="background-image:url('img/li4.jpg');"></div>
-                <div class="linkedin-overlay">
-                  <h4>From Idea to Delivery — Workshop</h4>
-                  <p>This workshop walks through how software projects are planned, built, and shipped with real‑world tools, workflows, and strategies.</p>
-                  <div class="linkedin-meta">
-                    <span>LinkedIn • Post</span>
-                    <span>Open</span>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="linkedin-card">
-              <a href="https://www.linkedin.com/feed/update/urn:li:share:7169346904646959104"
-                 target="_blank" rel="noopener"
-                 style="display:block;text-decoration:none;color:inherit;">
-                <div class="linkedin-photo" style="background-image:url('img/li5.jpg');"></div>
-                <div class="linkedin-overlay">
-                  <h4>Merit Scholarship at IIMS</h4>
-                  <p>Honored to receive a merit scholarship for scoring outstanding marks at the IIMS scholarship examination.</p>
-                  <div class="linkedin-meta">
-                    <span>LinkedIn • Post</span>
-                    <span>Open</span>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="linkedin-card">
-              <a href="https://www.linkedin.com/feed/update/urn:li:share:7351660548331065345"
-                 target="_blank" rel="noopener"
-                 style="display:block;text-decoration:none;color:inherit;">
-                <div class="linkedin-photo" style="background-image:url('img/li6.jpg');"></div>
-                <div class="linkedin-overlay">
-                  <h4>Design Thinking for Developers</h4>
-                  <p>Hands‑on workshop to help developers think beyond code and solve problems like product thinkers — how real ideas become great products.</p>
-                  <div class="linkedin-meta">
-                    <span>LinkedIn • Post</span>
-                    <span>Open</span>
-                  </div>
-                </div>
-              </a>
-            </article>
-          </div>
-        </section>
-
-        <!-- CORE SKILLS -->
-        <section id="skills" class="card" aria-labelledby="skills-heading">
-          <h3 id="skills-heading">Core Skills</h3>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">Deep Learning</div>
-            <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">NLP &amp; Transformers</div>
-            <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">DevOps &amp; Cloud</div>
-            <div style="padding:8px 12px;border-radius:8px;background:#111;font-weight:700;color:var(--text)">Python • JS</div>
-          </div>
-          <p style="margin:10px 0 0 0;font-size:12px;color:var(--muted);">
-            See the full stack and experience details on the <a href="/skills/" style="color:var(--accent);font-weight:600;">Skills page</a>.
-          </p>
-        </section>
-
-        <!-- CONTACT CARD -->
-        <div class="contact-card" id="contact">
-          <h3 id="contact-heading">Contact</h3>
-          <p style="color:var(--muted);margin-top:8px">
-            Undergrad CS student open to collaborations, internships, consulting, and product roles that bridge research and real-world impact.
-          </p>
-
-          <p style="margin-top:12px"><strong>Email</strong><br>
-            <a href="mailto:shuvamkhanal1000@gmail.com">shuvamkhanal1000@gmail.com</a></p>
-
-          <p style="margin-top:10px"><strong>LinkedIn</strong><br>
-            <a href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener">www.linkedin.com/in/shuvam-khanal</a></p>
-
-          <p style="margin-top:10px"><strong>Instagram</strong><br>
-            <a href="https://instagram.com/shuvam_85" target="_blank" rel="noopener">@shuvam_85</a></p>
-
-          <p style="margin-top:10px"><strong>GitHub</strong><br>
-            <a href="https://github.com/Suuwam" target="_blank" rel="noopener">github.com/Suuwam</a></p>
-
-          <div class="socials" aria-hidden="true">
-            <a class="social" href="https://www.linkedin.com/in/shuvam-khanal" target="_blank" rel="noopener" title="LinkedIn">in</a>
-            <a class="social" href="https://instagram.com/shuvam_85" target="_blank" rel="noopener" title="Instagram">ig</a>
-            <a class="social" href="https://github.com/Suuwam" target="_blank" rel="noopener" title="GitHub">gh</a>
-          </div>
-        </div>
-
-        <!-- EXTRA HIGHLIGHTS / SUMMARY -->
-        <div class="highlights-card" aria-labelledby="summary-heading">
-          <h3 id="summary-heading">Highlights</h3>
-          <ul>
-            <li>Undergrad CS student focused on AI/ML projects that connect research ideas to real users.</li>
-            <li>Experience hosting events, workshops, and panels around technology, design, and innovation.</li>
-            <li>Comfortable across the stack — from model training to APIs, DevOps, and simple UX for demos.</li>
-          </ul>
-        </div>
-      </div>
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-      <div style="margin-top:18px;color:var(--muted)">&copy; 2025 Shuvam Khanal.</div>
-    </footer>
-  </div>
-
-  <script>
-    (function(){
-      const poster = document.getElementById('poster');
-      if(!poster) return;
-      let rect;
-      function onMove(e){
-        if('ontouchstart' in window && e.touches) e = e.touches[0];
-        rect = rect || poster.getBoundingClientRect();
-        const cx = rect.left + rect.width/2;
-        const cy = rect.top + rect.height/2;
-        const dx = (e.clientX - cx) / rect.width;
-        const dy = (e.clientY - cy) / rect.height;
-        const rx = dy * 10;
-        const ry = -dx * 12;
-        poster.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
-      }
-      function reset(){
-        poster.style.transform = '';
-      }
-      poster.addEventListener('mousemove', onMove);
-      poster.addEventListener('mouseleave', reset);
-      poster.addEventListener('touchmove', (ev) => { onMove(ev.touches[0]); }, { passive: true });
-      poster.addEventListener('touchend', reset);
-    })();
-
-    (function(){
-      const playButtons = document.querySelectorAll('.btn-play');
-      if(!playButtons.length) return;
-      setInterval(function(){
-        playButtons.forEach(play => {
-          play.style.transform = 'scale(1.02)';
-          play.style.boxShadow = '0 14px 40px rgba(229,9,20,0.22)';
-          setTimeout(function(){
-            play.style.transform = '';
-            play.style.boxShadow = '0 12px 32px rgba(229,9,20,0.35)';
-          }, 450);
-        });
-      }, 3000);
-    })();
-
-    // Scroll-based pop for LinkedIn on mobile (only inside LinkedIn section)
-    (function(){
-      const cards = Array.from(document.querySelectorAll('.linkedin-card'));
-      const projectsSection = document.getElementById('projects');
-      if (!cards.length || !projectsSection) return;
-
-      function isMobile() {
-        return window.innerWidth <= 575.98;
-      }
-
-      let ticking = false;
-
-      function onScroll() {
-        if (!isMobile()) {
-          cards.forEach(c => c.classList.remove('active'));
-          return;
-        }
-
-        const projRect = projectsSection.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-
-        // If LinkedIn section is out of view, clear all active states
-        if (projRect.bottom < 0 || projRect.top > viewportHeight) {
-          cards.forEach(c => c.classList.remove('active'));
-          return;
-        }
-
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            const viewportCenter = window.innerHeight / 2;
-
-            let closestCard = null;
-            let closestDistance = Infinity;
-
-            cards.forEach(card => {
-              const rect = card.getBoundingClientRect();
-              const cardCenter = rect.top + rect.height / 2;
-              const distance = Math.abs(cardCenter - viewportCenter);
-
-              if (distance < closestDistance) {
-                closestDistance = distance;
-                closestCard = card;
-              }
-            });
-
-            cards.forEach(card => {
-              if (card === closestCard) {
-                card.classList.add('active');
-              } else {
-                card.classList.remove('active');
-              }
-            });
-
-            ticking = false;
-          });
-
-          ticking = true;
-        }
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      window.addEventListener('load', () => {
-        setTimeout(onScroll, 100);
-      });
-    })();
-
-    // Scroll-based pop for Core Skills, Contact, Highlights on mobile
-    (function(){
-      const skillsSection     = document.getElementById('skills');
-      const contactSection    = document.getElementById('contact');
-      const highlightsSection = document.querySelector('.highlights-card');
-
-      const sections = [skillsSection, contactSection, highlightsSection].filter(Boolean);
-      if (!sections.length) return;
-
-      function isMobile() {
-        return window.innerWidth <= 575.98;
-      }
-
-      let ticking = false;
-
-      function onScroll() {
-        if (!isMobile()) {
-          sections.forEach(s => s.classList.remove('section-active'));
-          return;
-        }
-
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            const viewportCenter = window.innerHeight * 0.65;
-            let closestEl = null;
-            let closestDistance = Infinity;
-
-            sections.forEach(el => {
-              const rect = el.getBoundingClientRect();
-              const center = rect.top + rect.height / 2;
-              const distance = Math.abs(center - viewportCenter);
-              if (distance < closestDistance) {
-                closestDistance = distance;
-                closestEl = el;
-              }
-            });
-
-            sections.forEach(el => {
-              if (el === closestEl) {
-                el.classList.add('section-active');
-              } else {
-                el.classList.remove('section-active');
-              }
-            });
-
-            ticking = false;
-          });
-
-          ticking = true;
-        }
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      window.addEventListener('load', () => setTimeout(onScroll, 100));
-    })();
-  </script>
-</body>
-</html>
+                    <span>Open</s
