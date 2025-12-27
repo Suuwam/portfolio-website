@@ -245,6 +245,19 @@
       box-shadow:0 0 0 4px rgba(229,9,20,0.18);
       flex-shrink:0;
     }
+    .status-chip.available{
+      background:rgba(34,197,94,0.16);
+      color:#d1fae5;
+      box-shadow:0 8px 20px rgba(34,197,94,0.18);
+    }
+    .status-chip.available .dot{
+      background:#22c55e;
+      box-shadow:0 0 0 4px rgba(34,197,94,0.18);
+    }
+    .status-chip.busy{
+      background:rgba(229,9,20,0.14);
+      box-shadow:0 8px 20px rgba(229,9,20,0.18);
+    }
     .availability-note{
       margin:4px 0 0 0;
       color:var(--muted);
@@ -321,16 +334,16 @@
           </p>
           <div class="deep-section" aria-labelledby="availability-heading">
             <div class="availability-card">
-              <div class="status-chip" role="status" aria-live="polite">
+              <div class="status-chip busy" role="status" aria-live="polite">
                 <span class="dot" aria-hidden="true"></span>
-                <span>Busy today</span>
+                <span class="status-label">Busy today</span>
               </div>
               <div>
                 <h4 id="availability-heading">Today's focus</h4>
-                <p class="availability-note">
+                <p class="availability-note" id="availability-note">
                   Currently heads-down on <strong>AI infra and deployment work</strong>. I’m replying in the late afternoon/evening NPT—drop your details and I’ll offer the closest slot.
                 </p>
-                <p class="helper-text helper-spaced">If it’s time-sensitive, mention it in the form and I’ll prioritize.</p>
+                <p class="helper-text helper-spaced" id="availability-helper">If it’s time-sensitive, mention it in the form and I’ll prioritize.</p>
               </div>
             </div>
           </div>
@@ -400,6 +413,43 @@
   </div>
   <script src="/theme.js"></script>
   <script>
+    (function(){
+      const statusChip = document.querySelector('.status-chip');
+      const statusLabel = document.querySelector('.status-label');
+      const availabilityNote = document.getElementById('availability-note');
+      const helper = document.getElementById('availability-helper');
+      if(!statusChip || !statusLabel || !availabilityNote) return;
+
+      const STATES = {
+        busy: {
+          label: 'Busy today',
+          note: 'Currently heads-down on AI infra and deployment work. I’m replying in the late afternoon/evening NPT—drop your details and I’ll offer the closest slot.',
+          helper: 'If it’s time-sensitive, mention it in the form and I’ll prioritize.'
+        },
+        available: {
+          label: 'Available today',
+          note: 'I’m open for calls today and can usually reply within a few hours. Suggest your preferred time and I’ll confirm quickly.',
+          helper: 'Add your ideal slots in the form — I’ll match the closest one.'
+        },
+        away: {
+          label: 'Away today',
+          note: 'I’m away from my desk today. Share the details and I’ll reply with the earliest available slot.',
+          helper: 'Urgent? Mention it in the form and I’ll prioritize when I return.'
+        }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const availability = (params.get('availability') || params.get('status') || '').toLowerCase();
+      const state = STATES[availability] || STATES.busy;
+      const isAvailable = availability === 'available';
+
+      statusChip.classList.toggle('available', isAvailable);
+      statusChip.classList.toggle('busy', !isAvailable);
+      statusLabel.textContent = state.label;
+      availabilityNote.textContent = state.note;
+      if(helper && state.helper){ helper.textContent = state.helper; }
+    })();
+
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
       if(playButtons.length){
