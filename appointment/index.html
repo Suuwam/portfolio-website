@@ -218,6 +218,39 @@
       font-size: 13.7px;
       line-height: 1.5;
     }
+    .availability-card{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .status-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(229,9,20,0.14);
+      color:var(--text);
+      font-weight:700;
+      font-size:12px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      box-shadow:0 8px 20px rgba(229,9,20,0.18);
+    }
+    .status-chip .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(229,9,20,0.18);
+      flex-shrink:0;
+    }
+    .availability-note{
+      margin:4px 0 0 0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.6;
+    }
     .helper-text{
       font-size:12px;
       color:var(--muted);
@@ -243,6 +276,7 @@
       letter-spacing:0.07em;
     }
   </style>
+  <link rel="stylesheet" href="/theme.css">
 </head>
 <body>
   <div class="top-title-bar">
@@ -267,6 +301,13 @@
         <a class="nav-link" href="/blog/">Blog</a>
         <a class="nav-link" href="/contact/">Contact</a>
         <a class="nav-link" href="/appointment/">Appointment</a>
+        <div class="theme-toggle" aria-label="Toggle light mode">
+          <span class="toggle-label">Dark</span>
+          <label class="theme-switch">
+            <input type="checkbox" aria-label="Switch to light mode">
+            <span class="slider"></span>
+          </label>
+        </div>
         <a class="btn-play" href="/Youtube/">► WATCH</a>
       </nav>
     </header>
@@ -277,6 +318,21 @@
           <p class="lead">
             I’m always excited to meet new people, chat about ideas, help with projects, or brainstorm wild possibilities in tech, learning, and research. Everyone is welcome - just bring your curiosity!
           </p>
+          <div class="deep-section" aria-label="Today's availability">
+            <div class="availability-card">
+              <div class="status-chip">
+                <span class="dot" aria-hidden="true"></span>
+                <span>Busy today</span>
+              </div>
+              <div>
+                <h4>Today's focus</h4>
+                <p class="availability-note">
+                  Heads-down on <strong>AI infra and deployment work</strong> until 4:00 PM NPT. I can respond and schedule calls after 5:00 PM—drop your details and I’ll offer the closest slot.
+                </p>
+                <p class="helper-text" style="margin-top:6px;">If it’s time-sensitive, mention it in the form and I’ll prioritize.</p>
+              </div>
+            </div>
+          </div>
           <div class="deep-section">
             <h4>How does it work?</h4>
             <p>
@@ -341,6 +397,7 @@
       &copy; 2025 Shuvam Khanal.
     </footer>
   </div>
+  <script src="/theme.js"></script>
   <script>
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
