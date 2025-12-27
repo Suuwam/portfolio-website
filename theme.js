@@ -19,8 +19,8 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    const mediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
-    const prefersLight = mediaQuery ? mediaQuery.matches : false;
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+    const prefersLight = mediaQuery.matches;
     const initial = saved || (prefersLight ? 'light' : 'dark');
     applyTheme(initial);
 
@@ -33,18 +33,12 @@
       });
     }
 
-    if (mediaQuery) {
-      const handler = (e) => {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (!stored) {
-          applyTheme(e.matches ? 'light' : 'dark');
-        }
-      };
-      if (mediaQuery.addEventListener) {
-        mediaQuery.addEventListener('change', handler);
-      } else if (mediaQuery.addListener) {
-        mediaQuery.addListener(handler);
+    const handler = (e) => {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) {
+        applyTheme(e.matches ? 'light' : 'dark');
       }
-    }
+    };
+    mediaQuery.addEventListener('change', handler);
   });
 })();
