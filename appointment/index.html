@@ -237,11 +237,20 @@
       .appointment-grid{grid-template-columns:1fr;}
       aside.card{margin-top:24px !important;}
     }
-    @media (max-width:600px) {
-      header.topbar{position:relative;}
-      .card{border-radius:0;border-left:none;border-right:none;}
-      .appointment-grid{padding:0 16px 22px 16px;}
-      nav.hud{flex-wrap:wrap;}
+    @media (max-width: 600px) {
+  .shell{border-radius:0;}
+  header. topbar{position:relative;}
+  .container{padding: 0;}
+  .card{border-radius:0;border-left:none;border-right:none;}
+  . appointment-grid{padding: 0 16px 22px 16px;}
+  nav.hud{flex-wrap:wrap;}
+  
+  /* Add this:  stack availability card vertically on mobile */
+  . availability-card{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+    }
     }
   </style>
 </head>
