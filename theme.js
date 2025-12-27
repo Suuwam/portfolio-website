@@ -4,7 +4,6 @@
   function applyTheme(mode) {
     const isLight = mode === 'light';
     document.body.classList.toggle('light-mode', isLight);
-    document.documentElement.setAttribute('data-theme', mode);
 
     const input = document.querySelector('.theme-switch input');
     if (input) {
