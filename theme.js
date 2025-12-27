@@ -34,13 +34,16 @@
 
     if (window.matchMedia) {
       const mq = window.matchMedia('(prefers-color-scheme: light)');
+      const handler = (e) => {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (!stored) {
+          applyTheme(e.matches ? 'light' : 'dark');
+        }
+      };
       if (mq.addEventListener) {
-        mq.addEventListener('change', (e) => {
-          const stored = localStorage.getItem(STORAGE_KEY);
-          if (!stored) {
-            applyTheme(e.matches ? 'light' : 'dark');
-          }
-        });
+        mq.addEventListener('change', handler);
+      } else if (mq.addListener) {
+        mq.addListener(handler);
       }
     }
   });
