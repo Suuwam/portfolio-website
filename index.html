@@ -570,6 +570,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="/theme.css">
 </head>
 <body>
   <div class="top-title-bar">
@@ -596,6 +597,13 @@
         <a class="nav-link" href="/blog/">Blog</a>
         <a class="nav-link" href="/contact/">Contact</a>
         <a class="nav-link" href="/appointment/">Appointment</a>
+        <div class="theme-toggle" aria-label="Toggle light mode">
+          <span class="toggle-label">Dark</span>
+          <label class="theme-switch">
+            <input type="checkbox" aria-label="Switch to light mode">
+            <span class="slider"></span>
+          </label>
+        </div>
         <a class="btn-play" href="/Youtube/" aria-label="Go to YouTube page">► WATCH</a>
       </nav>
     </header>
@@ -962,5 +970,6 @@
       window.addEventListener('load', () => setTimeout(onScroll, 100));
     })();
   </script>
+  <script src="/theme.js"></script>
 </body>
 </html>

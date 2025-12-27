@@ -347,6 +347,7 @@
       nav.hud{justify-content:flex-start}
     }
   </style>
+  <link rel="stylesheet" href="/theme.css">
 </head>
 <body>
   <div class="top-title-bar">
@@ -372,6 +373,13 @@
         <a class="nav-link" href="/blog/">Blog</a>
         <a class="nav-link" href="/contact/">Contact</a>
         <a class="nav-link" href="/appointment/">Appointment</a>
+        <div class="theme-toggle" aria-label="Toggle light mode">
+          <span class="toggle-label">Dark</span>
+          <label class="theme-switch">
+            <input type="checkbox" aria-label="Switch to light mode">
+            <span class="slider"></span>
+          </label>
+        </div>
         <a class="btn-play" href="/Youtube/">► WATCH</a>
       </nav>
     </header>
@@ -458,6 +466,7 @@
     </footer>
   </div>
 
+  <script src="/theme.js"></script>
   <script>
     (function(){
       const playButtons = document.querySelectorAll('.btn-play');
